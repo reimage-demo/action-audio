@@ -1,0 +1,50 @@
+[
+  {
+    "id": "alpine-s2-s65",
+    "page": "https://www.alpine-usa.com/product/s-series-speakers-s2s65",
+    "imageSource": "https://www.alpine-usa.com/uploads/831af35b141d2d86a17197a478d99049",
+    "file": "assets/products/alpine-s2-s65.webp",
+    "retrieved": "2026-10-06",
+    "usage": "Client preview; model availability at Action Audio is unconfirmed. Manufacturer photography."
+  },
+  {
+    "id": "rockford-p3d4-12",
+    "page": "https://rockfordfosgate.com/products/details/p3d4-12/",
+    "imageSource": "https://rockfordfosgate.com/media/filer_public/3b/43/3b43296e-4949-4352-a886-a5ecc6072b59/p3d4-12_1.png",
+    "file": "assets/products/rockford-p3d4-12.webp",
+    "retrieved": "2026-10-06",
+    "usage": "Client preview; model availability at Action Audio is unconfirmed. Manufacturer photography."
+  },
+  {
+    "id": "rockford-r2-500x1",
+    "page": "https://rockfordfosgate.com/products/details/r2-500x1/",
+    "imageSource": "https://rockfordfosgate.com/media/filer_public/88/d7/88d72805-91cd-4eab-9931-c5c5fddf38e4/r2-500x1_2.png",
+    "file": "assets/products/rockford-r2-500x1.webp",
+    "retrieved": "2026-10-06",
+    "usage": "Client preview; model availability at Action Audio is unconfirmed. Manufacturer photography."
+  },
+  {
+    "id": "kenwood-dmx4707s",
+    "page": "https://www.kenwood.com/usa/car/caraudio/navigation_multimedia/dmx4707s/",
+    "imageSource": "https://www.kenwood.com/usa/car/caraudio/navigation_multimedia/dmx4707s/images/image_productstd.png",
+    "file": "assets/products/kenwood-dmx4707s.webp",
+    "retrieved": "2026-10-06",
+    "usage": "Client preview; model availability at Action Audio is unconfirmed. Manufacturer photography."
+  },
+  {
+    "id": "pioneer-ts-a653fh",
+    "page": "https://usa.pioneer/products/ts-a653fh",
+    "imageSource": "https://usa.pioneer/cdn/shop/files/e477c999bcce7111d02bdc036f45a58e42c0545e_4e10bd27-952c-4ce1-b1e7-2ff4636f0473.jpg?v=1778089219&width=2048",
+    "file": "assets/products/pioneer-ts-a653fh.webp",
+    "retrieved": "2026-10-06",
+    "usage": "Client preview; model availability at Action Audio is unconfirmed. Manufacturer photography."
+  },
+  {
+    "id": "alpine-s2-w12d4",
+    "page": "https://www.alpine-usa.com/product/s-series-subwoofer-s2w12d4",
+    "imageSource": "https://www.alpine-usa.com/uploads/e21b77d2ca9ed42c166b4f62833ba0d9",
+    "file": "assets/products/alpine-s2-w12d4.webp",
+    "retrieved": "2026-10-06",
+    "usage": "Client preview; model availability at Action Audio is unconfirmed. Manufacturer photography."
+  }
+]
