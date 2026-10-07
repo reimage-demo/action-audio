@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1557e8" />
+    <title>Book, Track & Explore | Action Audio</title>
+    <meta
+      name="description"
+      content="Book an Action Audio appointment, check your vehicle status, browse inventory, and connect on Instagram. Serving Hartford and Wethersfield since 1983."
+    />
+    <link
+      rel="canonical"
+      href="https://reimage-demo.github.io/action-audio/landing-page.html"
+    />
+    <link rel="icon" type="image/svg+xml" href="/action-audio/assets/favicon.svg" />
+    <link rel="stylesheet" href="/action-audio/styles.css" />
+  </head>
+  <body class="page-links">
+    <div class="links-wrapper">
+      <main>
+        <a class="links-logo" href="/action-audio/" aria-label="Action Audio home">
+          <img
+            src="/action-audio/assets/action-audio-logo.webp"
+            width="270"
+            height="100"
+            alt="The Action Audio Store"
+          />
+        </a>
+        <h1>Action Audio</h1>
+        <p class="links-subtitle">Car electronics & detailing</p>
+        <nav class="links-stack" aria-label="Action Audio quick links">
+          <a class="link-card link-card-primary" href="/action-audio/book.html"
+            >Book an appointment</a
+          >
+          <a class="link-card" href="/action-audio/track.html">Check your vehicle status</a>
+          <a class="link-card" href="/action-audio/inventory.html">Inventory</a>
+          <button
+            class="link-card acima-trigger"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="acima-stores"
+          >
+            <span>Apply to Acima</span>
+            <span class="link-card-note">No credit needed</span>
+          </button>
+          <a
+            class="link-card"
+            href="https://www.instagram.com/actionaudiostore/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram<span class="sr-only"> (opens in a new tab)</span></a
+          >
+        </nav>
+      </main>
+      <footer class="links-footer">
+        <p>Hartford & Wethersfield, CT · Since 1983</p>
+        <p class="powered-by">
+          Powered by
+          <a
+            href="https://reimagebs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >REIMAGE BUSINESS SOLUTIONS</a
+          >
+        </p>
+      </footer>
+    </div>
+    <dialog
+      class="acima-dialog"
+      id="acima-stores"
+      aria-labelledby="acima-title"
+      aria-describedby="acima-description"
+    >
+      <h2 id="acima-title">Choose your store</h2>
+      <p id="acima-description">Where would you like to apply to Acima?</p>
+      <div class="acima-options">
+        <a
+          class="link-card link-card-primary"
+          href="https://apply.acima.com/auth/v2/otp-start?app_id=lo&amp;location_guid=loca-715ce85e-6639-4ff6-af02-47b34a55f655&amp;utm_campaign=generic_qr&amp;utm_content=pop&amp;utm_medium=merchant&amp;utm_source=qr&amp;lang=en"
+          >Wethersfield</a
+        >
+        <a
+          class="link-card link-card-primary"
+          href="https://apply.acima.com/auth/v2/otp-start?app_id=lo&amp;lang=en&amp;location_guid=loca-57cc81ae-135c-4513-9684-2feebe553d05&amp;merchant_guid=merc-4435d857-f7c4-4fc6-9a15-aef4b0f76eb5&amp;utm_campaign=generic_qr&amp;utm_content=pop&amp;utm_medium=merchant&amp;utm_source=qr"
+          >Hartford</a
+        >
+      </div>
+      <form method="dialog">
+        <button class="acima-cancel">Cancel</button>
+      </form>
+    </dialog>
+    <script>
+      const acimaDialog = document.getElementById("acima-stores");
+      document.querySelector(".acima-trigger").addEventListener("click", () => {
+        acimaDialog.showModal();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "tool": "Built-in image_gen",
+  "logo": {
+    "file": "assets/action-audio-logo.png",
+    "web": "assets/action-audio-logo.webp",
+    "prompt": "Use case: logo-brand. Edit target: first attached image, the Action Audio Store logo; other attachments are business information, not artwork. Extract and redesign the logo as a polished professional automotive audio store horizontal brand mark. Preserve exact words \"ACTION AUDIO\" in strong italic condensed motorsport block letters and the circular speaker motif centered behind lettering, small \"THE\" above and \"STORE\" below in circle. Simplify into crisp flat vector-like artwork, perfectly legible, premium clean finish. Colors ONLY cobalt blue #1557e8, midnight navy #102b59 and white. Absolutely no red, yellow, orange. Transparent background, no mockup, no borders, no surrounding reference screenshot. Wide horizontal composition tightly framed around logo, with generous clear separation and smooth edges.",
+    "edits": [
+      {
+        "tool": "Built-in image_gen",
+        "prompt": "Change ONLY the two large blue capital A letters in ACTION and AUDIO to solid WHITE fill with crisp BLACK outlines, including internal counters. Preserve all letter shapes, wording, positions, proportions, blue speaker emblem, other elements, tight horizontal framing and transparent background."
+      }
+    ]
+  },
+  "hero": {
+    "file": "assets/hero-installation.webp",
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: photorealistic-natural. Asset type: website hero for an independent automotive electronics and car audio installation business. Create a natural editorial photograph showing the actual type of service: a technician's forearms and hands carefully securing an amplifier beside a custom dual-subwoofer enclosure in the open rear cargo area of a clean charcoal hatchback, inside a tidy automotive electronics workshop. Two large clearly recognizable black subwoofer cones, a brushed silver amplifier, tidy cable routing and a blue-handled screwdriver are the main subjects. Rear hatch frame and a little vehicle exterior clearly establish that this is a car installation, not home audio. Technician in a plain navy work shirt, cropped above shoulders; no visible face needed. Show practical, skilled installation work with believable hands and realistic equipment. Composition: landscape 4:3 aspect ratio, medium view, the entire two-speaker enclosure and amplifier and working hands fully within the frame, comfortably inset from all edges. Equipment occupies most of the image; do not waste space on ceiling or floor. Eye-level diagonal view into the trunk, clear soft daylight, natural workshop lighting, realistic tactile surfaces, sharp focal detail. Restrained charcoal, blue, silver and white palette. No red, no orange, no neon, no glow, no text, no branding, no watermark, no signage, no collage, no exaggerated luxury styling. This is illustrative service imagery, not a depiction of a named business's actual premises.",
+    "editPrompt": "Precisely edit this image: replace the visible red taillight lenses on the extreme left edge and the tiny red lens near the technician's elbow on the right with smoked dark gray and clear silver taillight lenses. Remove every red or orange hue from the entire photograph, including any tiny colored wire or reflection. Keep the exact same image composition, car, subwoofers, amplifier, technician, hands, tool, lighting, realistic photography and 4:3 dimensions. No other changes."
+  }
+}
