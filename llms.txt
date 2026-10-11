@@ -1,19 +1,19 @@
 # Action Audio
 
-> Connecticut mobile electronics specialists since 1983, with stores in Hartford and Wethersfield.
+> Connecticut mobile electronics specialists since 1983, with electronics in Wethersfield and vehicle detailing in Hartford.
 
 ## Services
 - [Services](https://reimage-demo.github.io/action-audio/services.html): auto electronics repair, auto detailing work, and auto electrical installation.
 - Brands include Alpine, Rockford Fosgate, Pioneer, Diamond Audio, Kenwood, Powerbass, and MTX. Compatibility, stock, and pricing must be confirmed with the store.
 
 ## Stores
-- [Wethersfield](https://reimage-demo.github.io/action-audio/wethersfield.html): 105 Silas Deane Hwy, Wethersfield, CT 06109. Motts Shopping Center. Phone: (860) 667-6330.
-- [Hartford](https://reimage-demo.github.io/action-audio/hartford.html): 2814 Main St, Hartford, CT 06120.
+- [Wethersfield](https://reimage-demo.github.io/action-audio/wethersfield.html): Remote starters, car audio, electronics repair and installation. 105 Silas Deane Hwy, Wethersfield, CT 06109. Motts Shopping Center. Phone: (860) 667-6330.
+- [Hartford](https://reimage-demo.github.io/action-audio/hartford.html): Interior and exterior auto detailing. 2814 Main St, Hartford, CT 06120.
 - Both stores: Monday–Saturday, 9am–6pm Eastern. Sunday closed. Holiday hours may differ.
 
 ## Customer resources
 - [Book an appointment](https://reimage-demo.github.io/action-audio/book.html): select a store, service, date, and time. A request is not confirmed until staff confirms it.
-- [Electronics](https://reimage-demo.github.io/action-audio/electronics.html): published product listings with store-specific availability. Do not infer stock or prices from brand names.
+- [Electronics](https://reimage-demo.github.io/action-audio/electronics.html): electronics at Wethersfield; manufacturer examples are clearly labeled. Do not infer stock or prices from brand names.
 - [Our story](https://reimage-demo.github.io/action-audio/about.html): founded as a CB radio store in 1983.
 - [Privacy](https://reimage-demo.github.io/action-audio/privacy.html)
 

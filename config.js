@@ -1,1 +1,1 @@
-window.ACTION_AUDIO_CONFIG = {"convexUrl":"https://robust-stork-24.convex.cloud","inventoryPreview":true};
+window.ACTION_AUDIO_CONFIG = {"convexUrl":"https://standing-elephant-145.convex.cloud","inventoryPreview":true};

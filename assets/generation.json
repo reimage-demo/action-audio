@@ -21,5 +21,18 @@
     "file": "assets/hero-remote-start.webp",
     "tool": "Built-in image_gen",
     "prompt": "Use case: photorealistic-natural. Asset type: wide website hero photograph for Action Audio, an automotive electronics installation business. Primary request: premium editorial photograph of a hand holding a sophisticated unbranded black remote car starter key fob in front of a silver modern SUV outside in a crisp New England autumn morning. Composition: landscape 16:9; key fob and hand sharply focused on the right half, softly blurred silver SUV in the left and middle distance, natural believable perspective. Lighting: elegant soft morning daylight, neutral whites and charcoal with subdued autumn foliage. Materials: tactile satin black remote with three clear small lock, unlock and circular start symbols, brushed metal edge. No lettering, text, brand logos, watermark or website UI. This is an illustrative automotive marketing photograph, not documentary shop work."
+  },
+  "showroomRetouch": {
+    "tool": "Built-in image_gen",
+    "sources": [
+      "Downloads/IMG_1963.HEIC",
+      "Downloads/IMG_1964.HEIC"
+    ],
+    "files": [
+      "assets/wethersfield-speakers.webp",
+      "assets/wethersfield-counter.webp"
+    ],
+    "prompt": "Edit actual Wethersfield showroom photos. Preserve architecture, blue walls and geometric mural, orange mottled epoxy floor, displays, products and brand signage. Straighten vertical perspective, neutralize color cast, brighten shadows, recover highlights. Remove seasonal tinsel and incidental loose packaging; remove counter-side trash bin. Do not remodel, add products or invent text. Natural polished interior photography.",
+    "disclosure": "Photos retouched for lighting and presentation."
   }
 }
