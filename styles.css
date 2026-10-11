@@ -3898,9 +3898,9 @@ header{background:var(--brand-blue);border:0;border-bottom:4px solid var(--brand
 .photo-hero .slide-controls button{min-width:40px;height:40px;padding:0 8px;font-size:13px;color:#fff;background:transparent}
 .photo-hero .slide-controls button:hover,.photo-hero .slide-controls button:focus-visible{background:var(--brand-blue)}
 .photo-hero .slide-dots{gap:0}
-.photo-hero .slide-dots button{min-width:26px;width:26px}
-.photo-hero .slide-dots button span{width:12px;height:3px;background:#c3c9d2}
-.photo-hero .slide-dots button[aria-pressed=true] span{width:18px;background:#fff}
+.photo-hero .slide-dots button{display:grid;place-items:center;flex:0 0 auto;min-width:32px;width:32px;padding:0}
+.photo-hero .slide-dots button span{width:18px;height:3px;margin:0;background:#fff;opacity:.55;transition:opacity .2s}
+.photo-hero .slide-dots button[aria-pressed=true] span{opacity:1}
 .photo-hero .slide-controls .slide-play{border-left:1px solid #bbc3cc;padding-left:16px;margin-left:3px;min-width:57px}
 .photo-hero .image-note{position:static;inset:auto;padding:0;background:transparent;font-size:11px;color:#fff;letter-spacing:0}
 .contact-strip{padding-block:22px;border:0;background:#fff}
@@ -4085,7 +4085,7 @@ picture{display:block}
  .page-heading.wrap,.page-heading.centered.wrap{padding-inline:0;gap:22px}
  .photo-hero .slide-controls{gap:0;justify-content:center}
  .photo-hero .slide-controls button{min-width:44px;height:44px}
- .photo-hero .slide-dots button{width:44px;min-width:44px}
+ .photo-hero .slide-dots button{width:44px;min-width:44px;padding:0}
  .photo-hero .slide-controls .slide-play{min-width:52px;margin-left:0;padding-left:9px}
  .photo-hero .slide-dots{gap:0}
  .category-pills{scroll-padding-inline:4px;padding-bottom:14px;gap:18px;scrollbar-width:thin}
