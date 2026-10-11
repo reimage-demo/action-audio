@@ -19,22 +19,22 @@ const esc = (s) =>
       ],
   );
 const menu = $(".menu-toggle");
-menu?.addEventListener("click", () => {
-  const open = menu.getAttribute("aria-expanded") !== "true";
-  menu.setAttribute("aria-expanded", String(open));
-  menu.setAttribute(
-    "aria-label",
-    open ? "Close navigation" : "Open navigation",
-  );
-  $("#navigation").classList.toggle("open", open);
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    menu?.setAttribute("aria-expanded", "false");
-    menu?.setAttribute("aria-label", "Open navigation");
-    $("#navigation")?.classList.remove("open");
+function setMenuOpen(open) {
+  menu?.setAttribute("aria-expanded", String(open));
+  menu?.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  document.querySelector("#navigation")?.classList.toggle("open", open);
+}
+menu?.addEventListener("click", () => setMenuOpen(menu.getAttribute("aria-expanded") !== "true"));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menu?.getAttribute("aria-expanded") === "true") {
+    setMenuOpen(false);
+    menu.focus();
   }
 });
+document.addEventListener("click", (event) => {
+  if (menu?.getAttribute("aria-expanded") === "true" && !event.target.closest("header")) setMenuOpen(false);
+});
+matchMedia("(max-width: 820px)").addEventListener("change", () => setMenuOpen(false));
 document.querySelectorAll("#navigation a").forEach((a) => {
   if (a.pathname === location.pathname) a.setAttribute("aria-current", "page");
 });
