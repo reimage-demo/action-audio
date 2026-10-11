@@ -5,7 +5,7 @@ import {
   serviceStore,
   serviceAvailableAt,
 } from "./shared/catalog.js?v=8c12b36759f6";
-import { serviceContent } from "./shared/service-content.js?v=4b68c3214f4d";
+import { serviceContent } from "./shared/service-content.js?v=c0ba1e5ef529";
 import { journeyProgress, progressStages } from "./shared/progress.js?v=6644ae19c328";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>

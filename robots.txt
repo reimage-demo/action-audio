@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /track.html
 Disallow: /convex/
 Disallow: /scripts/
+
+# Tracking uses a page-level noindex directive; allow crawling to read that directive.
 Sitemap: https://reimage-demo.github.io/action-audio/sitemap.xml

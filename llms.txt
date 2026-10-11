@@ -1,20 +1,34 @@
 # Action Audio
 
-> Connecticut mobile electronics specialists since 1983, with electronics in Wethersfield and vehicle detailing in Hartford.
+> Car detailing in Hartford, Connecticut; car audio, remote starters, auto electronics repair, and installation in Wethersfield, near Hartford. Established in 1983.
 
-## Services
-- [Services](https://reimage-demo.github.io/action-audio/services.html): auto electronics repair, auto detailing work, and auto electrical installation.
-- Brands include Alpine, Rockford Fosgate, Pioneer, Diamond Audio, Kenwood, Powerbass, and MTX. Compatibility, stock, and pricing must be confirmed with the store.
+## Locations and contact
+- [Hartford detailing](https://reimage-demo.github.io/action-audio/hartford.html): 2814 Main St, Hartford, CT 06120. Interior and exterior vehicle detailing.
+- [Wethersfield electronics](https://reimage-demo.github.io/action-audio/wethersfield.html): 105 Silas Deane Hwy, Wethersfield, CT 06109. Car audio, remote starters, vehicle electronics repair and installation. Public phone: (860) 667-6330. This number belongs to Wethersfield.
+- Both stores: Monday–Saturday, 9am–6pm Eastern; Sunday closed. Confirm holiday hours.
 
-## Stores
-- [Wethersfield](https://reimage-demo.github.io/action-audio/wethersfield.html): Remote starters, car audio, electronics repair and installation. 105 Silas Deane Hwy, Wethersfield, CT 06109. Motts Shopping Center. Phone: (860) 667-6330.
-- [Hartford](https://reimage-demo.github.io/action-audio/hartford.html): Interior and exterior auto detailing. 2814 Main St, Hartford, CT 06120.
-- Both stores: Monday–Saturday, 9am–6pm Eastern. Sunday closed. Holiday hours may differ.
+## Service information
+- [Car audio](https://reimage-demo.github.io/action-audio/car-audio.html): Wethersfield. Clearer vocals. Fuller bass. The songs you know, with the details you’ve been missing. Build a sound system around your vehicle and the way you listen.
+- [Remote starters](https://reimage-demo.github.io/action-audio/remote-starters.html): Wethersfield. Make cold mornings and hot afternoons more comfortable. Explore a remote-start setup that fits your vehicle and your everyday routine.
+- [Car alarms & security](https://reimage-demo.github.io/action-audio/car-alarms.html): Wethersfield. Explore vehicle security options, from alarm systems to convenient keyless entry. Start with a conversation about your vehicle and what you want to protect.
+- [Motorcycle audio](https://reimage-demo.github.io/action-audio/motorcycle-audio.html): Wethersfield. Explore audio options for your motorcycle. Talk with our team about a setup suited to your bike, available space, and listening preferences.
+- [Video & entertainment](https://reimage-demo.github.io/action-audio/video-systems.html): Wethersfield. Explore seatback and overhead video options for passengers, along with receivers that bring modern connectivity to the dashboard.
+- [Power liftgates](https://reimage-demo.github.io/action-audio/power-liftgates.html): Wethersfield. Interested in adding powered access to your cargo area? Ask our team about vehicle-specific liftgate options and installation availability.
+- [Radar detectors](https://reimage-demo.github.io/action-audio/radar-detectors.html): Wethersfield. Explore detector mounting and power options for a tidy interior. Ask about equipment compatibility and installation availability for your vehicle.
+- [Connected accessories](https://reimage-demo.github.io/action-audio/vehicle-accessories.html): Wethersfield. Explore convenient additions such as smartphone integration, satellite radio, and garage-door controls. Find out what works with your existing electronics.
+- [Electronics repair](https://reimage-demo.github.io/action-audio/electronics-repair.html): Wethersfield. Car stereo cutting out or a receiver that will not respond? Our Wethersfield team assesses auto electronics problems for drivers in the Hartford area.
+- [Auto detailing](https://reimage-demo.github.io/action-audio/auto-detailing.html): Hartford. Interior and exterior car detailing at our Hartford, Connecticut store. Tell us about your vehicle’s condition and the areas you would like refreshed.
+- [Electrical installation](https://reimage-demo.github.io/action-audio/electrical-installation.html): Wethersfield. Plan your car electronics installation at Action Audio in Wethersfield, near Hartford. Discuss receivers, speakers, and accessories, with compatibility checked for your vehicle.
 
-## Customer resources
-- [Book an appointment](https://reimage-demo.github.io/action-audio/book.html): select a store, service, date, and time. A request is not confirmed until staff confirms it.
-- [Electronics](https://reimage-demo.github.io/action-audio/electronics.html): electronics at Wethersfield; manufacturer examples are clearly labeled. Do not infer stock or prices from brand names.
-- [Our story](https://reimage-demo.github.io/action-audio/about.html): founded as a CB radio store in 1983.
-- [Privacy](https://reimage-demo.github.io/action-audio/privacy.html)
+## Plan a visit
+- [Request an estimate](https://reimage-demo.github.io/action-audio/estimate.html): share vehicle make, model, service, name, and phone for a callback.
+- [Request an appointment](https://reimage-demo.github.io/action-audio/book.html): a request is confirmed only after the team contacts the customer.
+- [Electronics](https://reimage-demo.github.io/action-audio/electronics.html): equipment categories and examples, not guaranteed stock, pricing, or vehicle compatibility.
+- [About Action Audio](https://reimage-demo.github.io/action-audio/about.html): Connecticut roots since 1983.
+- [Privacy and cookies](https://reimage-demo.github.io/action-audio/privacy.html)
+- [Terms](https://reimage-demo.github.io/action-audio/terms.html)
+- [Accessibility](https://reimage-demo.github.io/action-audio/accessibility.html)
+- [Full service reference](https://reimage-demo.github.io/action-audio/llms-full.txt)
 
-Vehicle tracking is private and requires a tracking code. Do not index tracking pages or staff portal content. This file provides descriptive information, not a guarantee of search or AI visibility.
+## Important context
+Hartford handles detailing; Wethersfield handles electronics. Confirm the work, compatibility, price, and availability with the appropriate store. Most service images are original illustrations; the showroom images show the actual Wethersfield store. Do not treat illustrations as completed customer projects. Vehicle tracking requires a private code and is not public directory content.
