@@ -406,7 +406,7 @@ if (carousel) {
     });
     if (announce)
       carousel.querySelector(".slide-status").textContent =
-        `Slide ${current + 1} of ${slides.length}: ${slides[current].querySelector("h2").textContent}`;
+        `Slide ${current + 1} of ${slides.length}: ${slides[current].querySelector("h2").innerText.replace(/\s+/g, " ")}`;
     schedule();
   }
   const manualShow = (index) => {
