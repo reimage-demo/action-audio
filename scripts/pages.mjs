@@ -7,11 +7,12 @@ import {
   electronicsPage,
   servicesPage,
   detailPages,
+  showroomGallery,
 } from "./design.mjs";
 const logo =
   '<img src="/assets/action-audio-logo.webp" width="189" height="70" alt="The Action Audio Store">';
 const nav = navigation;
-const cta = `<section class="wrap"><div class="final-cta"><div><h2>Tell us what your vehicle needs.</h2><p>Choose Hartford or Wethersfield. Our team will confirm your appointment.</p></div><a href="/book.html" class="button">Book an appointment</a></div></section>`;
+const cta = `<section class="wrap"><div class="final-cta"><div><h2>Tell us what your vehicle needs.</h2><p>Electronics in Wethersfield. Detailing in Hartford. Find the right team for your ride.</p></div><a href="/book.html" class="button">Book an appointment</a></div></section>`;
 const serviceRows = () =>
   services
     .map(
@@ -31,7 +32,7 @@ const head = (label, title, desc) =>
 const pages = {
   "index.html": {
     title: "Car Audio, Remote Starters & Electronics | Action Audio CT",
-    desc: "Upgrade your drive with car audio, remote starters, electronics, and installation at Action Audio in Hartford and Wethersfield, Connecticut.",
+    desc: "Upgrade your drive with car audio, remote starters, electronics, and installation in Wethersfield, plus auto detailing in Hartford, Connecticut.",
     body: homePage(),
   },
   "services.html": {
@@ -45,13 +46,14 @@ const pages = {
     body: electronicsPage(),
   },
   "locations.html": {
-    title: "Hartford & Wethersfield Car Audio Stores | Action Audio Locations",
+    title:
+      "Hartford Detailing & Wethersfield Electronics | Action Audio Locations",
     desc: "Visit Action Audio at 2814 Main St in Hartford or 105 Silas Deane Hwy in Wethersfield. Open Monday–Saturday, 9am–6pm.",
     body:
       head(
         "COME SEE US",
         "Hartford & Wethersfield",
-        "Great sound and personal service, right here in Connecticut.",
+        "Two locations. Two specialties. The same care for your vehicle.",
       ) +
       `<section class="wrap section"><div class="locations-grid">${locationCards()}</div><p class="center muted">Monday–Saturday, 9am–6pm. Closed Sundays. Holiday hours may vary.</p></section>` +
       cta,
@@ -59,7 +61,7 @@ const pages = {
   "about.html": {
     title:
       "Our Story — Connecticut Mobile Electronics Since 1983 | Action Audio",
-    desc: "From a CB radio shop in 1983 to two Connecticut car audio destinations. Get to know Action Audio in Hartford and Wethersfield.",
+    desc: "From a CB radio shop in 1983 to two Connecticut automotive destinations. Get to know Action Audio in Hartford and Wethersfield.",
     body:
       head(
         "CONNECTICUT ROOTS. SINCE 1983.",
@@ -72,14 +74,14 @@ const pages = {
   "book.html": {
     title:
       "Book Auto Electronics Repair, Detailing & Installation | Action Audio",
-    desc: "Request auto electronics repair, auto detailing, or auto electrical installation at your preferred Action Audio store in Hartford or Wethersfield.",
+    desc: "Request auto electronics repair, auto detailing, or auto electrical installation in Wethersfield, or auto detailing in Hartford.",
     body:
       head(
         "LET’S TAKE CARE OF YOUR RIDE",
         "Book an appointment",
         "Tell us what you have in mind. We’ll get in touch to confirm the details.",
       ) +
-      `<section class="wrap booking-layout"><form id="booking-form" class="form-panel"><fieldset><legend>Choose your store</legend><div class="store-options">${stores.map((s) => `<label class="store-option"><input type="radio" name="store" value="${s.id}" required><strong>${s.name}</strong><span>${s.address}</span></label>`).join("")}</div></fieldset><fieldset><legend>Your ride & your service</legend><div class="form-grid"><label class="full">Service<select name="service" required><option value="">Choose a service</option>${services.map((s) => `<option value="${s.id}">${s.name}</option>`).join("")}</select></label><label class="full">Vehicle<input name="vehicle" placeholder="e.g. 2022 Toyota Camry" maxlength="150" minlength="3" required></label><label>Preferred date<input type="date" name="date" required></label><label>Preferred time<select name="time" required disabled><option value="">Choose a store & date</option></select></label></div><small>Monday–Saturday. Requests start from tomorrow. All times are Eastern.</small></fieldset><fieldset><legend>A way to reach you</legend><div class="form-grid"><label class="full">Full name<input autocomplete="name" name="name" minlength="2" maxlength="100" required></label><label>Email<input autocomplete="email" type="email" name="email" maxlength="254" required></label><label>Phone<input autocomplete="tel" type="tel" name="phone" minlength="10" maxlength="30" required></label><label class="full">Anything else we should know? <span class="optional">Optional</span><textarea name="notes" rows="4" maxlength="2000" placeholder="Tell us about your current setup or what you’d like to change."></textarea></label></div><div class="honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div></fieldset><label class="consent"><input type="checkbox" required> <span>I agree to be contacted about this request and have read the <a href="/privacy.html">privacy notice</a>.</span></label><div id="booking-message" role="status" tabindex="-1"></div><button class="button submit-button" type="submit">Request an appointment </button><p class="form-note">Your appointment is confirmed once our team contacts you.</p></form><aside class="booking-aside"><h2>Before your visit</h2><p>From the first conversation to the final check, we’ll keep you informed and take care of your ride.</p><ul class="check-list"><li> Your choice of two local stores</li><li> Advice tailored to your vehicle</li><li> Private vehicle progress tracking</li></ul><hr><h3>Prefer to talk it through?</h3><a class="phone-link" href="tel:8606676330">(860) 667-6330</a><p>Wethersfield · Mon–Sat, 9am–6pm</p></aside></section>`,
+      `<section class="wrap booking-layout"><form id="booking-form" class="form-panel"><fieldset><legend>Choose your store</legend><div class="store-options">${stores.map((s) => `<label class="store-option"><input type="radio" name="store" value="${s.id}" required><strong>${s.name}</strong><span>${s.specialty}</span><small>${s.address}</small></label>`).join("")}</div><p class="form-note" id="service-location-note" aria-live="polite">Choose a location to see its services.</p></fieldset><fieldset><legend>Your ride & your service</legend><div class="form-grid"><label class="full">Service<select name="service" required><option value="">Choose a service</option>${services.map((s) => `<option value="${s.id}">${s.name}</option>`).join("")}</select></label><label class="full">Vehicle<input name="vehicle" placeholder="e.g. 2022 Toyota Camry" maxlength="150" minlength="3" required></label><label>Preferred date<input type="date" name="date" required></label><label>Preferred time<select name="time" required disabled><option value="">Choose a store & date</option></select></label></div><small>Monday–Saturday. Requests start from tomorrow. All times are Eastern.</small></fieldset><fieldset><legend>A way to reach you</legend><div class="form-grid"><label class="full">Full name<input autocomplete="name" name="name" minlength="2" maxlength="100" required></label><label>Email<input autocomplete="email" type="email" name="email" maxlength="254" required></label><label>Phone<input autocomplete="tel" type="tel" name="phone" minlength="10" maxlength="30" required></label><label class="full">Anything else we should know? <span class="optional">Optional</span><textarea name="notes" rows="4" maxlength="2000" placeholder="Tell us about your current setup or what you’d like to change."></textarea></label></div><div class="honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div></fieldset><label class="consent"><input type="checkbox" required> <span>I agree to be contacted about this request and have read the <a href="/privacy.html">privacy notice</a>.</span></label><div id="booking-message" role="status" tabindex="-1"></div><button class="button submit-button" type="submit">Request an appointment </button><p class="form-note">Your appointment is confirmed once our team contacts you.</p></form><aside class="booking-aside"><h2>Before your visit</h2><p>From the first conversation to the final check, we’ll keep you informed and take care of your ride.</p><ul class="check-list"><li> Electronics in Wethersfield · detailing in Hartford</li><li> Advice tailored to your vehicle</li><li> Private vehicle progress tracking</li></ul><hr><h3>Prefer to talk it through?</h3><a class="phone-link" href="tel:8606676330">(860) 667-6330</a><p>Wethersfield · Mon–Sat, 9am–6pm</p></aside></section>`,
   },
   "track.html": {
     title: "Track Your Vehicle Service | Action Audio",
@@ -107,15 +109,19 @@ const pages = {
 };
 for (const s of stores)
   pages[s.id + ".html"] = {
-    title: `Auto Electronics Repair, Detailing & Installation in ${s.name}, CT | Action Audio`,
-    desc: `Visit Action Audio at ${s.address}, ${s.city} for auto electronics repair, auto detailing, and auto electrical installation. Book your ${s.name} appointment.`,
+    title: `${s.specialty} in ${s.name}, CT | Action Audio`,
+    desc: `Visit Action Audio at ${s.address}, ${s.city} for ${s.detail.toLowerCase()}. Book your ${s.name} appointment.`,
     body:
       head(
         `ACTION AUDIO · ${s.name.toUpperCase()}, CONNECTICUT`,
         `Action Audio<br>${s.name}`,
-        `Auto electronics repair, auto detailing, and auto electrical installation at ${s.address}.`,
+        `${s.detail} at ${s.address}.`,
       ) +
-      `<section class="wrap location-local"><div class="form-panel"><h2>${s.name}</h2><p>${s.address}<br>${s.city}</p><p>Monday–Saturday: 9am–6pm<br>Sunday: Closed<br><small>Holiday hours may vary.</small></p><a class="button" href="/book.html?store=${s.id}">Book at ${s.name} </a><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address + " " + s.city)}">Get directions</a></div><div><h2>Services at this store</h2><p>Whether you need electronics repaired, detailing work, or an electrical installation, our ${s.name} team will help you plan the right service for your vehicle.</p><ul class="check-list">${services.map((s) => `<li><a href="/${s.id}.html">${s.name}</a></li>`).join("")}</ul></div></section>` +
+      `<section class="wrap location-local"><div class="form-panel"><h2>${s.name}</h2><p>${s.address}<br>${s.city}</p><p>Monday–Saturday: 9am–6pm<br>Sunday: Closed<br><small>Holiday hours may vary.</small></p><a class="button" href="/book.html?store=${s.id}">Book at ${s.name} </a><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address + " " + s.city)}">Get directions</a></div><div><h2>Services at this store</h2><p>${s.id === "wethersfield" ? "Explore car audio, remote starters, and electronics with our Wethersfield team. Let’s find the right fit for your vehicle." : "Bring your vehicle to our Hartford team for interior and exterior detailing. Tell us about its condition and the finish you’re looking for."}</p><ul class="check-list">${services
+        .filter((service) => s.serviceIds.includes(service.id))
+        .map((s) => `<li><a href="/${s.id}.html">${s.name}</a></li>`)
+        .join("")}</ul></div></section>` +
+      (s.id === "wethersfield" ? showroomGallery() : "") +
       cta,
   };
 Object.assign(pages, detailPages());
@@ -128,6 +134,16 @@ for (const [file, p] of Object.entries(pages)) {
       "@type": "AutomotiveBusiness",
       "@id": domain + "/" + s.id + ".html#store",
       name: "Action Audio — " + s.name,
+      description: s.detail,
+      knowsAbout:
+        s.id === "hartford"
+          ? ["Auto detailing"]
+          : [
+              "Remote starters",
+              "Car audio",
+              "Electronics repair",
+              "Electronics installation",
+            ],
       url: domain + "/" + s.id + ".html",
       image: domain + "/assets/action-audio-logo.webp",
       ...(s.phone ? { telephone: "+1" + s.tel } : {}),

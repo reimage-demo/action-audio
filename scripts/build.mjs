@@ -75,6 +75,25 @@ if (basePath !== "/") {
     );
   }
 }
+// Version shared module imports too, so updated application code never imports a stale catalog.
+const sharedVersions = await Promise.all(
+  (await readdir("dist/shared"))
+    .filter((f) => f.endsWith(".js"))
+    .map(async (file) => [
+      file,
+      createHash("sha256")
+        .update(await readFile("dist/shared/" + file))
+        .digest("hex")
+        .slice(0, 12),
+    ]),
+);
+let appSource = await readFile("dist/app.js", "utf8");
+for (const [file, version] of sharedVersions)
+  appSource = appSource.replaceAll(
+    `./shared/${file}"`,
+    `./shared/${file}?v=${version}"`,
+  );
+await writeFile("dist/app.js", appSource);
 // Parse the deployable JavaScript after path rewriting, before it can be published.
 for (const file of [
   ...(await readdir("dist")).filter((f) => f.endsWith(".js")),
