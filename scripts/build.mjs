@@ -11,6 +11,7 @@ for (const f of (await readdir(".")).filter(
     [
       "styles.css",
       "app.js",
+      "site.js",
       "config.js",
       "robots.txt",
       "sitemap.xml",
@@ -108,7 +109,7 @@ for (const file of [
 }
 // A new deployment must not reuse stale CSS or JavaScript from browser/CDN caches.
 const assetVersions = await Promise.all(
-  ["styles.css", "app.js", "config.js"].map(async (asset) => {
+  ["styles.css", "app.js", "site.js", "config.js"].map(async (asset) => {
     const digest = createHash("sha256")
       .update(await readFile("dist/" + asset))
       .digest("hex")
