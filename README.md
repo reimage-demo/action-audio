@@ -18,4 +18,4 @@ npm run build
 
 Publish only the contents of dist to the gh-pages branch. Never publish local environment or credential files.
 
-Both sites use the existing Action Audio Convex deployment robust-stork-24 (development). No backend migration was performed for this frontend deployment. The public inventory retains the explicitly labeled manufacturer preview catalog. Staff authentication and customer data remain on Convex; no passwords or customer records are stored in this repository.
+Both sites use the existing Action Audio Convex deployment robust-stork-24 (development). No backend migration was performed for this frontend deployment. The public electronics page retains the explicitly labeled manufacturer preview catalog. Staff authentication and customer data remain on Convex; no passwords or customer records are stored in this repository.

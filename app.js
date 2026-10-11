@@ -1,4 +1,5 @@
 import { stores, services, statusLabels } from "./shared/catalog.js";
+import { serviceContent } from "./shared/service-content.js";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>
   String(s ?? "").replace(
@@ -21,6 +22,7 @@ menu?.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     menu?.setAttribute("aria-expanded", "false");
+    menu?.setAttribute("aria-label", "Open navigation");
     $("#navigation")?.classList.remove("open");
   }
 });
@@ -62,6 +64,9 @@ if (booking) {
     fields.store.value = params.get("store");
   if (services.some((s) => s.id === params.get("service")))
     fields.service.value = params.get("service");
+  const topic = serviceContent.find((s) => s.name === params.get("topic"));
+  if (topic && !fields.notes.value)
+    fields.notes.value = `I’m interested in ${topic.name.toLowerCase()}.`;
   let requestKey = crypto.randomUUID(),
     generation = 0;
   async function refreshTimes() {
@@ -189,7 +194,7 @@ if ($("#inventory-results")) {
   previewNotice.className = "inventory-preview-note";
   previewNotice.hidden = !preview;
   previewNotice.innerHTML =
-    "<strong>Sample inventory · Client preview</strong><p>Examples from brands Action Audio carries. Photos and specifications come from the manufacturers. Specific models, pricing, and availability at either store are not confirmed.</p>";
+    "<strong>Explore manufacturer examples</strong><p>These examples are a starting point for your upgrade. Models, pricing, and store availability are not confirmed. Choose a store to direct your inquiry.</p>";
   $(".filters").before(previewNotice);
   const render = () => {
     const search = $("#inventory-search").value.toLowerCase();
@@ -198,9 +203,35 @@ if ($("#inventory-results")) {
     const filtered = products.filter(
       (p) =>
         (preview || !store || p.store === store) &&
-        (!category || p.category === category) &&
+        (!category ||
+          p.category === category ||
+          (category === "Car audio" &&
+            ["Speakers", "Subwoofers", "Amplifiers", "Receivers"].includes(
+              p.category,
+            ))) &&
         `${p.name} ${p.brand} ${p.description}`.toLowerCase().includes(search),
     );
+    document
+      .querySelectorAll("[data-category]")
+      .forEach((button) =>
+        button.setAttribute(
+          "aria-pressed",
+          String(
+            button.dataset.category === category ||
+              (button.dataset.category === "Car audio" &&
+                ["Speakers", "Subwoofers", "Amplifiers", "Receivers"].includes(
+                  category,
+                )),
+          ),
+        ),
+      );
+    const guide = serviceContent.find((s) => s.category === category);
+    const guideNode = $("#category-guide");
+    guideNode.hidden = !guide;
+    guideNode.className = "category-guide";
+    guideNode.innerHTML = guide
+      ? `<div><h2>${esc(guide.name)}</h2><p>${esc(guide.description)}</p></div><a class="text-link" href="/${guide.id}.html">Explore this service →</a>`
+      : "";
     $("#inventory-count").textContent = products.length
       ? `${filtered.length} ${preview ? "sample " : ""}product${filtered.length === 1 ? "" : "s"}`
       : "";
@@ -211,10 +242,23 @@ if ($("#inventory-results")) {
               `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/products/")) ? `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" loading="lazy" referrerpolicy="no-referrer">` : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/book.html${(preview ? store : p.store) ? `?store=${esc(preview ? store : p.store)}` : ""}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
           )
           .join("")
-      : `<div class="empty-state"><h2>${products.length ? "No matching products." : "Ask about current stock."}</h2><p>${products.length ? "Try another search, category, or store." : "Our online inventory is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/book.html">Ask about a product </a></div>`;
+      : `<div class="empty-state"><h2>${guide && !search ? "Let’s find your fit." : products.length ? "No matching products." : "Ask about current stock."}</h2><p>${guide && !search ? "Contact our team for compatible options and current availability in this category." : products.length ? "Try another search, category, or store." : "Our electronics catalog is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/book.html">Ask about a product </a></div>`;
   };
   ["#inventory-search", "#inventory-category", "#inventory-store"].forEach(
     (s) => $(s).addEventListener("input", render),
+  );
+  const categorySelect = $("#inventory-category");
+  if (
+    [...categorySelect.options].some(
+      (option) => option.value === params.get("category"),
+    )
+  )
+    categorySelect.value = params.get("category");
+  document.querySelectorAll("[data-category]").forEach((button) =>
+    button.addEventListener("click", () => {
+      categorySelect.value = button.dataset.category;
+      render();
+    }),
   );
   if (preview) {
     import("./shared/inventory-preview.js")
@@ -241,10 +285,96 @@ if ($("#inventory-results")) {
           () => {
             notice(
               $("#inventory-results"),
-              "Inventory is temporarily unavailable. Please contact the store for current stock.",
+              "Electronics are temporarily unavailable. Please contact the store for current stock.",
             );
           },
         ),
       )
       .catch((e) => notice($("#inventory-results"), e.data || e.message));
+}
+
+// Pause for keyboard interaction, reduced motion, hover, and background tabs.
+const carousel = $(".slideshow");
+if (carousel) {
+  const slides = [...carousel.querySelectorAll("[data-slide]")];
+  const dots = [...carousel.querySelectorAll("[data-slide-to]")];
+  const play = carousel.querySelector(".slide-play");
+  const motion = matchMedia("(prefers-reduced-motion: reduce)");
+  let current = 0;
+  let paused = motion.matches;
+  let hovered = false;
+  let timer;
+  const updatePlay = () => {
+    play.textContent = paused ? "▶" : "Ⅱ";
+    play.setAttribute(
+      "aria-label",
+      paused ? "Play slideshow" : "Pause slideshow",
+    );
+  };
+  function schedule() {
+    clearInterval(timer);
+    if (!paused && !hovered && !document.hidden)
+      timer = setInterval(() => show(current + 1, false), 6500);
+  }
+  function show(index, announce = true) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      slide.hidden = i !== current;
+      slide.classList.toggle("is-active", i === current);
+      dots[i].setAttribute("aria-pressed", String(i === current));
+    });
+    if (announce)
+      carousel.querySelector(".slide-status").textContent =
+        `Slide ${current + 1} of ${slides.length}: ${slides[current].querySelector("h2").textContent}`;
+    schedule();
+  }
+  const manualShow = (index) => {
+    paused = true;
+    updatePlay();
+    show(index);
+  };
+  dots.forEach((dot, i) => dot.addEventListener("click", () => manualShow(i)));
+  carousel
+    .querySelector(".slide-prev")
+    .addEventListener("click", () => manualShow(current - 1));
+  carousel
+    .querySelector(".slide-next")
+    .addEventListener("click", () => manualShow(current + 1));
+  let pointerPaused;
+  play.addEventListener("pointerdown", () => {
+    pointerPaused = paused;
+  });
+  play.addEventListener("click", () => {
+    paused = !(pointerPaused ?? paused);
+    pointerPaused = undefined;
+    updatePlay();
+    schedule();
+  });
+  carousel.addEventListener("mouseenter", () => {
+    hovered = true;
+    schedule();
+  });
+  carousel.addEventListener("mouseleave", () => {
+    hovered = false;
+    schedule();
+  });
+  carousel.addEventListener("focusin", () => {
+    paused = true;
+    updatePlay();
+    schedule();
+  });
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      event.preventDefault();
+      manualShow(current + (event.key === "ArrowLeft" ? -1 : 1));
+    }
+  });
+  motion.addEventListener("change", () => {
+    if (motion.matches) paused = true;
+    updatePlay();
+    schedule();
+  });
+  document.addEventListener("visibilitychange", schedule);
+  updatePlay();
+  schedule();
 }

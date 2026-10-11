@@ -1,15 +1,22 @@
 import { writeFileSync } from "node:fs";
 import { stores, services } from "../shared/catalog.js";
+import {
+  navigation,
+  footer,
+  homePage,
+  electronicsPage,
+  servicesPage,
+  detailPages,
+} from "./design.mjs";
 const logo =
   '<img src="/assets/action-audio-logo.webp" width="189" height="70" alt="The Action Audio Store">';
-const nav = `<a class="skip" href="#main">Skip to content</a><header><div class="nav wrap"><a href="/" class="logo" aria-label="Action Audio home">${logo}</a><nav id="navigation" aria-label="Main navigation"><a href="/services.html">Services</a><a href="/inventory.html">Inventory</a><a href="/about.html">Our story</a><a href="/locations.html">Locations</a><a class="mobile-track" href="/track.html">Track my vehicle</a></nav><div class="nav-actions"><a class="track-link" href="/track.html">Track my vehicle</a><a class="button small" href="/book.html">Book an appointment</a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation">Menu</button></div></div></header>`;
-const footer = `<footer><div class="wrap footer-grid"><div><a class="logo" href="/">${logo}</a><p>Connecticut’s mobile electronics store.<br>Hartford & Wethersfield. Since 1983.</p></div><div><h3>Explore</h3><a href="/services.html">Our services</a><a href="/inventory.html">Browse inventory</a><a href="/about.html">Our story</a></div><div><h3>Your visit</h3><a href="/book.html">Book an appointment</a><a href="/track.html">Track your vehicle</a><a href="/locations.html">Find a store</a></div><div><h3>Contact Wethersfield</h3><a class="footer-phone" href="tel:8606676330">(860) 667-6330</a><p>Monday–Saturday, 9am–6pm<br>Sunday closed</p></div></div><div class="wrap footer-bottom"><span>© ${new Date().getFullYear()} The Action Audio Store.</span><a href="/privacy.html">Privacy</a><p class="powered-by">Powered by <a href="https://reimagebs.com" target="_blank" rel="noopener noreferrer">REIMAGE BUSINESS SOLUTIONS</a></p></div></footer>`;
+const nav = navigation;
 const cta = `<section class="wrap"><div class="final-cta"><div><h2>Tell us what your vehicle needs.</h2><p>Choose Hartford or Wethersfield. Our team will confirm your appointment.</p></div><a href="/book.html" class="button">Book an appointment</a></div></section>`;
 const serviceRows = () =>
   services
     .map(
       (s) =>
-        `<article class="service-row"><h3><a href="/services.html#${s.id}">${s.name}</a></h3><p>${s.description}</p><a class="text-link" href="/services.html#${s.id}" aria-label="Read about ${s.name.toLowerCase()}">Service details</a></article>`,
+        `<article class="service-row"><h3><a href="/${s.id}.html">${s.name}</a></h3><p>${s.description}</p><a class="text-link" href="/${s.id}.html" aria-label="Read about ${s.name.toLowerCase()}">Service details</a></article>`,
     )
     .join("");
 const locationCards = () =>
@@ -19,38 +26,23 @@ const locationCards = () =>
         `<article class="location-card"><h3>${s.name}</h3><p class="location-label">${s.detail}</p><p class="address">${s.address}<br>${s.city}</p><p class="hours">Monday–Saturday, 9am–6pm<br>Sunday closed</p><div class="location-actions"><a class="text-link" href="/book.html?store=${s.id}">Book at ${s.name}</a><a class="text-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address + " " + s.city)}" target="_blank" rel="noopener noreferrer">Directions<span class="sr-only"> (opens in a new tab)</span></a></div><a class="location-detail" href="/${s.id}.html">${s.name} store information</a></article>`,
     )
     .join("");
-const head = (_label, title, desc) =>
-  `<section class="page-heading wrap"><h1>${title}</h1><p>${desc}</p></section>`;
+const head = (label, title, desc) =>
+  `<section class="page-heading centered wrap"><p class="eyebrow">${label}</p><h1>${title}</h1><p>${desc}</p></section>`;
 const pages = {
   "index.html": {
-    title:
-      "Auto Electronics Repair, Detailing & Installation in Hartford & Wethersfield | Action Audio",
-    desc: "Auto electronics repair, auto detailing, and auto electrical installation at Action Audio in Hartford and Wethersfield, CT. Serving Connecticut since 1983.",
-    body: `<section class="hero wrap"><div class="hero-copy"><p class="hero-location">Hartford & Wethersfield, Connecticut</p><h1>Car electronics<br><span>& detailing.</span></h1><p class="hero-description">Auto electronics repair, detailing, and electrical installation. Local know-how, built on four decades of working on the vehicles you drive.</p><a class="button" href="/book.html">Book an appointment</a><div class="hero-contact"><a href="tel:8606676330">(860) 667-6330</a><span>Wethersfield · Mon–Sat, 9am–6pm</span></div></div><figure class="hero-photo"><img src="/assets/hero-installation.webp" alt="Car audio installation with dual subwoofers and a technician connecting an amplifier" width="1200" height="900" fetchpriority="high"></figure></section><section class="services-overview wrap"><div class="section-heading"><h2>What we do</h2><p>Three ways we take care of your vehicle.</p></div><div class="service-list">${serviceRows()}</div></section><section class="story-section"><div class="wrap story-grid"><div><h2>Connecticut roots.<br>Since 1983.</h2><a class="text-link" href="/about.html">Our story</a></div><div class="story-copy"><p>We started as a CB radio shop. As vehicles and technology changed, we changed with them.</p><p>Today, Action Audio brings decades of installation experience and more than 50 brands to Connecticut drivers—from a brand-new daily driver to your ’57 Chevy.</p><div class="brand-note"><h3>Brands we carry</h3><p>Alpine, Rockford Fosgate, Pioneer, Diamond Audio, Kenwood, Powerbass, MTX, and more.</p><a class="text-link" href="/inventory.html">Browse inventory</a></div></div></div></section><section class="section wrap"><div class="section-heading location-heading"><h2>Visit either store.</h2><p>Choose the location that works for you.<br>Holiday hours may vary.</p></div><div class="locations-grid">${locationCards()}</div></section>`,
+    title: "Car Audio, Remote Starters & Electronics | Action Audio CT",
+    desc: "Upgrade your drive with car audio, remote starters, electronics, and installation at Action Audio in Hartford and Wethersfield, Connecticut.",
+    body: homePage(),
   },
   "services.html": {
-    title:
-      "Auto Electronics Repair, Detailing & Electrical Installation | Action Audio CT",
-    desc: "Explore auto electronics repair, auto detailing, and auto electrical installation at Action Audio in Hartford and Wethersfield, Connecticut.",
-    body:
-      head(
-        "BUILT FOR YOUR DRIVE",
-        "Services for your vehicle.",
-        "Electronics repair, detailing, and electrical installation. Thoughtful care for the way you drive.",
-      ) +
-      `<section class="wrap service-details">${services.map((s) => `<article id="${s.id}" class="service-detail"><h2>${s.name}</h2><div><p>${s.description}</p><ul class="check-list">${s.items.map((x) => `<li>${x}</li>`).join("")}</ul><a class="text-link" href="/book.html?service=${s.id}">Book this service</a></div></article>`).join("")}</section>` +
-      cta,
+    title: "Car Audio, Installation & Vehicle Services | Action Audio",
+    desc: "Explore car audio, remote starters, electronics repair, detailing, and vehicle electronics installation in Hartford and Wethersfield.",
+    body: servicesPage(),
   },
-  "inventory.html": {
-    title: "Car Audio & Mobile Electronics Inventory | Action Audio CT",
-    desc: "Browse the latest Action Audio inventory by category and store. Explore speakers, amplifiers, receivers, remote starters and security systems.",
-    body:
-      head(
-        "FIND YOUR NEXT UPGRADE",
-        "Inventory",
-        "Explore car audio equipment. Our team can help you find the right fit for your vehicle.",
-      ) +
-      `<section class="wrap section inventory-section"><div class="filters"><label class="search-field"><input id="inventory-search" type="search" placeholder="Search products or brands" aria-label="Search inventory"></label><select id="inventory-category" aria-label="Filter by category"><option value="">All categories</option>${["Speakers", "Subwoofers", "Amplifiers", "Receivers", "Remote starters", "Security", "Accessories"].map((s) => `<option>${s}</option>`).join("")}</select><select id="inventory-store" aria-label="Filter by store"><option value="">Both stores</option>${stores.map((s) => `<option value="${s.id}">${s.name}</option>`).join("")}</select></div><p id="inventory-count" class="muted" aria-live="polite"></p><div id="inventory-results" class="product-grid" aria-live="polite"><div class="empty-state"><h2>Ask about current stock.</h2><p>Contact our team for current stock and pricing at your preferred store.</p><a class="button" href="/book.html">Ask about a product </a></div></div><div class="brand-panel"><p>Alpine · Rockford Fosgate · Pioneer · Diamond Audio · Kenwood · Powerbass · MTX</p><small>Product compatibility and availability vary by vehicle and store.</small></div></section>`,
+  "electronics.html": {
+    title: "Car Audio & Vehicle Electronics | Action Audio CT",
+    desc: "Explore speakers, subwoofers, receivers, remote starters, car alarms, video systems, and vehicle electronics at Action Audio.",
+    body: electronicsPage(),
   },
   "locations.html": {
     title: "Hartford & Wethersfield Car Audio Stores | Action Audio Locations",
@@ -110,7 +102,7 @@ const pages = {
         "Privacy notice",
         "Information you share helps us take care of your appointment and your vehicle.",
       ) +
-      `<section class="wrap prose narrow"><h2>Appointment information</h2><p>We collect the name, email, phone number, vehicle information, store preference, appointment preference, and notes you submit. We use these details to respond to your request, coordinate service, and provide progress updates.</p><h2>Storage and access</h2><p>Appointment and inventory data are stored using Convex. Authorized staff can access customer records to manage service. Staff sign-in uses browser storage to maintain an authenticated session. We do not ask for payment information on this website.</p><h2>Private tracking codes</h2><p>Your tracking code provides access to your appointment and service updates. Keep it private. Tracking pages are excluded from our sitemap and marked not to be indexed.</p><h2>Your choices</h2><p>To request a correction or deletion of information you submitted, contact Action Audio at <a href="tel:8606676330">(860) 667-6330</a> or visit our Wethersfield store at 105 Silas Deane Highway.</p></section>`,
+      `<section class="wrap prose narrow"><h2>Appointment information</h2><p>We collect the name, email, phone number, vehicle information, store preference, appointment preference, and notes you submit. We use these details to respond to your request, coordinate service, and provide progress updates.</p><h2>Storage and access</h2><p>Appointment and electronics catalog data are stored using Convex. Authorized staff can access customer records to manage service. Staff sign-in uses browser storage to maintain an authenticated session. We do not ask for payment information on this website.</p><h2>Private tracking codes</h2><p>Your tracking code provides access to your appointment and service updates. Keep it private. Tracking pages are excluded from our sitemap and marked not to be indexed.</p><h2>Your choices</h2><p>To request a correction or deletion of information you submitted, contact Action Audio at <a href="tel:8606676330">(860) 667-6330</a> or visit our Wethersfield store at 105 Silas Deane Highway.</p></section>`,
   },
 };
 for (const s of stores)
@@ -123,9 +115,10 @@ for (const s of stores)
         `Action Audio<br>${s.name}`,
         `Auto electronics repair, auto detailing, and auto electrical installation at ${s.address}.`,
       ) +
-      `<section class="wrap location-local"><div class="form-panel"><h2>${s.name}</h2><p>${s.address}<br>${s.city}</p><p>Monday–Saturday: 9am–6pm<br>Sunday: Closed<br><small>Holiday hours may vary.</small></p><a class="button" href="/book.html?store=${s.id}">Book at ${s.name} </a><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address + " " + s.city)}">Get directions</a></div><div><h2>Services at this store</h2><p>Whether you need electronics repaired, detailing work, or an electrical installation, our ${s.name} team will help you plan the right service for your vehicle.</p><ul class="check-list">${services.map((s) => `<li><a href="/services.html#${s.id}">${s.name}</a></li>`).join("")}</ul></div></section>` +
+      `<section class="wrap location-local"><div class="form-panel"><h2>${s.name}</h2><p>${s.address}<br>${s.city}</p><p>Monday–Saturday: 9am–6pm<br>Sunday: Closed<br><small>Holiday hours may vary.</small></p><a class="button" href="/book.html?store=${s.id}">Book at ${s.name} </a><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address + " " + s.city)}">Get directions</a></div><div><h2>Services at this store</h2><p>Whether you need electronics repaired, detailing work, or an electrical installation, our ${s.name} team will help you plan the right service for your vehicle.</p><ul class="check-list">${services.map((s) => `<li><a href="/${s.id}.html">${s.name}</a></li>`).join("")}</ul></div></section>` +
       cta,
   };
+Object.assign(pages, detailPages());
 const domain = "https://actionaudiostorellc.com";
 for (const [file, p] of Object.entries(pages)) {
   const url = domain + (file === "index.html" ? "/" : "/" + file);
@@ -167,7 +160,7 @@ for (const [file, p] of Object.entries(pages)) {
   };
   writeFileSync(
     file,
-    `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1557e8"><title>${p.title}</title><meta name="description" content="${p.desc}"><meta name="robots" content="${p.noindex ? "noindex, nofollow" : "index, follow"}"><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:title" content="${p.title}"><meta property="og:description" content="${p.desc}"><meta property="og:url" content="${url}"><meta property="og:image" content="${domain}/assets/hero-installation.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${JSON.stringify(schema)}</script><script src="/config.js"></script><script type="module" src="/app.js"></script></head><body class="page-${file.replace(".html", "")}">${nav}<main id="main">${p.body}</main>${footer}</body></html>`,
+    `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>${p.title}</title><meta name="description" content="${p.desc}"><meta name="robots" content="${p.noindex ? "noindex, nofollow" : "index, follow"}"><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:title" content="${p.title}"><meta property="og:description" content="${p.desc}"><meta property="og:url" content="${url}"><meta property="og:image" content="${domain}/assets/hero-installation.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${JSON.stringify(schema)}</script><script src="/config.js"></script><script type="module" src="/app.js"></script></head><body class="page-${file.replace(".html", "")}">${nav}<main id="main">${p.body}</main>${footer}</body></html>`,
   );
 }
 writeFileSync(

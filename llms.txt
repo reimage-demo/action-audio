@@ -13,7 +13,7 @@
 
 ## Customer resources
 - [Book an appointment](https://actionaudiostorellc.com/book.html): select a store, service, date, and time. A request is not confirmed until staff confirms it.
-- [Inventory](https://actionaudiostorellc.com/inventory.html): published product listings with store-specific availability. Do not infer stock or prices from brand names.
+- [Electronics](https://actionaudiostorellc.com/electronics.html): published product listings with store-specific availability. Do not infer stock or prices from brand names.
 - [Our story](https://actionaudiostorellc.com/about.html): founded as a CB radio store in 1983.
 - [Privacy](https://actionaudiostorellc.com/privacy.html)
 
