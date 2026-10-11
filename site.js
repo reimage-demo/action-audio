@@ -19,7 +19,7 @@
   notice.className = "cookie-notice";
   notice.hidden = true;
   notice.setAttribute("aria-labelledby", "cookie-title");
-  notice.innerHTML = '<h2 id="cookie-title">Your cookie choices.</h2><p>We use essential browser storage to remember your choice. There are currently no analytics or advertising cookies. You can accept or deny optional cookies and change your choice anytime.</p><a href="/action-audio/privacy.html#cookies">Privacy & cookies</a><div class="cookie-actions"><button type="button" data-cookie-choice="denied">Deny</button><button type="button" data-cookie-choice="accepted">Accept</button></div>';
+  notice.innerHTML = '<h2 id="cookie-title">Your cookie choices.</h2><p>Essential storage remembers your choice. We currently use no analytics or advertising cookies. Accept or deny optional cookies; change your choice anytime.</p><a href="/action-audio/privacy.html#cookies">Privacy & cookies</a><div class="cookie-actions"><button type="button" data-cookie-choice="denied">Deny</button><button type="button" data-cookie-choice="accepted">Accept</button></div>';
   document.body.append(notice);
 
   function updateStatus() {
@@ -29,8 +29,6 @@
   }
   function show(open) {
     notice.hidden = !open;
-    document.body.classList.toggle("cookie-choice-open", open);
-    document.documentElement.style.setProperty("--cookie-banner-height", open ? `${notice.getBoundingClientRect().height}px` : "0px");
   }
   document.querySelectorAll("[data-cookie-settings]").forEach(button => button.addEventListener("click", () => {
     returnFocus = button;
@@ -46,9 +44,6 @@
     else call.focus({ preventScroll: true });
     returnFocus = null;
   }));
-  if (typeof ResizeObserver !== "undefined") new ResizeObserver(() => {
-    if (!notice.hidden) document.documentElement.style.setProperty("--cookie-banner-height", `${notice.getBoundingClientRect().height}px`);
-  }).observe(notice);
   updateStatus();
   show(!choice);
   // There are no optional tracking scripts. A saved acceptance does not load any.
