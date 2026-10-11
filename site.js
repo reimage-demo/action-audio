@@ -24,7 +24,7 @@
   notice.className = "cookie-notice";
   notice.hidden = true;
   notice.setAttribute("aria-labelledby", "cookie-title");
-  notice.innerHTML = '<h2 id="cookie-title">Your cookie choices.</h2><p>Essential storage remembers your choice. We currently use no analytics or advertising cookies. Accept or deny optional cookies; change your choice anytime.</p><a href="/privacy.html#cookies">Privacy & cookies</a><div class="cookie-actions"><button type="button" data-cookie-choice="denied">Deny</button><button type="button" data-cookie-choice="accepted">Accept</button></div>';
+  notice.innerHTML = '<h2 id="cookie-title">Your cookie choices.</h2><p>We use essential storage to remember your choice. No analytics or advertising cookies are currently used.</p><a href="/privacy.html#cookies">Privacy & cookies</a><div class="cookie-actions"><button type="button" data-cookie-choice="denied">Deny</button><button type="button" data-cookie-choice="accepted">Accept</button></div>';
   document.body.append(notice);
 
   function updateStatus() {
@@ -34,6 +34,7 @@
   }
   function show(open) {
     notice.hidden = !open;
+    call.hidden = open;
   }
   document.querySelectorAll("[data-cookie-settings]").forEach(button => button.addEventListener("click", () => {
     returnFocus = button;
