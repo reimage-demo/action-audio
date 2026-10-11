@@ -1,4 +1,9 @@
 (() => {
+  const financingDialog = document.getElementById("acima-stores");
+  document.querySelectorAll(".acima-trigger").forEach(button => {
+    button.addEventListener("click", () => financingDialog?.showModal());
+  });
+
   const key = "actionAudioCookieChoice.v1";
   const duration = 180 * 24 * 60 * 60 * 1000;
   let choice = null;
