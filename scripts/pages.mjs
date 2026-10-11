@@ -1,4 +1,5 @@
 import { writeFileSync } from "node:fs";
+import { serviceContent } from "../shared/service-content.js";
 import { stores, services } from "../shared/catalog.js";
 import {
   navigation,
@@ -28,7 +29,7 @@ const locationCards = () =>
     )
     .join("");
 const head = (label, title, desc) =>
-  `<section class="page-heading centered wrap"><p class="eyebrow">${label}</p><h1>${title}</h1><p>${desc}</p></section>`;
+  `<section class="page-heading wrap"><h1>${title}</h1><p>${desc}</p></section>`;
 const pages = {
   "index.html": {
     title: "Car Audio, Remote Starters & Electronics | Action Audio CT",
@@ -71,6 +72,11 @@ const pages = {
       `<section class="wrap prose-section"><aside class="history-note"><p>Established in Connecticut</p><strong>1983</strong><p>From CB radios to today’s mobile electronics.</p></aside><div class="prose"><h2>From a CB radio shop to two local stores.</h2><p>Action Audio started in 1983 as a CB radio store. As technology evolved, so did we. Today, our selection spans more than 50 brands, from Alpine and Rockford Fosgate to Pioneer, Diamond Audio, Kenwood, Powerbass, and MTX.</p><p>What hasn’t changed is the way we work: we listen to what you want, help you choose the right equipment, and take care with every installation.</p><h2>Every ride has a story.</h2><p>A fresh-off-the-lot vehicle. A well-loved daily driver. A 1957 Chevy. Whatever you bring through our doors, we’re here to take care of it with auto electronics repair, auto detailing, and auto electrical installation.</p><a class="button" href="/locations.html">Meet your local store </a></div></section>` +
       cta,
   },
+  "estimate.html": {
+    title: "Request a Vehicle Service Estimate | Action Audio",
+    desc: "Request a callback about remote starters, car audio, electronics, or detailing. Tell Action Audio your vehicle make and model.",
+    body: head("", "Request an estimate.", "Tell us about your vehicle and the service you need. Our team will call you to discuss options and an approximate price.") + `<section class="wrap booking-layout"><form id="estimate-form" class="form-panel"><div class="form-grid"><label class="full">Service<select name="service" required><option value="">Select your service</option>${serviceContent.map(s=>`<option value="${s.id}">${s.name}</option>`).join('')}</select></label><p class="full form-note" id="estimate-location" aria-live="polite">Electronics in Wethersfield. Detailing in Hartford.</p><label>Vehicle make<input name="vehicleMake" placeholder="e.g. Toyota" minlength="2" maxlength="80" required></label><label>Vehicle model<input name="vehicleModel" placeholder="e.g. 2022 Camry" minlength="1" maxlength="100" required></label><label>Your name<input name="name" autocomplete="name" minlength="2" maxlength="100" required></label><label>Phone number<input name="phone" type="tel" autocomplete="tel" minlength="10" maxlength="30" placeholder="(860) 555-0123" required></label></div><div class="honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><label class="consent"><input type="checkbox" required><span>I agree to be contacted about this estimate and have read the <a href="/privacy.html">privacy notice</a>.</span></label><div id="estimate-message" role="status" tabindex="-1"></div><button type="submit" class="button">Request a call</button><p class="form-note">An estimate request does not reserve an appointment. Pricing depends on vehicle compatibility and the work required.</p></form><aside class="booking-aside"><h2>What happens next</h2><p>Your request goes directly to the team that handles your service. We’ll review your vehicle details and call you to discuss the job.</p><dl class="estimate-stores"><dt>Wethersfield</dt><dd>Remote starters, car audio, electronics, and installation.</dd><dt>Hartford</dt><dd>Interior and exterior detailing.</dd></dl><p>Ready to arrange a visit?</p><a class="text-link" href="/book.html">Request an appointment</a></aside></section>`
+  },
   "book.html": {
     title:
       "Book Auto Electronics Repair, Detailing & Installation | Action Audio",
@@ -104,7 +110,7 @@ const pages = {
         "Privacy notice",
         "Information you share helps us take care of your appointment and your vehicle.",
       ) +
-      `<section class="wrap prose narrow"><h2>Appointment information</h2><p>We collect the name, email, phone number, vehicle information, store preference, appointment preference, and notes you submit. We use these details to respond to your request, coordinate service, and provide progress updates.</p><h2>Storage and access</h2><p>Appointment and electronics catalog data are stored using Convex. Authorized staff can access customer records to manage service. Staff sign-in uses browser storage to maintain an authenticated session. We do not ask for payment information on this website.</p><h2>Private tracking codes</h2><p>Your tracking code provides access to your appointment and service updates. Keep it private. Tracking pages are excluded from our sitemap and marked not to be indexed.</p><h2>Your choices</h2><p>To request a correction or deletion of information you submitted, contact Action Audio at <a href="tel:8606676330">(860) 667-6330</a> or visit our Wethersfield store at 105 Silas Deane Highway.</p></section>`,
+      `<section class="wrap prose narrow"><h2>Appointment information</h2><p>For appointment requests, we collect the name, email, phone number, vehicle information, store preference, appointment preference, and notes you submit. Estimate requests collect your name, phone number, vehicle make and model, and selected service. We use these details to respond to your request, coordinate service, and provide progress updates.</p><h2>Storage and access</h2><p>Appointment and estimate details are encrypted before storage in Convex. Public websites and backend connections use HTTPS. Electronics catalog data are also stored in Convex. Authorized staff can access customer records to manage service. Staff sign-in uses browser storage to maintain an authenticated session. We do not ask for payment information on this website.</p><h2>Private tracking codes</h2><p>Your tracking code provides access to your appointment and service updates. Keep it private. Tracking pages are excluded from our sitemap and marked not to be indexed.</p><h2>Your choices</h2><p>To request a correction or deletion of information you submitted, contact Action Audio at <a href="tel:8606676330">(860) 667-6330</a> or visit our Wethersfield store at 105 Silas Deane Highway.</p></section>`,
   },
 };
 for (const s of stores)

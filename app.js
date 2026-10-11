@@ -150,7 +150,7 @@ if (booking) {
         requestKey,
       });
       const code = result.trackingCode;
-      booking.innerHTML = `<div class="booking-success" role="status" tabindex="-1"><span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">YOU’RE ON OUR RADAR</p><h2>Great things start here.</h2><p>Your appointment request is received. The ${esc(stores.find((s) => s.id === values.store)?.name)} team will contact you to confirm ${esc(values.date)} at ${esc(values.time)} ET.</p><div class="tracking-ticket"><span>Your private tracking code</span><code>${esc(code)}</code><button type="button" class="text-link" id="copy-tracking">Copy tracking link ↗</button><small id="copy-message" aria-live="polite">Save this link to follow every update. Keep it private.</small></div><a class="button" id="new-tracking-link" href="/track.html#${esc(code)}">Track my vehicle →</a><p class="form-note">No payment is required to request an appointment.</p></div>`;
+      booking.innerHTML = `<div class="booking-success" role="status" tabindex="-1"><h2>Appointment request received.</h2><p>Your appointment request is received. The ${esc(stores.find((s) => s.id === values.store)?.name)} team will contact you to confirm ${esc(values.date)} at ${esc(values.time)} ET.</p><div class="tracking-ticket"><span>Your private tracking code</span><code>${esc(code)}</code><button type="button" class="text-link" id="copy-tracking">Copy tracking link </button><small id="copy-message" aria-live="polite">Save this link to follow every update. Keep it private.</small></div><a class="button" id="new-tracking-link" href="/track.html#${esc(code)}">Track my vehicle </a><p class="form-note">No payment is required to request an appointment.</p></div>`;
       $("#copy-tracking").addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText($("#new-tracking-link").href);
@@ -171,6 +171,30 @@ if (booking) {
     }
   });
 }
+const estimateForm = $("#estimate-form");
+if (estimateForm) {
+  const fields = estimateForm.elements;
+  const requested = serviceContent.find(s=>s.id===params.get("service"));
+  if (requested) fields.service.value = requested.id;
+  const showLocation = () => {
+    const service = serviceContent.find(s=>s.id===fields.service.value);
+    $("#estimate-location").textContent = service ? `${service.name} · ${serviceStore(service.booking).name}` : "Electronics in Wethersfield. Detailing in Hartford.";
+  };
+  fields.service.addEventListener("change",showLocation); showLocation();
+  const requestKey = crypto.randomUUID();
+  estimateForm.addEventListener("submit",async e=>{
+    e.preventDefault(); if (!estimateForm.reportValidity()) return;
+    const button = estimateForm.querySelector('button[type="submit"]');
+    button.disabled=true;button.textContent="Sending request…";
+    const values=Object.fromEntries(new FormData(estimateForm));
+    try {
+      const c=await client(); await c.mutation("estimates:create",{...values,requestKey});
+      const service=serviceContent.find(s=>s.id===values.service),store=serviceStore(service.booking);
+      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
+      estimateForm.querySelector('.estimate-success').focus();
+    } catch(err) { notice($("#estimate-message"),err.data||err.message);$("#estimate-message").focus();button.disabled=false;button.textContent="Request a call"; }
+  });
+}
 const tracking = $("#tracking-form");
 let unsubscribe, trackingTimer;
 const dateLabel = (date) =>
@@ -184,7 +208,7 @@ function renderJourney(target, a) {
   const p = journeyProgress(a),
     store = stores.find((s) => s.id === a.store);
   const last = a.updates.at(-1);
-  target.innerHTML = `<article class="journey-card"><div class="journey-heading"><div><span class="badge">${esc(statusLabels[a.status])}</span><h2>${esc(services.find((s) => s.id === a.service)?.name || a.service)}</h2><p>${esc(store?.name)} · ${esc(dateLabel(a.date))} · ${esc(a.time)} ET</p></div><div class="journey-percent"><strong>${p.percent}<span>%</span></strong><span>${p.estimated ? "Estimated progress" : "Service milestone"}</span></div></div>${a.status === "cancelled" ? '<p class="notice">This appointment has been cancelled. Contact the store if you’d like to arrange another visit.</p>' : `<div class="journey-meter" role="progressbar" aria-label="${p.estimated ? "Estimated service progress" : "Service milestone"}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p.percent}"><span style="width:${p.percent}%"></span></div><ol class="journey-stages">${progressStages.map((stage, i) => `<li class="${i < p.stage ? "done" : i === p.stage ? "current" : ""}" ${i === p.stage ? 'aria-current="step"' : ""}><span>${i < p.stage ? "✓" : String(i + 1).padStart(2, "0")}</span><strong>${stage.label}</strong><small>${stage.description}</small></li>`).join("")}</ol>`}<div class="journey-note"><strong>${a.status === "completed" ? "Collected. Enjoy the drive." : a.status === "ready" ? "Your vehicle is ready for pickup." : p.paused ? "Your service is on hold while we wait for parts." : p.overdue ? "Awaiting an updated pickup estimate." : a.estimatedReadyDate ? `Target pickup · ${esc(dateLabel(a.estimatedReadyDate))}` : "Updates from the people working on your ride."}</strong><p>${a.status === "requested" ? "Your preferred time has been requested. Our team will contact you to confirm." : a.status === "ready" || a.status === "completed" ? "Our team has confirmed this milestone." : p.paused ? "Estimated movement is paused. The team will post an update when work can continue." : p.overdue ? "The target date has passed. Please wait for the team’s ready-for-pickup confirmation." : p.estimated ? "The percentage is a time-based estimate within the current confirmed stage. Only our team can move your vehicle to the next stage or mark it ready." : "Each milestone reflects a staff update. Your vehicle is ready only when our team confirms it."}</p></div><div class="journey-history"><h3>Your service updates</h3><span>All times Eastern</span><ol class="timeline">${[
+  target.innerHTML = `<article class="journey-card"><div class="journey-heading"><div><span class="badge">${esc(statusLabels[a.status])}</span><h2>${esc(services.find((s) => s.id === a.service)?.name || a.service)}</h2><p>${esc(store?.name)} · ${esc(dateLabel(a.date))} · ${esc(a.time)} ET</p></div><div class="journey-percent"><strong>${p.percent}<span>%</span></strong><span>${p.estimated ? "Estimated progress" : "Service milestone"}</span></div></div>${a.status === "cancelled" ? '<p class="notice">This appointment has been cancelled. Contact the store if you’d like to arrange another visit.</p>' : `<div class="journey-meter" role="progressbar" aria-label="${p.estimated ? "Estimated service progress" : "Service milestone"}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p.percent}"><span style="width:${p.percent}%"></span></div><ol class="journey-stages">${progressStages.map((stage, i) => `<li class="${i < p.stage ? "done" : i === p.stage ? "current" : ""}" ${i === p.stage ? 'aria-current="step"' : ""}><span>${i < p.stage ? "✓" : String(i + 1)}</span><strong>${stage.label}</strong><small>${stage.description}</small></li>`).join("")}</ol>`}<div class="journey-note"><strong>${a.status === "completed" ? "Collected. Enjoy the drive." : a.status === "ready" ? "Your vehicle is ready for pickup." : p.paused ? "Your service is on hold while we wait for parts." : p.overdue ? "Awaiting an updated pickup estimate." : a.estimatedReadyDate ? `Target pickup · ${esc(dateLabel(a.estimatedReadyDate))}` : "Updates from the people working on your ride."}</strong><p>${a.status === "requested" ? "Your preferred time has been requested. Our team will contact you to confirm." : a.status === "ready" || a.status === "completed" ? "Our team has confirmed this milestone." : p.paused ? "Estimated movement is paused. The team will post an update when work can continue." : p.overdue ? "The target date has passed. Please wait for the team’s ready-for-pickup confirmation." : p.estimated ? "The percentage is a time-based estimate within the current confirmed stage. Only our team can move your vehicle to the next stage or mark it ready." : "Each milestone reflects a staff update. Your vehicle is ready only when our team confirms it."}</p></div><div class="journey-history"><h3>Your service updates</h3><span>All times Eastern</span><ol class="timeline">${[
     ...a.updates,
   ]
     .reverse()
@@ -251,7 +275,7 @@ if ($("#inventory-results")) {
   previewNotice.className = "inventory-preview-note";
   previewNotice.hidden = !preview;
   previewNotice.innerHTML =
-    "<strong>Explore manufacturer examples</strong><p>These examples are a starting point for your upgrade. Models, pricing, and availability are not confirmed. Our Wethersfield team can help find the right fit.</p>";
+    "<strong>Explore manufacturer examples</strong><p>Browse example models with original category illustrations, not exact product photographs. Manufacturer links show model details. Confirm pricing, fit, and availability with our Wethersfield team.</p>";
   $(".filters").before(previewNotice);
   const render = () => {
     const search = $("#inventory-search").value.toLowerCase();
@@ -287,7 +311,7 @@ if ($("#inventory-results")) {
     guideNode.hidden = !guide;
     guideNode.className = "category-guide";
     guideNode.innerHTML = guide
-      ? `<div><h2>${esc(guide.name)}</h2><p>${esc(guide.description)}</p></div><a class="text-link" href="/${guide.id}.html">Explore this service →</a>`
+      ? `<div><h2>${esc(guide.name)}</h2><p>${esc(guide.description)}</p></div><a class="text-link" href="/${guide.id}.html">Explore this service </a>`
       : "";
     $("#inventory-count").textContent = products.length
       ? `${filtered.length} ${preview ? "sample " : ""}product${filtered.length === 1 ? "" : "s"}`
@@ -296,7 +320,7 @@ if ($("#inventory-results")) {
       ? filtered
           .map(
             (p) =>
-              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/products/")) ? `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" loading="lazy" referrerpolicy="no-referrer">` : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/book.html?store=wethersfield&service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
+              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/gear-")) ? `<img src="${esc(p.imageUrl)}" alt="${esc(preview ? p.category + " — original category illustration, not the exact model" : p.name)}" loading="lazy" referrerpolicy="no-referrer">` : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content">${preview ? '<small class="illustration-label">Original category illustration</small>' : ""}<span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/book.html?store=wethersfield&service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
           )
           .join("")
       : `<div class="empty-state"><h2>${guide && !search ? "Let’s find your fit." : products.length ? "No matching products." : "Ask about current stock."}</h2><p>${guide && !search ? "Contact our team for compatible options and current availability in this category." : products.length ? "Try another search or category." : "Our electronics catalog is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/book.html">Ask about a product </a></div>`;
@@ -362,7 +386,7 @@ if (carousel) {
   let hovered = false;
   let timer;
   const updatePlay = () => {
-    play.textContent = paused ? "▶" : "Ⅱ";
+    play.textContent = paused ? "Play" : "Pause";
     play.setAttribute(
       "aria-label",
       paused ? "Play slideshow" : "Pause slideshow",
