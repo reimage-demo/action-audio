@@ -8,12 +8,14 @@
     "build": "node scripts/build.mjs",
     "seo:generate": "node scripts/pages.mjs",
     "seo:check": "node scripts/validate-seo.mjs dist",
-    "seo:submit": "node scripts/submit-indexnow.mjs"
+    "seo:submit": "node scripts/submit-indexnow.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs && node scripts/pages.mjs"
   },
   "dependencies": {
     "convex": "^1.31.0"
   },
   "devDependencies": {
+    "sharp": "^0.35.5",
     "esbuild": "^0.28.2",
     "vite": "^7.0.0"
   }

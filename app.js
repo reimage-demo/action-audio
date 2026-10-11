@@ -1,3 +1,5 @@
+import { beginSubmission, submissionError } from "./shared/request-feedback.js";
+import { imageMarkup } from "./shared/images.js";
 import {
   stores,
   services,
@@ -52,6 +54,7 @@ async function client() {
 const notice = (node, message) => {
   node.innerHTML = `<div class="notice">${esc(message)}</div>`;
 };
+document.querySelectorAll("#booking-form,#estimate-form,#tracking-form").forEach(form=>form.addEventListener("focusin",()=>{client().catch(()=>{});},{once:true}));
 const params = new URLSearchParams(location.search);
 const booking = $("#booking-form");
 if (booking) {
@@ -97,8 +100,11 @@ if (booking) {
   async function refreshTimes() {
     const gen = ++generation;
     fields.time.disabled = true;
+    fields.time.removeAttribute("aria-busy");
     fields.time.innerHTML = '<option value="">Choose a store & date</option>';
     if (!fields.store.value || !fields.date.value) return;
+    fields.time.innerHTML = '<option value="">Loading available times…</option>';
+    fields.time.setAttribute("aria-busy","true");
     try {
       const c = await client();
       const times = await c.query("appointments:availability", {
@@ -121,9 +127,11 @@ if (booking) {
       fields.time.disabled = !times.length;
       $("#booking-message").textContent = "";
     } catch (e) {
-      if (gen === generation)
-        notice($("#booking-message"), e.data || e.message);
-    }
+      if (gen === generation) {
+        fields.time.innerHTML = '<option value="">Unable to load times — select the date again</option>';
+        notice($("#booking-message"), "Available times could not be loaded. Select your date again to retry, or call (860) 667-6330.");
+      }
+    } finally { if(gen === generation) fields.time.removeAttribute("aria-busy"); }
   }
   booking.addEventListener("change", (e) => {
     if (e.target.name === "store") syncServices();
@@ -136,15 +144,15 @@ if (booking) {
     );
   booking.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (!booking.reportValidity()) return;
+    if (booking.dataset.submitting || !booking.reportValidity()) return;
     const button = booking.querySelector("button[type=submit]");
-    button.disabled = true;
-    button.textContent = "Sending your request…";
+    const values = Object.fromEntries(new FormData(booking));
+    const finish = beginSubmission(booking,button,$("#booking-message"));
     try {
-      if (!fields.time.value)
+      if (!navigator.onLine) throw new Error("Offline");
+      if (!values.time)
         throw new Error("Choose an available time before submitting.");
       const c = await client();
-      const values = Object.fromEntries(new FormData(booking));
       const result = await c.mutation("appointments:create", {
         ...values,
         requestKey,
@@ -162,13 +170,10 @@ if (booking) {
         }
       });
       booking.querySelector(".booking-success").focus();
-      booking.scrollIntoView({ block: "start", behavior: "smooth" });
+      booking.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     } catch (err) {
-      notice($("#booking-message"), err.data || err.message);
-      $("#booking-message").focus();
-      button.disabled = false;
-      button.innerHTML = `Request an appointment `;
-    }
+      submissionError($("#booking-message"),err);
+    } finally { finish(); }
   });
 }
 const estimateForm = $("#estimate-form");
@@ -183,16 +188,17 @@ if (estimateForm) {
   fields.service.addEventListener("change",showLocation); showLocation();
   const requestKey = crypto.randomUUID();
   estimateForm.addEventListener("submit",async e=>{
-    e.preventDefault(); if (!estimateForm.reportValidity()) return;
+    e.preventDefault(); if (estimateForm.dataset.submitting || !estimateForm.reportValidity()) return;
     const button = estimateForm.querySelector('button[type="submit"]');
-    button.disabled=true;button.textContent="Sending request…";
     const values=Object.fromEntries(new FormData(estimateForm));
+    const finish=beginSubmission(estimateForm,button,$("#estimate-message"));
     try {
+      if (!navigator.onLine) throw new Error("Offline");
       const c=await client(); await c.mutation("estimates:create",{...values,requestKey});
       const service=serviceContent.find(s=>s.id===values.service),store=serviceStore(service.booking);
       estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
       estimateForm.querySelector('.estimate-success').focus();
-    } catch(err) { notice($("#estimate-message"),err.data||err.message);$("#estimate-message").focus();button.disabled=false;button.textContent="Request a call"; }
+    } catch(err) { submissionError($("#estimate-message"),err); } finally { finish(); }
   });
 }
 const tracking = $("#tracking-form");
@@ -225,12 +231,13 @@ if (tracking) {
   if (/^[a-f0-9]{32}$/i.test(initial)) tracking.elements.code.value = initial;
   tracking.addEventListener("submit", async (e) => {
     e.preventDefault();
-    if (!tracking.reportValidity()) return;
+    if (tracking.querySelector("button").disabled || !tracking.reportValidity()) return;
     const target = $("#tracking-result"),
       button = tracking.querySelector("button");
     unsubscribe?.();
     clearInterval(trackingTimer);
     button.disabled = true;
+    button.textContent="Checking…";button.classList.add("is-loading");
     notice(target, "Looking up your vehicle…");
     try {
       const c = await client();
@@ -240,7 +247,7 @@ if (tracking) {
         "appointments:track",
         { code },
         (a) => {
-          button.disabled = false;
+          button.disabled = false;button.textContent="Check my vehicle";button.classList.remove("is-loading");
           clearInterval(trackingTimer);
           if (!a) {
             notice(
@@ -254,13 +261,13 @@ if (tracking) {
           trackingTimer = setInterval(() => renderJourney(target, a), 60000);
         },
         (err) => {
-          button.disabled = false;
+          button.disabled = false;button.textContent="Check my vehicle";button.classList.remove("is-loading");
           clearInterval(trackingTimer);
           notice(target, err.data || err.message);
         },
       );
     } catch (err) {
-      button.disabled = false;
+      button.disabled = false;button.textContent="Check my vehicle";button.classList.remove("is-loading");
       notice(target, err.data || err.message);
     }
   });
@@ -320,7 +327,7 @@ if ($("#inventory-results")) {
       ? filtered
           .map(
             (p) =>
-              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/gear-")) ? `<img src="${esc(p.imageUrl)}" alt="${esc(preview ? p.category + " — original category illustration, not the exact model" : p.name)}" loading="lazy" referrerpolicy="no-referrer">` : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/book.html?store=wethersfield&service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
+              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/gear-")) ? (preview ? imageMarkup(p.imageUrl.split("/").at(-1),p.category + " — original category illustration, not the exact model",{sizes:"(max-width: 760px) 100vw, 400px"}) : `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" width="800" height="600" loading="lazy" decoding="async" referrerpolicy="no-referrer">`) : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/book.html?store=wethersfield&service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
           )
           .join("")
       : `<div class="empty-state"><h2>${guide && !search ? "Let’s find your fit." : products.length ? "No matching products." : "Ask about current stock."}</h2><p>${guide && !search ? "Contact our team for compatible options and current availability in this category." : products.length ? "Try another search or category." : "Our electronics catalog is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/book.html">Ask about a product </a></div>`;
@@ -397,18 +404,51 @@ if (carousel) {
     if (!paused && !hovered && !document.hidden)
       timer = setInterval(() => show(current + 1, false), 6500);
   }
-  function show(index, announce = true) {
-    current = (index + slides.length) % slides.length;
-    slides.forEach((slide, i) => {
-      slide.hidden = i !== current;
-      slide.classList.toggle("is-active", i === current);
-      dots[i].setAttribute("aria-pressed", String(i === current));
-    });
-    if (announce)
-      carousel.querySelector(".slide-status").textContent =
-        `Slide ${current + 1} of ${slides.length}: ${slides[current].querySelector("h2").innerText.replace(/\s+/g, " ")}`;
-    schedule();
+  let slideRequest = 0;
+  const loadedSlides = new Map();
+  function prepare(index) {
+    const target=(index+slides.length)%slides.length;
+    if(!loadedSlides.has(target)) loadedSlides.set(target,(async()=>{
+      const images=[...slides[target].querySelectorAll("img")];
+      images.forEach(image=>{image.loading="eager";image.fetchPriority="low";});
+      const image=slides[target].querySelector('.hero-photo img');
+      if(image) await image.decode();
+    })().catch(error=>{loadedSlides.delete(target);throw error;}));
+    return loadedSlides.get(target);
   }
+  function warmNext() {
+    if(navigator.connection?.saveData || document.hidden) return;
+    prepare(current+1).catch(()=>{});
+  }
+  async function show(index, announce = true) {
+    const target=(index+slides.length)%slides.length;
+    const request=++slideRequest;
+    const status=carousel.querySelector('.slide-status');
+    if(announce)status.textContent='Loading the next picture…';
+    carousel.setAttribute('aria-busy','true');
+    try {
+      await prepare(target);
+      if(request!==slideRequest)return;
+      current=target;
+      slides.forEach((slide,i)=>{
+        slide.hidden=i!==current;
+        slide.classList.toggle('is-active',i===current);
+        dots[i].setAttribute('aria-pressed',String(i===current));
+      });
+      if(announce)status.textContent=`Slide ${current+1} of ${slides.length}: ${slides[current].querySelector('h2').innerText.replace(/\s+/g,' ')}`;
+      warmNext();
+    } catch {
+      if(request===slideRequest)status.textContent='This picture could not load. Your current slide is still available. Try Next again.';
+    } finally {
+      if(request===slideRequest){carousel.removeAttribute('aria-busy');schedule();}
+    }
+  }
+  const firstImage=slides[0].querySelector('.hero-photo img');
+  const warmWhenReady=()=>{
+    if('requestIdleCallback' in window)requestIdleCallback(warmNext,{timeout:2000});
+    else setTimeout(warmNext,500);
+  };
+  if(firstImage.complete)warmWhenReady();else firstImage.addEventListener('load',warmWhenReady,{once:true});
   const manualShow = (index) => {
     paused = true;
     updatePlay();

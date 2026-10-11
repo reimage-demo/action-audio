@@ -68,35 +68,29 @@ if (basePath !== "/") {
       .map((f) => "shared/" + f),
   ];
   for (const file of files) {
-    const text = await readFile("dist/" + file, "utf8");
+    let text = await readFile("dist/" + file, "utf8");
     await writeFile(
       "dist/" + file,
       text.replace(
         file.endsWith(".css") ? /(["'`(])\/(?!\/)/g : /(["'`])\/(?!\/)/g,
-        "$1" + basePath,
-      ),
+        (_,prefix)=>prefix + basePath,
+      ).replace(/srcset="([^"]+)"/g,(_,sources)=>'srcset="'+sources.replace(/(^|,\s*)(\/[^\s,]+)/g,(_,prefix,url)=>prefix+(url.startsWith(basePath)?url:basePath+url.slice(1)))+'"'),
     );
   }
 }
 // Version shared module imports too, so updated application code never imports a stale catalog.
-const sharedVersions = await Promise.all(
-  (await readdir("dist/shared"))
-    .filter((f) => f.endsWith(".js"))
-    .map(async (file) => [
-      file,
-      createHash("sha256")
-        .update(await readFile("dist/shared/" + file))
-        .digest("hex")
-        .slice(0, 12),
-    ]),
-);
-let appSource = await readFile("dist/app.js", "utf8");
-for (const [file, version] of sharedVersions)
-  appSource = appSource.replaceAll(
-    `./shared/${file}"`,
-    `./shared/${file}?v=${version}"`,
-  );
-await writeFile("dist/app.js", appSource);
+const sharedFiles=(await readdir("dist/shared")).filter(file=>file.endsWith(".js")).sort();
+const sharedHash=createHash("sha256");
+for(const file of sharedFiles)sharedHash.update(file).update(await readFile("dist/shared/"+file));
+const sharedVersion=sharedHash.digest("hex").slice(0,12);
+for(const module of ["app.js",...sharedFiles.map(file=>"shared/"+file)]) {
+ let source=await readFile("dist/"+module,"utf8");
+ for(const file of sharedFiles) {
+  const prefix=module.startsWith("shared/")?"./":"./shared/";
+  for(const quote of ['"',"'"])source=source.replaceAll(prefix+file+quote,prefix+file+"?v="+sharedVersion+quote);
+ }
+ await writeFile("dist/"+module,source);
+}
 // Parse the deployable JavaScript after path rewriting, before it can be published.
 for (const file of [
   ...(await readdir("dist")).filter((f) => f.endsWith(".js")),

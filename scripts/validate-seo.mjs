@@ -23,6 +23,9 @@ for(const url of urls){
   const value=decode(link[1]);if(!value.startsWith(base)||value.startsWith('//'))continue;
   const target=value.slice(base.length).split(/[?#]/)[0]||'index.html';assert(fs.existsSync(path.join(root,target)),`Local link ${value}: ${file}`);
  }
+ for(const set of html.matchAll(/srcset="([^"]+)"/g))for(const candidate of set[1].split(',')){
+  const src=candidate.trim().split(/\s+/)[0];assert(src.startsWith(base),`Responsive image uses deployment base: ${src}`);assert(fs.existsSync(path.join(root,src.slice(base.length))),`Responsive image exists: ${src}`);
+ }
  const scripts=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];assert(scripts.length,`Schema: ${file}`);
  for(const script of scripts){
   const graph=JSON.parse(script[1])['@graph'];
