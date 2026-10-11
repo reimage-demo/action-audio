@@ -1,3 +1,4 @@
+import { financingDialog } from "./design.mjs";
 import { imageMarkup } from "../shared/images.js";
 import { writeFileSync, readFileSync } from "node:fs";
 import { metadata, writeDiscovery } from "./seo.mjs";
@@ -141,6 +142,7 @@ for (const [file, p] of Object.entries(pages)) {
   writeFileSync(file, `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12345b">${metadata(file,p)}<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script src="/config.js"></script><script type="module" src="/app.js"></script><script src="/site.js" defer></script></head><body class="page-${file.replace(".html", "")}">${nav}<main id="main">${p.body}</main>${footer}</body></html>`);
 }
 const landing = readFileSync("landing-page.html", "utf8").replace(/(<a class="links-logo"[^>]*>)[\s\S]*?(<\/a>)/, (_,start,end)=>start+imageMarkup("action-audio-logo.webp","The Action Audio Store",{sizes:"270px",eager:true,priority:"auto"})+end);
+const landingWithFinancing = landing.replace(/<dialog\b[\s\S]*?<\/dialog>/, financingDialog).replace(/<script>\s*const acimaDialog[\s\S]*?<\/script>/, "").replace(/[ \t]+$/gm, "");
 const landingMeta = metadata("landing-page.html", {title:"Book, Track & Explore | Action Audio Hartford & Wethersfield",desc:"Request an appointment, track your vehicle, browse electronics, and contact Action Audio. Detailing in Hartford; car audio and electronics in Wethersfield."});
-writeFileSync("landing-page.html",landing.replace(/<head>[\s\S]*?<\/head>/,`<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12345b">${landingMeta}<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script src="/site.js" defer></script></head>`));
+writeFileSync("landing-page.html",landingWithFinancing.replace(/<head>[\s\S]*?<\/head>/,`<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12345b">${landingMeta}<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script src="/site.js" defer></script></head>`));
 writeDiscovery(pages);

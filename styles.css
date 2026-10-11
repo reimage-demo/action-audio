@@ -4066,3 +4066,9 @@ picture{display:block}
 .form-panel[aria-busy=true] input,.form-panel[aria-busy=true] select,.form-panel[aria-busy=true] textarea{opacity:.75}
 @keyframes request-spin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.request-spinner,.is-loading::before{animation:none;border-style:dotted}}
+
+/* Shared service financing CTA; uses the same Acima store chooser as the landing page. */
+.service-cta-actions{display:flex;flex-direction:column;align-items:center;gap:20px;flex-shrink:0}
+.final-cta .service-cta-actions .button{margin:0;min-width:220px}
+.final-cta .service-cta-actions .text-link{color:#fff;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:760px){.service-cta-actions{align-items:flex-start;margin-top:28px}.final-cta .service-cta-actions .button{min-width:0;width:100%}}
