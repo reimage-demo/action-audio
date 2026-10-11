@@ -1,4 +1,5 @@
 import { mkdir, cp, readdir, readFile, writeFile, rm } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { build, transform } from "esbuild";
 import { loadEnv } from "vite";
 const env = loadEnv("production", process.cwd(), "");
@@ -85,6 +86,22 @@ for (const file of [
     loader: "js",
     sourcefile: file,
   });
+}
+// A new deployment must not reuse stale CSS or JavaScript from browser/CDN caches.
+const assetVersions = await Promise.all(
+  ["styles.css", "app.js", "config.js"].map(async (asset) => {
+    const digest = createHash("sha256")
+      .update(await readFile("dist/" + asset))
+      .digest("hex")
+      .slice(0, 12);
+    return [basePath + asset, basePath + asset + "?v=" + digest];
+  }),
+);
+for (const file of (await readdir("dist")).filter((f) => f.endsWith(".html"))) {
+  let html = await readFile("dist/" + file, "utf8");
+  for (const [asset, versioned] of assetVersions)
+    html = html.replaceAll('"' + asset + '"', '"' + versioned + '"');
+  await writeFile("dist/" + file, html);
 }
 await writeFile("dist/.nojekyll", "");
 console.log("Public HTML/CSS/JS built in dist/.");
