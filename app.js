@@ -1,14 +1,14 @@
-import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=4741659e140e";
-import { imageMarkup } from "./shared/images.js?v=4741659e140e";
+import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=d3755c31ed7f";
+import { imageMarkup } from "./shared/images.js?v=d3755c31ed7f";
 import {
   stores,
   services,
   statusLabels,
   serviceStore,
   serviceAvailableAt,
-} from "./shared/catalog.js?v=4741659e140e";
-import { serviceContent } from "./shared/service-content.js?v=4741659e140e";
-import { journeyProgress, progressStages } from "./shared/progress.js?v=4741659e140e";
+} from "./shared/catalog.js?v=d3755c31ed7f";
+import { serviceContent } from "./shared/service-content.js?v=d3755c31ed7f";
+import { journeyProgress, progressStages } from "./shared/progress.js?v=d3755c31ed7f";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>
   String(s ?? "").replace(
@@ -349,7 +349,7 @@ if ($("#inventory-results")) {
     }),
   );
   if (preview) {
-    import("./shared/inventory-preview.js?v=4741659e140e")
+    import("./shared/inventory-preview.js?v=d3755c31ed7f")
       .then(({ previewProducts }) => {
         products = previewProducts;
         render();
