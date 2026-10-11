@@ -13,7 +13,7 @@
 
 ## Customer resources
 - [Book an appointment](https://reimage-demo.github.io/action-audio/book.html): select a store, service, date, and time. A request is not confirmed until staff confirms it.
-- [Inventory](https://reimage-demo.github.io/action-audio/inventory.html): published product listings with store-specific availability. Do not infer stock or prices from brand names.
+- [Electronics](https://reimage-demo.github.io/action-audio/electronics.html): published product listings with store-specific availability. Do not infer stock or prices from brand names.
 - [Our story](https://reimage-demo.github.io/action-audio/about.html): founded as a CB radio store in 1983.
 - [Privacy](https://reimage-demo.github.io/action-audio/privacy.html)
 
