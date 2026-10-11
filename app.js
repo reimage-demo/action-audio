@@ -138,7 +138,7 @@ const tracking = $("#tracking-form");
 let unsubscribe;
 if (tracking) {
   const initial = location.hash.slice(1);
-  if (/action-audio/^[a-f0-9]{32}$/i.test(initial)) tracking.elements.code.value = initial;
+  if (/^[a-f0-9]{32}$/i.test(initial)) tracking.elements.code.value = initial;
   tracking.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!tracking.reportValidity()) return;
