@@ -1,4 +1,5 @@
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync } from "node:fs";
+import { metadata, writeDiscovery } from "./seo.mjs";
 import { serviceContent } from "../shared/service-content.js";
 import { stores, services } from "../shared/catalog.js";
 import {
@@ -32,7 +33,7 @@ const head = (label, title, desc) =>
   `<section class="page-heading wrap"><h1>${title}</h1><p>${desc}</p></section>`;
 const pages = {
   "index.html": {
-    title: "Car Audio, Remote Starters & Electronics | Action Audio CT",
+    title: "Hartford Car Detailing & Auto Electronics | Action Audio",
     desc: "Upgrade your drive with car audio, remote starters, electronics, and installation in Wethersfield, plus auto detailing in Hartford, Connecticut.",
     body: homePage(),
   },
@@ -80,7 +81,7 @@ const pages = {
   "book.html": {
     title:
       "Book Auto Electronics Repair, Detailing & Installation | Action Audio",
-    desc: "Request auto electronics repair, auto detailing, or auto electrical installation in Wethersfield, or auto detailing in Hartford.",
+    desc: "Request car electronics repair or installation in Wethersfield, or interior and exterior auto detailing in Hartford, CT. Choose your store and preferred date.",
     body:
       head(
         "LET’S TAKE CARE OF YOUR RIDE",
@@ -124,80 +125,21 @@ for (const s of stores)
     body:
       head(
         `ACTION AUDIO · ${s.name.toUpperCase()}, CONNECTICUT`,
-        `Action Audio<br>${s.name}`,
+        `${s.id === "hartford" ? "Car detailing" : "Car audio & electronics"}<br>${s.name}, CT`,
         `${s.detail} at ${s.address}.`,
       ) +
-      `<section class="wrap location-local"><div class="form-panel"><h2>${s.name}</h2><p>${s.address}<br>${s.city}</p><p>Monday–Saturday: 9am–6pm<br>Sunday: Closed<br><small>Holiday hours may vary.</small></p><a class="button" href="/book.html?store=${s.id}">Book at ${s.name} </a><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address + " " + s.city)}">Get directions</a></div><div><h2>Services at this store</h2><p>${s.id === "wethersfield" ? "Explore car audio, remote starters, and electronics with our Wethersfield team. Let’s find the right fit for your vehicle." : "Bring your vehicle to our Hartford team for interior and exterior detailing. Tell us about its condition and the finish you’re looking for."}</p><ul class="check-list">${services
-        .filter((service) => s.serviceIds.includes(service.id))
+      `<section class="wrap location-local"><div class="form-panel"><h2>${s.name}</h2><p>${s.address}<br>${s.city}</p><p>Monday–Saturday: 9am–6pm<br>Sunday: Closed<br><small>Holiday hours may vary.</small></p><a class="button" href="/book.html?store=${s.id}">Book at ${s.name} </a><a class="text-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address + " " + s.city)}">Get directions</a></div><div><h2>Services at this store</h2><p>${s.id === "wethersfield" ? "Explore car audio, remote starters, and electronics with our Wethersfield team. Let’s find the right fit for your vehicle." : "Bring your vehicle to our Hartford team for interior and exterior detailing. Tell us about its condition and the finish you’re looking for."}</p><ul class="check-list">${serviceContent
+        .filter((service) => (service.booking === "auto-detailing" ? "hartford" : "wethersfield") === s.id)
         .map((s) => `<li><a href="/${s.id}.html">${s.name}</a></li>`)
         .join("")}</ul></div></section>` +
       (s.id === "wethersfield" ? showroomGallery() : "") +
       cta,
   };
 Object.assign(pages, detailPages());
-const domain = "https://actionaudiostorellc.com";
 for (const [file, p] of Object.entries(pages)) {
-  const url = domain + (file === "index.html" ? "/" : "/" + file);
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": stores.map((s) => ({
-      "@type": "AutomotiveBusiness",
-      "@id": domain + "/" + s.id + ".html#store",
-      name: "Action Audio — " + s.name,
-      description: s.detail,
-      knowsAbout:
-        s.id === "hartford"
-          ? ["Auto detailing"]
-          : [
-              "Remote starters",
-              "Car audio",
-              "Electronics repair",
-              "Electronics installation",
-            ],
-      url: domain + "/" + s.id + ".html",
-      image: domain + "/assets/action-audio-logo.webp",
-      ...(s.phone ? { telephone: "+1" + s.tel } : {}),
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: s.address,
-        addressLocality: s.name,
-        addressRegion: "CT",
-        postalCode: s.id === "hartford" ? "06120" : "06109",
-        addressCountry: "US",
-      },
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-          ],
-          opens: "09:00",
-          closes: "18:00",
-        },
-      ],
-      areaServed: ["Hartford", "Wethersfield"],
-      foundingDate: "1983",
-    })),
-  };
-  writeFileSync(
-    file,
-    `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>${p.title}</title><meta name="description" content="${p.desc}"><meta name="robots" content="${p.noindex ? "noindex, nofollow" : "index, follow"}"><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:title" content="${p.title}"><meta property="og:description" content="${p.desc}"><meta property="og:url" content="${url}"><meta property="og:image" content="${domain}/assets/hero-installation.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script type="application/ld+json">${JSON.stringify(schema)}</script><script src="/config.js"></script><script type="module" src="/app.js"></script><script src="/site.js" defer></script></head><body class="page-${file.replace(".html", "")}">${nav}<main id="main">${p.body}</main>${footer}</body></html>`,
-  );
+  writeFileSync(file, `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12345b">${metadata(file,p)}<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script src="/config.js"></script><script type="module" src="/app.js"></script><script src="/site.js" defer></script></head><body class="page-${file.replace(".html", "")}">${nav}<main id="main">${p.body}</main>${footer}</body></html>`);
 }
-writeFileSync(
-  "sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${Object.entries(
-    pages,
-  )
-    .filter(([f, p]) => !p.noindex)
-    .map(
-      ([f]) =>
-        `<url><loc>${domain}${f === "index.html" ? "/" : "/" + f}</loc></url>`,
-    )
-    .join("")}<url><loc>${domain}/landing-page.html</loc></url></urlset>`,
-);
+const landing = readFileSync("landing-page.html", "utf8");
+const landingMeta = metadata("landing-page.html", {title:"Book, Track & Explore | Action Audio Hartford & Wethersfield",desc:"Request an appointment, track your vehicle, browse electronics, and contact Action Audio. Detailing in Hartford; car audio and electronics in Wethersfield."});
+writeFileSync("landing-page.html",landing.replace(/<head>[\s\S]*?<\/head>/,`<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12345b">${landingMeta}<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="stylesheet" href="/styles.css"><script src="/site.js" defer></script></head>`));
+writeDiscovery(pages);

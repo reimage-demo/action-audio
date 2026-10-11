@@ -4015,3 +4015,27 @@ footer{background:var(--brand-blue);color:#fff;border-top:5px solid var(--brand-
  .legal-prose h2{font-size:24px;margin-top:32px}
  .hero-control-row{display:flex;justify-content:center}
 }
+
+/* Local service information follows the same restrained page rhythm. */
+.service-breadcrumbs{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;line-height:1.6;margin-bottom:24px;color:#606a75}
+.service-breadcrumbs a{color:var(--brand-blue);text-underline-offset:3px}
+.service-local-context{padding-block:32px 16px;border-top:1px solid #e2e6eb}
+.service-local-context h2{font-size:28px;letter-spacing:-.6px;margin-bottom:18px}
+.service-local-context p{max-width:80ch;line-height:1.8;color:#535e6a}
+.related-services,.electronics-service-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin:24px 0}
+.related-services a,.electronics-service-links a,.heritage p a{color:var(--brand-blue);text-decoration:underline;text-underline-offset:4px}
+.page-links{background:#fff;color:#12345b;border-top:6px solid #c92336}
+.page-links .links-wrapper{max-width:480px;padding-bottom:88px}
+.page-links .links-logo{background:#12345b;border:0;border-bottom:4px solid #c92336;border-radius:6px;padding:22px 30px}
+.page-links h1{color:#12345b}
+.page-links .links-subtitle{color:#536276}
+.page-links .link-card{background:#12345b;color:#fff;border:1px solid #12345b;min-height:56px}
+.page-links .link-card:hover{background:#204b78;border-color:#204b78;color:#fff}
+.page-links .link-card-primary{background:#c92336;border-color:#c92336}
+.page-links .link-card-primary:hover{background:#a71a2b;border-color:#a71a2b}
+.page-links .link-card-note{color:#e2ebf5}
+.page-links .links-footer{background:#12345b;color:#e2ebf5;border-top:4px solid #c92336;padding:24px 20px;margin-top:32px;border-radius:4px}
+.page-links .links-footer a,.page-links .links-footer .powered-by,.page-links .links-footer .powered-by a{color:#fff}
+.page-links .links-footer .legal-links{gap:8px 14px;font-size:12px}
+@media(max-width:600px){.page-links .links-wrapper{padding-top:28px;padding-bottom:88px}.service-local-context h2{font-size:25px}}
+.page-links .links-footer p{color:#e2ebf5}

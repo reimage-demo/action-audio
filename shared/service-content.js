@@ -230,7 +230,7 @@ export const serviceContent = [
     tag: "Back to the way it should be",
     headline: "Less troubleshooting.\nMore enjoying the drive.",
     description:
-      "Audio cutting out? A receiver that won’t respond? Tell us what’s happening so we can assess the issue and discuss the next step.",
+      "Car stereo cutting out or a receiver that will not respond? Our Wethersfield team assesses auto electronics problems for drivers in the Hartford area.",
     image: "service-repair.webp",
     alt: "Original illustration of bench diagnostics on a car stereo",
     booking: "electronics-repair",
@@ -256,7 +256,7 @@ export const serviceContent = [
     tag: "A fresh perspective",
     headline: "Fall in love.\nWith your ride again.",
     description:
-      "Give your vehicle some extra care. Talk with us about its current condition and the interior or exterior finish you have in mind.",
+      "Interior and exterior car detailing at our Hartford, Connecticut store. Tell us about your vehicle’s condition and the areas you would like refreshed.",
     image: "service-detailing.webp",
     alt: "Original illustration of a detailer polishing a vehicle hood",
     booking: "auto-detailing",
@@ -282,7 +282,7 @@ export const serviceContent = [
     tag: "Bring your next project",
     headline: "The right equipment.\nThoughtfully installed.",
     description:
-      "Plan your next vehicle electronics project with Action Audio. We’ll discuss your equipment, check compatibility, and help you understand the installation.",
+      "Plan your car electronics installation at Action Audio in Wethersfield, near Hartford. Discuss receivers, speakers, and accessories, with compatibility checked for your vehicle.",
     image: "service-installation.webp",
     alt: "Original illustration of dashboard electronics and wiring installation",
     booking: "electrical-installation",
@@ -303,6 +303,28 @@ export const serviceContent = [
     ],
   },
 ];
+
+// Practical, visible answers also supply the service-page structured data.
+const localQuestions = {
+  "auto-detailing": [
+    ["Where is your Hartford car detailing shop?", "Detailing is offered at 2814 Main St, Hartford, CT 06120. The Hartford store is open Monday–Saturday, 9am–6pm, and closed Sundays. Confirm your appointment and holiday hours with the team."],
+    ["Can I request interior and exterior detailing?", "Yes. Tell us whether you need interior care, exterior care, or both. Describe stains, odors, sensitive materials, and surface concerns so the team can confirm the available work and scope."],
+    ["How much does car detailing cost?", "Pricing depends on vehicle size, condition, and the agreed work. Request an estimate with your vehicle make and model. The team will discuss the details and approximate price before you arrange service."],
+    ["How should I prepare for a detailing appointment?", "Remove personal belongings and tell the team about any sensitive surfaces or existing damage. Confirm specific drop-off instructions and timing when your appointment is arranged."]
+  ],
+  "electronics-repair": [
+    ["Where do you offer auto electronics repair near Hartford?", "Auto electronics repair is handled at 105 Silas Deane Hwy, Wethersfield, CT 06109. Call (860) 667-6330 or request an estimate online. Our Hartford location handles detailing."],
+    ["What should I share about a car stereo problem?", "Include the vehicle year, make, model, stereo or amplifier model, when the problem started, and whether it happens all the time. Mention recent installations or changes and bring a short video if the issue is intermittent."],
+    ["Will you repair or replace the equipment?", "The next step depends on the assessment, equipment condition, and available options. The team will discuss repair or replacement options and costs before work proceeds."]
+  ],
+  "electrical-installation": [
+    ["Where can I book car electronics installation near Hartford?", "Book with the Wethersfield store at 105 Silas Deane Hwy, Wethersfield, CT 06109. Electronics installation is available through this location; the Hartford store specializes in detailing."],
+    ["Do I need adapters for an aftermarket receiver?", "Your vehicle and chosen receiver determine the required harnesses, mounting parts, and integration adapters. Share the year, make, model, trim, and equipment model before purchasing installation parts."],
+    ["Can I keep my factory vehicle controls?", "Compatibility depends on the vehicle, factory system, new equipment, and available interfaces. Ask the team to review any steering-wheel controls, camera, or factory features you want to retain."]
+  ]
+};
+for (const service of serviceContent) service.faq.push(...(localQuestions[service.id] || []));
+
 export const electronicsCategories = [
   "Car audio",
   "Remote starters",

@@ -16,6 +16,8 @@ for (const f of (await readdir(".")).filter(
       "robots.txt",
       "sitemap.xml",
       "llms.txt",
+      "llms-full.txt",
+      "action-audio-indexnow.txt",
     ].includes(f),
 ))
   await cp(f, "dist/" + f);
