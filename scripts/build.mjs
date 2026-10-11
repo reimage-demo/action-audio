@@ -1,5 +1,5 @@
 import { mkdir, cp, readdir, readFile, writeFile, rm } from "node:fs/promises";
-import { build } from "esbuild";
+import { build, transform } from "esbuild";
 import { loadEnv } from "vite";
 const env = loadEnv("production", process.cwd(), "");
 await rm("dist", { recursive: true, force: true });
@@ -67,9 +67,24 @@ if (basePath !== "/") {
     const text = await readFile("dist/" + file, "utf8");
     await writeFile(
       "dist/" + file,
-      text.replace(/(["'`(])\/(?!\/)/g, "$1" + basePath),
+      text.replace(
+        file.endsWith(".css") ? /(["'`(])\/(?!\/)/g : /(["'`])\/(?!\/)/g,
+        "$1" + basePath,
+      ),
     );
   }
+}
+// Parse the deployable JavaScript after path rewriting, before it can be published.
+for (const file of [
+  ...(await readdir("dist")).filter((f) => f.endsWith(".js")),
+  ...(await readdir("dist/shared"))
+    .filter((f) => f.endsWith(".js"))
+    .map((f) => "shared/" + f),
+]) {
+  await transform(await readFile("dist/" + file, "utf8"), {
+    loader: "js",
+    sourcefile: file,
+  });
 }
 await writeFile("dist/.nojekyll", "");
 console.log("Public HTML/CSS/JS built in dist/.");
