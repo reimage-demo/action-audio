@@ -1,0 +1,77 @@
+{
+  "service-motorcycle": {
+    "tool": "Built-in image_gen",
+    "prompt": "Original editorial commercial photograph, landscape 3:2. Close three-quarter view of the cockpit of an unbranded black touring motorcycle parked outside a tidy workshop in daylight. Two clearly visible round aftermarket speakers integrated into its front fairing, black speaker grilles, handlebar controls and windscreen, realistic chrome and matte black materials. The photograph is specifically about MOTORCYCLE AUDIO, not a generic motorcycle beauty shot. Clean believable equipment with no visible logos, no text, no people, no watermark, no dramatic effects. Unique original composition, illustrative service imagery.",
+    "file": "assets/service-motorcycle.webp"
+  },
+  "service-video": {
+    "tool": "Built-in image_gen",
+    "prompt": "Original photorealistic commercial service photograph, wide landscape 3:2. Interior of an unbranded family SUV viewed from the rear seat, showing two neatly integrated seatback entertainment screens mounted on the front headrests. Screens display a simple natural mountain landscape photograph with no text or interface branding. Clean charcoal upholstery, a folded pair of headphones on rear seat edge, believable cabling hidden. Daylight through windows, calm neutral color, professional authentic automotive photography. The unique subject is rear-seat VIDEO AND ENTERTAINMENT, no driver dashboard focus, no logos, watermarks or copied reference images. Illustrative service photo.",
+    "file": "assets/service-video.webp"
+  },
+  "service-security": {
+    "tool": "Built-in image_gen",
+    "prompt": "Create an original photorealistic automotive security service photograph, wide landscape 3:2. A tidy workbench beside the open driver's door of an unbranded dark gray car, with a compact black car alarm siren, small security control module and neatly coiled wiring harness arranged in the foreground. A technician's hand is securing a small discreet alarm status indicator near the steering column in the softly blurred background. The clearly legible subject is a car alarm/security installation, not remote start or stereo repair. Natural daylight, realistic plastic and metal, professional clean installation environment. No brand marks, readable text, watermarks, locks/icons superimposed or abstract graphics. Original illustrative commercial photo.",
+    "file": "assets/service-security.webp"
+  },
+  "service-liftgate": {
+    "tool": "Built-in image_gen",
+    "prompt": "Create an ORIGINAL realistic commercial photograph for a power liftgate installation service, wide landscape 3:2. Rear three-quarter view of a clean unbranded silver crossover SUV with rear hatch fully open in a bright workshop doorway. The powered liftgate struts on each side and a person's hand pressing the small close button on the inside lower edge of the hatch are clearly visible. Empty clean trunk, natural believable proportions, no remote key fob foreground. Daylight and neutral practical workshop setting, crisp authentic automotive photography. No logos, license plate lettering, captions, watermarks, graphics or copied photograph. Illustrative power-liftgate service imagery.",
+    "file": "assets/service-liftgate.webp"
+  },
+  "service-radar": {
+    "tool": "Built-in image_gen",
+    "prompt": "Original realistic editorial photo, landscape 3:2. Close view from passenger side of a vehicle windshield showing a compact unbranded matte-black radar detector neatly mounted below the rearview mirror with a clean discreet power cable routed toward the headliner. Detector faces forward through windshield, its small dark display facing the driver has only a subtle unreadable blue indicator, no legible text. Softly blurred quiet road and trees outside. Neutral daylight, crisp device detail, practical understated car interior, no logos, overlays, glowing graphics or watermark. Create a new distinct composition, an illustrative radar detector installation service photograph.",
+    "file": "assets/service-radar.webp"
+  },
+  "service-accessories": {
+    "tool": "Built-in image_gen",
+    "prompt": "Create an ORIGINAL landscape 3:2 photorealistic automotive accessories photograph. Clean close view of an unbranded modern car center console with a discreet professionally installed USB-C charging panel and smartphone resting face-up in a rubberized wireless charging tray. A short neatly routed charging cable and tactile vehicle trim establish practical everyday connectivity. A technician's hand checking the connector gently, realistic fingers, no invasive wiring. Screen dark, no logos or readable text, no invented interface, no graphics or watermark. Neutral daylight, black and gray materials with a small warm wood trim detail. Distinct original editorial composition for connected vehicle accessories, not car audio speakers or remote starters.",
+    "file": "assets/service-accessories.webp"
+  },
+  "gear-speakers": {
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: product-mockup. Create an original landscape 3:2 studio photograph illustration of a pair of unbranded 6.5-inch black coaxial car speakers, one upright at a gentle three-quarter angle and the other lying face up. Crisp realistic cone, rubber surround, central tweeter and mounting flange details. Pale neutral gray seamless background, soft even studio light, generous space around the pair, restrained natural contact shadow. No logos, text, labels or watermark. Generic equipment category illustration, not a replica of any particular model.",
+    "file": "assets/gear-speakers.webp"
+  },
+  "gear-subwoofer": {
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: product-mockup. Create an original landscape 3:2 studio photo illustration of a single unbranded black 12-inch car subwoofer, seen at a three-quarter front angle with deep black cone, thick rubber surround, cast metal basket and substantial magnet visible underneath. Pale neutral gray seamless studio background. Product centered with breathing room, soft clear lighting, subtle natural contact shadow. No logos, text, model labels or watermark. Generic subwoofer category illustration, not a copy of a manufacturer's design or photograph.",
+    "file": "assets/gear-subwoofer.webp"
+  },
+  "gear-amplifier": {
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: product-mockup. Original landscape 3:2 studio photo illustration of a compact unbranded automotive mono amplifier. Low rectangular black anodized metal chassis, subtle finned edges, power and speaker screw terminals clearly visible on one short edge, small analog adjustment knobs on opposite edge. Three-quarter elevated view on pale neutral gray seamless background, soft even lighting, realistic metal and screws, natural contact shadow. Centered with space around object. No logos, readable text, model labels, glow or watermark. Generic amplifier category example, do not replicate any manufacturer's exact product.",
+    "file": "assets/gear-amplifier.webp"
+  },
+  "gear-receiver": {
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: product-mockup. Original landscape 3:2 studio photo illustration of a generic unbranded double-DIN car touchscreen receiver, front three-quarter angle. Black rectangular seven-inch glossy display, discreet physical volume knob and small controls down one edge, metal chassis visible behind. Screen dark with a faint natural studio reflection, no invented app interface, no text or logos. Pale neutral gray seamless background, soft even light, natural contact shadow, centered with breathing room. Realistic equipment category illustration, not a copy of any actual manufacturer's exact model or photograph.",
+    "file": "assets/gear-receiver.webp"
+  },
+  "gear-speakers-pair": {
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: product-mockup. Create a new original landscape 3:2 studio photograph illustration of two unbranded 6.5-inch coaxial automotive speakers and two separate perforated round protective grilles arranged neatly on a light neutral gray background. Speakers have charcoal woven cones, discreet silver center tweeters and black mounting flanges. Higher camera angle than typical front product photos, pair arranged diagonally with grilles beside them. Soft even studio light and natural contact shadows, realistic equipment. No logos, labels, readable text or watermark. Generic category illustration, not an exact branded model.",
+    "file": "assets/gear-speakers-pair.webp"
+  },
+  "gear-subwoofer-cone": {
+    "tool": "Built-in image_gen",
+    "prompt": "Use case: product-mockup. Original landscape 3:2 studio photograph illustration of a single unbranded high-excursion 12-inch car subwoofer, upright, photographed nearly straight-on so the large dark charcoal cone and broad black rubber surround dominate, with a small portion of silver cast basket visible on one side. A different original design from standard brand products, no brand identifiers. Light neutral gray seamless studio background, soft even illumination and realistic natural shadow, spacious framing. No text, logos, labels or watermark. Generic equipment category illustration, not an exact model photograph.",
+    "file": "assets/gear-subwoofer-cone.webp"
+  },
+  "service-repair": {
+    "tool": "Built-in image_gen",
+    "prompt": "Original editorial service photograph for an automotive electronics website. Wide landscape 3:2. A car audio technician's hands using a digital multimeter to diagnose a removed unbranded black car stereo head unit on a clean electronics workbench, the open unit with a believable green circuit board, multimeter probes making contact, a few organized precision tools. Close medium composition, focus on diagnostics rather than installation. Soft neutral workshop lighting, realistic textures, restrained gray, black, metallic and modest blue color. Photorealistic professional commercial photography, no text, no logos, no watermark, no decorative effects. This is illustrative service imagery, not a depiction of any named business's premises. Do not copy any existing photograph.",
+    "file": "assets/service-repair.webp"
+  },
+  "service-installation": {
+    "tool": "Built-in image_gen",
+    "prompt": "Create an ORIGINAL photorealistic editorial photograph for a vehicle ELECTRICAL INSTALLATION service, wide landscape 3:2. Medium close view from passenger seat across an unbranded practical modern car dashboard, center trim carefully removed and a technician's hands installing a new touchscreen head unit with an organized adapter wiring harness. One hand supporting the unit, the other joining a single factory-style connector. Realistic dashboard and tidy professional workmanship, no bare twisted wire joints, no circuit-board bench repair, no subwoofer trunk. Soft daylight, believable black and gray car materials, clean tools, natural commercial photography. No logos, text, watermark, graphics. Distinct original composition, illustrative service image, not a named shop.",
+    "file": "assets/service-installation.webp"
+  },
+  "service-detailing": {
+    "tool": "Built-in image_gen",
+    "prompt": "Create an ORIGINAL photorealistic commercial photograph for auto detailing, wide landscape 3:2. A professional detailer's gloved hands carefully using an orbital polisher on the glossy dark red hood of a clean unbranded sedan inside a bright tidy detailing bay. Medium close composition showing the polisher flat against the paint, realistic pad contact and subtle reflections, microfiber towels folded on a trolley in softly blurred background. Natural workshop daylight, no dramatic glare, no abstract graphics. Focus on actual detailing work, distinctive from car stereo installation. No logos, text or watermark. Illustrative service imagery, not any real named shop.",
+    "file": "assets/service-detailing.webp"
+  }
+}
