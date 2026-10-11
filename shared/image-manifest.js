@@ -148,18 +148,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/assets/optimized/hero-installation-480.avif",
-        "webp": "/assets/optimized/hero-installation-480.webp"
+        "avif": "/assets/optimized/hero-installation-480-hq.avif",
+        "webp": "/assets/optimized/hero-installation-480-hq.webp"
       },
       {
         "width": 800,
-        "avif": "/assets/optimized/hero-installation-800.avif",
-        "webp": "/assets/optimized/hero-installation-800.webp"
+        "avif": "/assets/optimized/hero-installation-800-hq.avif",
+        "webp": "/assets/optimized/hero-installation-800-hq.webp"
       },
       {
         "width": 1200,
-        "avif": "/assets/optimized/hero-installation-1200.avif",
-        "webp": "/assets/optimized/hero-installation-1200.webp"
+        "avif": "/assets/optimized/hero-installation-1200-hq.avif",
+        "webp": "/assets/optimized/hero-installation-1200-hq.webp"
       }
     ]
   },
@@ -169,23 +169,23 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/assets/optimized/hero-remote-start-480.avif",
-        "webp": "/assets/optimized/hero-remote-start-480.webp"
+        "avif": "/assets/optimized/hero-remote-start-480-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-480-hq.webp"
       },
       {
         "width": 800,
-        "avif": "/assets/optimized/hero-remote-start-800.avif",
-        "webp": "/assets/optimized/hero-remote-start-800.webp"
+        "avif": "/assets/optimized/hero-remote-start-800-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-800-hq.webp"
       },
       {
         "width": 1200,
-        "avif": "/assets/optimized/hero-remote-start-1200.avif",
-        "webp": "/assets/optimized/hero-remote-start-1200.webp"
+        "avif": "/assets/optimized/hero-remote-start-1200-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-1200-hq.webp"
       },
       {
         "width": 1672,
-        "avif": "/assets/optimized/hero-remote-start-1672.avif",
-        "webp": "/assets/optimized/hero-remote-start-1672.webp"
+        "avif": "/assets/optimized/hero-remote-start-1672-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-1672-hq.webp"
       }
     ]
   },
@@ -216,18 +216,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/assets/optimized/service-detailing-480.avif",
-        "webp": "/assets/optimized/service-detailing-480.webp"
+        "avif": "/assets/optimized/service-detailing-480-hq.avif",
+        "webp": "/assets/optimized/service-detailing-480-hq.webp"
       },
       {
         "width": 800,
-        "avif": "/assets/optimized/service-detailing-800.avif",
-        "webp": "/assets/optimized/service-detailing-800.webp"
+        "avif": "/assets/optimized/service-detailing-800-hq.avif",
+        "webp": "/assets/optimized/service-detailing-800-hq.webp"
       },
       {
         "width": 1200,
-        "avif": "/assets/optimized/service-detailing-1200.avif",
-        "webp": "/assets/optimized/service-detailing-1200.webp"
+        "avif": "/assets/optimized/service-detailing-1200-hq.avif",
+        "webp": "/assets/optimized/service-detailing-1200-hq.webp"
       }
     ]
   },

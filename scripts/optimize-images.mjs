@@ -2,17 +2,19 @@ import sharp from 'sharp';
 import {readdir, mkdir, writeFile, stat} from 'node:fs/promises';
 await mkdir('assets/optimized',{recursive:true});
 const files=(await readdir('assets')).filter(f=>f.endsWith('.webp')).sort();
+const heroFiles=new Set(['hero-installation.webp','hero-remote-start.webp','service-detailing.webp']);
 const manifest={};let sourceBytes=0,largestBytes=0,smallBytes=0;
 for(const file of files){
  const source='assets/'+file,meta=await sharp(source).metadata();
  const widths=[...new Set([480,800,1200,meta.width].filter(width=>width<=meta.width))].sort((a,b)=>a-b);
  const variants=[];
  for(const width of widths){
-  const stem=file.replace('.webp','')+'-'+width;
+  const hero=heroFiles.has(file);
+  const stem=file.replace('.webp','')+'-'+width+(hero?'-hq':'');
   const avif='/assets/optimized/'+stem+'.avif',webp='/assets/optimized/'+stem+'.webp';
   await Promise.all([
-   sharp(source).resize({width,withoutEnlargement:true}).avif({quality:53,effort:4}).toFile(avif.slice(1)),
-   sharp(source).resize({width,withoutEnlargement:true}).webp({quality:78,effort:5}).toFile(webp.slice(1))
+   sharp(source).resize({width,withoutEnlargement:true}).avif({quality:hero?65:53,effort:4}).toFile(avif.slice(1)),
+   sharp(source).resize({width,withoutEnlargement:true}).webp({quality:hero?88:78,effort:5}).toFile(webp.slice(1))
   ]);
   variants.push({width,avif,webp});
  }
