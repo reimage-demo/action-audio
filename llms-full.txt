@@ -1,27 +1,29 @@
 # Action Audio
 
-> Car detailing in Hartford, Connecticut; car audio, remote starters, auto electronics repair, and installation in Wethersfield, near Hartford. Established in 1983.
+> Car detailing and window tinting in Hartford, Connecticut; car audio, remote starters, electronics replacement, and installation in Wethersfield, near Hartford. Established in 1983.
 
 ## Locations and contact
-- [Hartford detailing](https://reimage-demo.github.io/action-audio/hartford.html): 2814 Main St, Hartford, CT 06120. Interior and exterior vehicle detailing.
-- [Wethersfield electronics](https://reimage-demo.github.io/action-audio/wethersfield.html): 105 Silas Deane Hwy, Wethersfield, CT 06109. Car audio, remote starters, vehicle electronics repair and installation. Public phone: (860) 667-6330. This number belongs to Wethersfield.
+- [Hartford detailing & tinting](https://reimage-demo.github.io/action-audio/hartford.html): 2814 Main St, Hartford, CT 06120. Auto detailing and window tinting.
+- [Wethersfield electronics](https://reimage-demo.github.io/action-audio/wethersfield.html): 105 Silas Deane Hwy, Wethersfield, CT 06109. Car audio, remote starters, vehicle electronics replacement and installation. Public phone: (860) 667-6330. This number belongs to Wethersfield.
 - Both stores: Monday–Saturday, 9am–6pm Eastern; Sunday closed. Confirm holiday hours.
 
 ## Service information
-- [Car audio](https://reimage-demo.github.io/action-audio/car-audio.html): Wethersfield. Clearer vocals. Fuller bass. The songs you know, with the details you’ve been missing. Build a sound system around your vehicle and the way you listen.
+- [Car audio & stereo installation](https://reimage-demo.github.io/action-audio/car-audio.html): Wethersfield. Clearer vocals. Fuller bass. The songs you know, with the details you’ve been missing. Build a sound system around your vehicle and the way you listen.
 - [Remote starters](https://reimage-demo.github.io/action-audio/remote-starters.html): Wethersfield. Make cold mornings and hot afternoons more comfortable. Explore a remote-start setup that fits your vehicle and your everyday routine.
 - [Car alarms & security](https://reimage-demo.github.io/action-audio/car-alarms.html): Wethersfield. Explore vehicle security options, from alarm systems to convenient keyless entry. Start with a conversation about your vehicle and what you want to protect.
 - [Motorcycle audio](https://reimage-demo.github.io/action-audio/motorcycle-audio.html): Wethersfield. Explore audio options for your motorcycle. Talk with our team about a setup suited to your bike, available space, and listening preferences.
 - [Video & entertainment](https://reimage-demo.github.io/action-audio/video-systems.html): Wethersfield. Explore seatback and overhead video options for passengers, along with receivers that bring modern connectivity to the dashboard.
 - [Power liftgates](https://reimage-demo.github.io/action-audio/power-liftgates.html): Wethersfield. Interested in adding powered access to your cargo area? Ask our team about vehicle-specific liftgate options and installation availability.
-- [Radar detectors](https://reimage-demo.github.io/action-audio/radar-detectors.html): Wethersfield. Explore detector mounting and power options for a tidy interior. Ask about equipment compatibility and installation availability for your vehicle.
 - [Connected accessories](https://reimage-demo.github.io/action-audio/vehicle-accessories.html): Wethersfield. Explore convenient additions such as smartphone integration, satellite radio, and garage-door controls. Find out what works with your existing electronics.
-- [Electronics repair](https://reimage-demo.github.io/action-audio/electronics-repair.html): Wethersfield. Car stereo cutting out or a receiver that will not respond? Our Wethersfield team assesses auto electronics problems for drivers in the Hartford area.
+- [Electronics replacement](https://reimage-demo.github.io/action-audio/electronics-replacement.html): Wethersfield. Replace outdated or nonworking vehicle electronics at our Wethersfield store. We replace equipment; we do not repair electronics.
 - [Auto detailing](https://reimage-demo.github.io/action-audio/auto-detailing.html): Hartford. Interior and exterior car detailing at our Hartford, Connecticut store. Tell us about your vehicle’s condition and the areas you would like refreshed.
 - [Electrical installation](https://reimage-demo.github.io/action-audio/electrical-installation.html): Wethersfield. Plan your car electronics installation at Action Audio in Wethersfield, near Hartford. Discuss receivers, speakers, and accessories, with compatibility checked for your vehicle.
+- [Window tinting](https://reimage-demo.github.io/action-audio/window-tinting.html): Hartford. Vehicle window tinting at our Hartford store. Tell us which windows you want tinted and whether existing film needs to be removed.
+- [Dash cams](https://reimage-demo.github.io/action-audio/dash-cams.html): Wethersfield. Dash cam installation at Action Audio in Wethersfield. Explore front, rear, and cabin camera setups suited to your vehicle.
+- [GPS trackers](https://reimage-demo.github.io/action-audio/gps-trackers.html): Wethersfield. GPS tracker installation at our Wethersfield store. Discuss a setup for your vehicle, the features you need, and compatible equipment.
 
 ## Plan a visit
-- [Request an estimate](https://reimage-demo.github.io/action-audio/estimate.html): share vehicle make, model, service, name, and phone for a callback.
+- [Request an estimate](https://reimage-demo.github.io/action-audio/estimate.html): share vehicle year, make, model, service details, name, and phone for a callback.
 - [Request an appointment](https://reimage-demo.github.io/action-audio/book.html): a request is confirmed only after the team contacts the customer.
 - [Electronics](https://reimage-demo.github.io/action-audio/electronics.html): equipment categories and examples, not guaranteed stock, pricing, or vehicle compatibility.
 - [About Action Audio](https://reimage-demo.github.io/action-audio/about.html): Connecticut roots since 1983.
@@ -31,11 +33,11 @@
 - [Full service reference](https://reimage-demo.github.io/action-audio/llms-full.txt)
 
 ## Important context
-Hartford handles detailing; Wethersfield handles electronics. Confirm the work, compatibility, price, and availability with the appropriate store. Most service images are original illustrations; the showroom images show the actual Wethersfield store. Do not treat illustrations as completed customer projects. Vehicle tracking requires a private code and is not public directory content.
+Hartford handles detailing and window tinting; Wethersfield handles electronics. Confirm the work, compatibility, price, and availability with the appropriate store. Most service images are original illustrations; the showroom images show the actual Wethersfield store. Do not treat illustrations as completed customer projects. Vehicle tracking requires a private code and is not public directory content.
 
 ## Detailed service reference
 
-### Car audio — Wethersfield
+### Car audio & stereo installation — Wethersfield
 Source: https://reimage-demo.github.io/action-audio/car-audio.html
 
 A great system starts with the right combination of equipment. Tell us what you listen to, what you like about your current setup, and what you want to improve. We’ll discuss speaker fit, available space, power needs, and how to retain the factory features you use.
@@ -125,20 +127,6 @@ Before visiting: Share your year, make, model, and trim, and whether your liftga
 #### Is every SUV compatible?
 No. Kit availability and installation requirements vary by vehicle and trim. Contact us for a compatibility review.
 
-### Radar detectors — Wethersfield
-Source: https://reimage-demo.github.io/action-audio/radar-detectors.html
-
-Share the detector model you have or the type of setup you are considering. We can discuss placement, wiring, and whether the equipment can be integrated into your vehicle.
-
-- Mounting and placement consultation
-- Compatible power and cable-routing options
-- Equipment and vehicle fit review
-
-Before visiting: Bring the equipment model and accessories, if you already own a detector.
-
-#### Can you help with equipment I already own?
-Contact the team with its make and model so we can review the installation requirements and confirm service availability.
-
 ### Connected accessories — Wethersfield
 Source: https://reimage-demo.github.io/action-audio/vehicle-accessories.html
 
@@ -153,28 +141,22 @@ Before visiting: Share vehicle details and the model of your factory or aftermar
 #### Does a new accessory require a new radio?
 It depends on the accessory and your current system. Some use adapters; others need a compatible receiver. We’ll help you understand the options.
 
-### Electronics repair — Wethersfield
-Source: https://reimage-demo.github.io/action-audio/electronics-repair.html
+### Electronics replacement — Wethersfield
+Source: https://reimage-demo.github.io/action-audio/electronics-replacement.html
 
-Describe when the problem started, whether it is intermittent, and any recent changes to the vehicle or equipment. That helps the team understand the symptoms and plan an assessment.
+Tell us what equipment you want to replace and which features you want to keep. We’ll discuss compatible replacement options, installation parts, and the scope before work begins.
 
-- Vehicle electronics assessment
-- Existing equipment and connection review
-- Repair options discussed before work proceeds
+- Replacement receivers, speakers, and electronics
+- Vehicle fit and factory-feature compatibility
+- Equipment selection and installation planning
 
-Before visiting: Bring equipment model numbers, any relevant installation records, and a description or video of intermittent symptoms.
+Before visiting: Share your vehicle year, make, model, trim, and the brand or model of the equipment you want to replace.
 
-#### Can you quote a repair before seeing the vehicle?
-Some issues need an in-person assessment. Contact us with the symptoms so the team can explain the next step and any assessment charges.
+#### Do you repair electronics?
+No. We offer replacement and installation of vehicle electronics at our Wethersfield store.
 
-#### Where do you offer auto electronics repair near Hartford?
-Auto electronics repair is handled at 105 Silas Deane Hwy, Wethersfield, CT 06109. Call (860) 667-6330 or request an estimate online. Our Hartford location handles detailing.
-
-#### What should I share about a car stereo problem?
-Include the vehicle year, make, model, stereo or amplifier model, when the problem started, and whether it happens all the time. Mention recent installations or changes and bring a short video if the issue is intermittent.
-
-#### Will you repair or replace the equipment?
-The next step depends on the assessment, equipment condition, and available options. The team will discuss repair or replacement options and costs before work proceeds.
+#### Where do I go for a replacement?
+Visit 105 Silas Deane Hwy, Wethersfield, CT 06109. Start with an estimate request so we can review your vehicle and equipment.
 
 ### Auto detailing — Hartford
 Source: https://reimage-demo.github.io/action-audio/auto-detailing.html
@@ -217,10 +199,55 @@ Before visiting: Have your vehicle details and equipment model numbers ready, in
 Ask the team first. We’ll review the model, condition, and required installation parts before confirming the work.
 
 #### Where can I book car electronics installation near Hartford?
-Book with the Wethersfield store at 105 Silas Deane Hwy, Wethersfield, CT 06109. Electronics installation is available through this location; the Hartford store specializes in detailing.
+Book with the Wethersfield store at 105 Silas Deane Hwy, Wethersfield, CT 06109. Electronics installation is available through this location; the Hartford store offers detailing and window tinting.
 
 #### Do I need adapters for an aftermarket receiver?
 Your vehicle and chosen receiver determine the required harnesses, mounting parts, and integration adapters. Share the year, make, model, trim, and equipment model before purchasing installation parts.
 
 #### Can I keep my factory vehicle controls?
 Compatibility depends on the vehicle, factory system, new equipment, and available interfaces. Ask the team to review any steering-wheel controls, camera, or factory features you want to retain.
+
+### Window tinting — Hartford
+Source: https://reimage-demo.github.io/action-audio/window-tinting.html
+
+Choose the windows you would like tinted and tell us about any existing film. Our Hartford team will discuss available film options, suitable coverage, and installation requirements before confirming a price.
+
+- Window coverage and film options
+- Existing tint and removal requirements
+- Vehicle-specific installation planning
+
+Before visiting: Share your vehicle year, make, model, the windows you want tinted, and whether old tint is already installed.
+
+#### Where is window tinting offered?
+Window tinting and auto detailing are offered at 2814 Main St, Hartford, CT 06120.
+
+#### Can I get an estimate if I’m unsure about the film?
+Yes. Select “Not sure” on the estimate form and tell us your priorities. The team will help you choose a suitable option.
+
+### Dash cams — Wethersfield
+Source: https://reimage-demo.github.io/action-audio/dash-cams.html
+
+Tell us which views you want to record, whether you own a camera, and whether you want recording while parked. We’ll review power requirements, camera placement, and vehicle compatibility.
+
+- Front, rear, and cabin camera options
+- Cable routing and power connection planning
+- Parking-mode and equipment compatibility
+
+Before visiting: Have your vehicle details and any camera model numbers ready. Mention parking-mode recording if you want it.
+
+#### Can you install a dash cam I already own?
+Share the camera make, model, and included wiring kit. The team will review compatibility and confirm the installation scope.
+
+### GPS trackers — Wethersfield
+Source: https://reimage-demo.github.io/action-audio/gps-trackers.html
+
+Let us know whether you already own a tracker, how many vehicles need equipment, and the features you’re looking for. We’ll discuss installation and any required connected service before you choose a setup.
+
+- Vehicle and tracker compatibility
+- Power and mounting requirements
+- Connected-service and subscription options
+
+Before visiting: Share the vehicle details, tracker model if you have one, and whether the request covers one vehicle or a fleet.
+
+#### Does a GPS tracker need a subscription?
+Some trackers require a connected service. The team will discuss equipment requirements and any recurring fees for the option you choose.
