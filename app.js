@@ -1,3 +1,4 @@
+import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js";
 import { beginSubmission, submissionError } from "./shared/request-feedback.js";
 import { imageMarkup } from "./shared/images.js";
 import {
@@ -78,15 +79,9 @@ if (booking) {
   }
   function syncServices() {
     const store = stores.find((s) => s.id === fields.store.value);
-    for (const option of fields.service.options) {
-      if (option.value)
-        option.disabled = !store || !store.serviceIds.includes(option.value);
-    }
-    if (!serviceAvailableAt(fields.store.value, fields.service.value))
-      fields.service.value =
-        store?.serviceIds.length === 1 ? store.serviceIds[0] : "";
+    if (fields.service.value && !serviceAvailableAt(fields.store.value, fields.service.value)) fields.service.value = "";
     $("#service-location-note").textContent = store
-      ? `${store.specialty} at ${store.name}.`
+      ? `${store.specialty} · ${store.address}, ${store.city}.`
       : "Choose a location to see its services.";
   }
   syncServices();
@@ -134,6 +129,11 @@ if (booking) {
     } finally { if(gen === generation) fields.time.removeAttribute("aria-busy"); }
   }
   booking.addEventListener("change", (e) => {
+    if (e.target.name === "service" && fields.service.value) {
+      fields.store.value = serviceStore(fields.service.value).id;
+      syncServices();
+      refreshTimes();
+    }
     if (e.target.name === "store") syncServices();
     if (["store", "date"].includes(e.target.name)) refreshTimes();
   });
@@ -181,22 +181,40 @@ if (estimateForm) {
   const fields = estimateForm.elements;
   const requested = serviceContent.find(s=>s.id===params.get("service"));
   if (requested) fields.service.value = requested.id;
-  const showLocation = () => {
+  if (params.get("product")) fields.details.value = `I’m interested in ${params.get("product").slice(0, 140)}.`;
+  const answerDrafts = new Map();
+  let activeService = "";
+  function showLocation() {
+    if (activeService) answerDrafts.set(activeService, Array.from(document.querySelectorAll("[data-estimate-answer]")).map(el => [el.dataset.estimateAnswer, el.value]));
     const service = serviceContent.find(s=>s.id===fields.service.value);
-    $("#estimate-location").textContent = service ? `${service.name} · ${serviceStore(service.booking).name}` : "Electronics in Wethersfield. Detailing in Hartford.";
-  };
+    const store = service && serviceStore(service.booking);
+    $("#estimate-location").innerHTML = store ? `<strong>${esc(store.name)} · selected for ${esc(service.name.toLowerCase())}</strong><span>${esc(store.address)}, ${esc(store.city)}</span>` : "Your service selects the right store automatically.";
+    $("#estimate-project").hidden = !service;
+    fields.details.required = Boolean(service);
+    fields.details.placeholder = detailPrompts[service?.id] || defaultDetailPrompt;
+    $("#estimate-questions").innerHTML = (estimateQuestions[service?.id] || []).map(q => `<label>${esc(q.label)}<select data-estimate-answer="${esc(q.id)}" required><option value="">Choose an option</option>${q.options.map(value=>`<option>${esc(value)}</option>`).join("")}</select></label>`).join("");
+    for (const [id, value] of answerDrafts.get(service?.id) || []) document.querySelector(`[data-estimate-answer="${id}"]`).value = value;
+    const bookingLink = $("#estimate-booking-link");
+    if (bookingLink) bookingLink.href = service ? `/book.html?store=${store.id}&service=${service.booking}&topic=${encodeURIComponent(service.name)}` : "/book.html";
+    activeService = service?.id || "";
+  }
   fields.service.addEventListener("change",showLocation); showLocation();
+  fields.vehicleYear.addEventListener("input", () => {
+    const value = Number(fields.vehicleYear.value), max = new Date().getFullYear() + 2;
+    fields.vehicleYear.setCustomValidity(value >= 1900 && value <= max ? "" : `Enter a vehicle year from 1900 to ${max}.`);
+  });
   const requestKey = crypto.randomUUID();
   estimateForm.addEventListener("submit",async e=>{
     e.preventDefault(); if (estimateForm.dataset.submitting || !estimateForm.reportValidity()) return;
     const button = estimateForm.querySelector('button[type="submit"]');
     const values=Object.fromEntries(new FormData(estimateForm));
+    values.answers = Array.from(document.querySelectorAll("[data-estimate-answer]")).map(el => ({id:el.dataset.estimateAnswer, value:el.value}));
     const finish=beginSubmission(estimateForm,button,$("#estimate-message"));
     try {
       if (!navigator.onLine) throw new Error("Offline");
       const c=await client(); await c.mutation("estimates:create",{...values,requestKey});
       const service=serviceContent.find(s=>s.id===values.service),store=serviceStore(service.booking);
-      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
+      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
       estimateForm.querySelector('.estimate-success').focus();
     } catch(err) { submissionError($("#estimate-message"),err); } finally { finish(); }
   });
@@ -327,7 +345,7 @@ if ($("#inventory-results")) {
       ? filtered
           .map(
             (p) =>
-              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/gear-")) ? (preview ? imageMarkup(p.imageUrl.split(/\//).at(-1),p.category + " — original category illustration, not the exact model",{sizes:"(max-width: 760px) 100vw, 400px"}) : `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" width="800" height="600" loading="lazy" decoding="async" referrerpolicy="no-referrer">`) : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/book.html?store=wethersfield&service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
+              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/gear-")) ? (preview ? imageMarkup(p.imageUrl.split(/\//).at(-1),p.category + " — original category illustration, not the exact model",{sizes:"(max-width: 760px) 100vw, 400px"}) : `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" width="800" height="600" loading="lazy" decoding="async" referrerpolicy="no-referrer">`) : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/estimate.html?service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
           )
           .join("")
       : `<div class="empty-state"><h2>${guide && !search ? "Let’s find your fit." : products.length ? "No matching products." : "Ask about current stock."}</h2><p>${guide && !search ? "Contact our team for compatible options and current availability in this category." : products.length ? "Try another search or category." : "Our electronics catalog is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/book.html">Ask about a product </a></div>`;

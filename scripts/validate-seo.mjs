@@ -33,7 +33,7 @@ for(const url of urls){
   const stores=graph.filter(n=>n['@type']==='AutomotiveBusiness');assert.equal(stores.length,2);
   assert.equal(stores.find(s=>s.name.includes('Hartford')).address.postalCode,'06120');
   assert(!stores.find(s=>s.name.includes('Hartford')).telephone,'Do not assign Wethersfield phone to Hartford');
-  const service=graph.find(n=>n['@type']==='Service');if(service)assert(service.provider['@id'].includes(file==='auto-detailing.html'?'hartford.html':'wethersfield.html'));
+  const service=graph.find(n=>n['@type']==='Service');if(service)assert(service.provider['@id'].includes(['auto-detailing.html','window-tinting.html'].includes(file)?'hartford.html':'wethersfield.html'));
   const visible=decode(html.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]*>/g,' '));
   for(const faq of graph.filter(n=>n['@type']==='FAQPage').flatMap(n=>n.mainEntity)){assert(visible.includes(faq.name));assert(visible.includes(faq.acceptedAnswer.text));}
  }
@@ -41,5 +41,5 @@ for(const url of urls){
 assert(!urls.some(url=>url.includes('track.html')));
 assert(read('track.html').includes('noindex, follow'));
 assert(!read('robots.txt').includes('Disallow: /track.html'));
-for(const file of ['llms.txt','llms-full.txt']){const content=read(file);assert(content.includes(home));assert(content.includes('2814 Main St'));assert(content.includes('105 Silas Deane Hwy'));assert(content.includes('electronics-repair.html'));}
+for(const file of ['llms.txt','llms-full.txt']){const content=read(file);assert(content.includes(home));assert(content.includes('2814 Main St'));assert(content.includes('105 Silas Deane Hwy'));assert(content.includes('electronics-replacement.html'));}
 console.log(`SEO checks passed for ${urls.length} indexable pages: titles, descriptions, canonicals, social metadata, schema, visible FAQs, image alternatives, local links, sitemap, and AI reference files.`);

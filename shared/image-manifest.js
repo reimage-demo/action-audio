@@ -210,6 +210,22 @@ export const imageManifest = {
       }
     ]
   },
+  "service-dash-cam.webp": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 480,
+        "avif": "/assets/optimized/service-dash-cam-480.avif",
+        "webp": "/assets/optimized/service-dash-cam-480.webp"
+      },
+      {
+        "width": 800,
+        "avif": "/assets/optimized/service-dash-cam-800.avif",
+        "webp": "/assets/optimized/service-dash-cam-800.webp"
+      }
+    ]
+  },
   "service-detailing.webp": {
     "width": 1200,
     "height": 800,
@@ -228,6 +244,22 @@ export const imageManifest = {
         "width": 1200,
         "avif": "/assets/optimized/service-detailing-1200-hq.avif",
         "webp": "/assets/optimized/service-detailing-1200-hq.webp"
+      }
+    ]
+  },
+  "service-gps.webp": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 480,
+        "avif": "/assets/optimized/service-gps-480.avif",
+        "webp": "/assets/optimized/service-gps-480.webp"
+      },
+      {
+        "width": 800,
+        "avif": "/assets/optimized/service-gps-800.avif",
+        "webp": "/assets/optimized/service-gps-800.webp"
       }
     ]
   },
@@ -354,6 +386,22 @@ export const imageManifest = {
         "width": 1200,
         "avif": "/assets/optimized/service-security-1200.avif",
         "webp": "/assets/optimized/service-security-1200.webp"
+      }
+    ]
+  },
+  "service-tinting.webp": {
+    "width": 800,
+    "height": 600,
+    "variants": [
+      {
+        "width": 480,
+        "avif": "/assets/optimized/service-tinting-480.avif",
+        "webp": "/assets/optimized/service-tinting-480.webp"
+      },
+      {
+        "width": 800,
+        "avif": "/assets/optimized/service-tinting-800.avif",
+        "webp": "/assets/optimized/service-tinting-800.webp"
       }
     ]
   },
