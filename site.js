@@ -17,14 +17,14 @@
   call.className = "floating-call";
   call.href = "tel:8606676330";
   call.setAttribute("aria-label", "Call Action Audio in Wethersfield at (860) 667-6330");
-  call.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"/action-audio/></svg><span>Call store</span>';
+  call.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"/></svg><span>Call store</span>';
   document.body.append(call);
 
   const notice = document.createElement("section");
   notice.className = "cookie-notice";
   notice.hidden = true;
   notice.setAttribute("aria-labelledby", "cookie-title");
-  notice.innerHTML = '<h2 id="cookie-title">Your cookie choices.</h2><p>We use essential storage to remember your choice. No analytics or advertising cookies are currently used.</p><a href="/action-audio/privacy.html#cookies">Privacy & cookies</a><div class="cookie-actions"><button type="button" data-cookie-choice="denied">Deny</button><button type="button" data-cookie-choice="accepted">Accept</button></div>';
+  notice.innerHTML = '<h2 id="cookie-title">Your cookie choices.</h2><p>We use essential storage to remember your choice. No analytics or advertising cookies are currently used.</p><a href="/privacy.html#cookies">Privacy & cookies</a><div class="cookie-actions"><button type="button" data-cookie-choice="denied">Deny</button><button type="button" data-cookie-choice="accepted">Accept</button></div>';
   document.body.append(notice);
 
   function updateStatus() {

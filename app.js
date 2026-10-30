@@ -1,15 +1,15 @@
-import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=d896170be5cc";
-import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=d896170be5cc";
-import { imageMarkup } from "./shared/images.js?v=d896170be5cc";
+import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=dcc51a9d16a8";
+import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=dcc51a9d16a8";
+import { imageMarkup } from "./shared/images.js?v=dcc51a9d16a8";
 import {
   stores,
   services,
   statusLabels,
   serviceStore,
   serviceAvailableAt,
-} from "./shared/catalog.js?v=d896170be5cc";
-import { serviceContent } from "./shared/service-content.js?v=d896170be5cc";
-import { journeyProgress, progressStages } from "./shared/progress.js?v=d896170be5cc";
+} from "./shared/catalog.js?v=dcc51a9d16a8";
+import { serviceContent } from "./shared/service-content.js?v=dcc51a9d16a8";
+import { journeyProgress, progressStages } from "./shared/progress.js?v=dcc51a9d16a8";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>
   String(s ?? "").replace(
@@ -47,7 +47,7 @@ async function client() {
       "Online requests are not available yet. Please call (860) 667-6330 and our team will help you.",
     );
   if (!clientPromise)
-    clientPromise = import("/action-audio/assets/convex-client.js").then(
+    clientPromise = import("/assets/convex-client.js").then(
       ({ ConvexClient }) => new ConvexClient(url),
     );
   return clientPromise;
@@ -158,7 +158,7 @@ if (booking) {
         requestKey,
       });
       const code = result.trackingCode;
-      booking.innerHTML = `<div class="booking-success" role="status" tabindex="-1"><h2>Appointment request received.</h2><p>Your appointment request is received. The ${esc(stores.find((s) => s.id === values.store)?.name)} team will contact you to confirm ${esc(values.date)} at ${esc(values.time)} ET.</p><div class="tracking-ticket"><span>Your private tracking code</span><code>${esc(code)}</code><button type="button" class="text-link" id="copy-tracking">Copy tracking link </button><small id="copy-message" aria-live="polite">Save this link to follow every update. Keep it private.</small></div><a class="button" id="new-tracking-link" href="/action-audio/track.html#${esc(code)}">Track my vehicle </a><p class="form-note">No payment is required to request an appointment.</p></div>`;
+      booking.innerHTML = `<div class="booking-success" role="status" tabindex="-1"><h2>Appointment request received.</h2><p>Your appointment request is received. The ${esc(stores.find((s) => s.id === values.store)?.name)} team will contact you to confirm ${esc(values.date)} at ${esc(values.time)} ET.</p><div class="tracking-ticket"><span>Your private tracking code</span><code>${esc(code)}</code><button type="button" class="text-link" id="copy-tracking">Copy tracking link </button><small id="copy-message" aria-live="polite">Save this link to follow every update. Keep it private.</small></div><a class="button" id="new-tracking-link" href="/track.html#${esc(code)}">Track my vehicle </a><p class="form-note">No payment is required to request an appointment.</p></div>`;
       $("#copy-tracking").addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText($("#new-tracking-link").href);
@@ -195,7 +195,7 @@ if (estimateForm) {
     $("#estimate-questions").innerHTML = (estimateQuestions[service?.id] || []).map(q => `<label>${esc(q.label)}<select data-estimate-answer="${esc(q.id)}" required><option value="">Choose an option</option>${q.options.map(value=>`<option>${esc(value)}</option>`).join("")}</select></label>`).join("");
     for (const [id, value] of answerDrafts.get(service?.id) || []) document.querySelector(`[data-estimate-answer="${id}"]`).value = value;
     const bookingLink = $("#estimate-booking-link");
-    if (bookingLink) bookingLink.href = service ? `/action-audio/book.html?store=${store.id}&service=${service.booking}&topic=${encodeURIComponent(service.name)}` : "/action-audio/book.html";
+    if (bookingLink) bookingLink.href = service ? `/book.html?store=${store.id}&service=${service.booking}&topic=${encodeURIComponent(service.name)}` : "/book.html";
     activeService = service?.id || "";
   }
   fields.service.addEventListener("change",showLocation); showLocation();
@@ -214,7 +214,7 @@ if (estimateForm) {
       if (!navigator.onLine) throw new Error("Offline");
       const c=await client(); await c.mutation("estimates:create",{...values,requestKey});
       const service=serviceContent.find(s=>s.id===values.service),store=serviceStore(service.booking);
-      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/action-audio/services.html">Back to services</a></div>`;
+      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
       estimateForm.querySelector('.estimate-success').focus();
     } catch(err) { submissionError($("#estimate-message"),err); } finally { finish(); }
   });
@@ -336,7 +336,7 @@ if ($("#inventory-results")) {
     guideNode.hidden = !guide;
     guideNode.className = "category-guide";
     guideNode.innerHTML = guide
-      ? `<div><h2>${esc(guide.name)}</h2><p>${esc(guide.description)}</p></div><a class="text-link" href="/action-audio/${guide.id}.html">Explore this service </a>`
+      ? `<div><h2>${esc(guide.name)}</h2><p>${esc(guide.description)}</p></div><a class="text-link" href="/${guide.id}.html">Explore this service </a>`
       : "";
     $("#inventory-count").textContent = products.length
       ? `${filtered.length} ${preview ? "sample " : ""}product${filtered.length === 1 ? "" : "s"}`
@@ -345,10 +345,10 @@ if ($("#inventory-results")) {
       ? filtered
           .map(
             (p) =>
-              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/action-audio/assets/gear-")) ? (preview ? imageMarkup(p.imageUrl.split(/\//).at(-1),p.category + " — original category illustration, not the exact model",{sizes:"(max-width: 760px) 100vw, 400px"}) : `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" width="800" height="600" loading="lazy" decoding="async" referrerpolicy="no-referrer">`) : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/action-audio/estimate.html?service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
+              `<article class="product-card"><div class="product-image${preview ? " preview-product-image" : ""}">${p.imageUrl?.startsWith("https://") || (preview && p.imageUrl?.startsWith("/assets/gear-")) ? (preview ? imageMarkup(p.imageUrl.split(/\//).at(-1),p.category + " — original category illustration, not the exact model",{sizes:"(max-width: 760px) 100vw, 400px"}) : `<img src="${esc(p.imageUrl)}" alt="${esc(p.name)}" width="800" height="600" loading="lazy" decoding="async" referrerpolicy="no-referrer">`) : '<span class="image-unavailable">Product image unavailable</span>'}</div><div class="product-content"><span class="product-category">${esc(p.brand)} · ${esc(p.category)}</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="product-meta"><span>${esc(preview ? "Sample product" : stores.find((s) => s.id === p.store)?.name)}</span><span>${preview ? "Confirm availability" : esc({ in_stock: "In stock", order: "Available to order", unavailable: "Currently unavailable" }[p.availability])}</span></div><strong>${p.price !== undefined ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(p.price) : "Contact us for pricing"}</strong><p style="margin-top:18px"><a class="text-link" href="/estimate.html?service=electrical-installation&product=${encodeURIComponent(p.name)}">Ask about this product </a></p>${preview ? `<a class="product-source" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Manufacturer details (opens in new tab)</a>` : ""}</div></article>`,
           )
           .join("")
-      : `<div class="empty-state"><h2>${guide && !search ? "Let’s find your fit." : products.length ? "No matching products." : "Ask about current stock."}</h2><p>${guide && !search ? "Contact our team for compatible options and current availability in this category." : products.length ? "Try another search or category." : "Our electronics catalog is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/action-audio/book.html">Ask about a product </a></div>`;
+      : `<div class="empty-state"><h2>${guide && !search ? "Let’s find your fit." : products.length ? "No matching products." : "Ask about current stock."}</h2><p>${guide && !search ? "Contact our team for compatible options and current availability in this category." : products.length ? "Try another search or category." : "Our electronics catalog is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/book.html">Ask about a product </a></div>`;
   };
   ["#inventory-search", "#inventory-category", "#inventory-store"].forEach(
     (s) => $(s).addEventListener("input", render),
@@ -367,7 +367,7 @@ if ($("#inventory-results")) {
     }),
   );
   if (preview) {
-    import("./shared/inventory-preview.js?v=d896170be5cc")
+    import("./shared/inventory-preview.js?v=dcc51a9d16a8")
       .then(({ previewProducts }) => {
         products = previewProducts;
         render();

@@ -8,7 +8,7 @@ export const previewProducts = [
     category: "Subwoofers",
     description:
       "A 12-inch Punch P3 subwoofer with dual 4-ohm voice coils for a custom bass system.",
-    imageUrl: "/action-audio/assets/gear-subwoofer.webp",
+    imageUrl: "/assets/gear-subwoofer.webp",
     sourceUrl: "https://rockfordfosgate.com/products/details/p3d4-12/",
   },
   {
@@ -17,7 +17,7 @@ export const previewProducts = [
     category: "Amplifiers",
     description:
       "A 500-watt Class-D mono amplifier designed to power a dedicated subwoofer system.",
-    imageUrl: "/action-audio/assets/gear-amplifier.webp",
+    imageUrl: "/assets/gear-amplifier.webp",
     sourceUrl: "https://rockfordfosgate.com/products/details/r2-500x1/",
   },
   {
@@ -26,7 +26,7 @@ export const previewProducts = [
     category: "Receivers",
     description:
       "A 6.8-inch touchscreen receiver with wired Apple CarPlay, Android Auto, and Bluetooth.",
-    imageUrl: "/action-audio/assets/gear-receiver.webp",
+    imageUrl: "/assets/gear-receiver.webp",
     sourceUrl:
       "https://www.kenwood.com/usa/car/caraudio/navigation_multimedia/dmx4707s/",
   },
@@ -36,7 +36,7 @@ export const previewProducts = [
     category: "Speakers",
     description:
       "A-Series MAX two-way coaxial speakers for an aftermarket vehicle audio system.",
-    imageUrl: "/action-audio/assets/gear-speakers-pair.webp",
+    imageUrl: "/assets/gear-speakers-pair.webp",
     sourceUrl: "https://usa.pioneer/products/ts-a653fh",
   },
 ];

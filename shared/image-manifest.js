@@ -6,13 +6,13 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/action-audio-logo-480.avif",
-        "webp": "/action-audio/assets/optimized/action-audio-logo-480.webp"
+        "avif": "/assets/optimized/action-audio-logo-480.avif",
+        "webp": "/assets/optimized/action-audio-logo-480.webp"
       },
       {
         "width": 600,
-        "avif": "/action-audio/assets/optimized/action-audio-logo-600.avif",
-        "webp": "/action-audio/assets/optimized/action-audio-logo-600.webp"
+        "avif": "/assets/optimized/action-audio-logo-600.avif",
+        "webp": "/assets/optimized/action-audio-logo-600.webp"
       }
     ]
   },
@@ -22,18 +22,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/gear-amplifier-480.avif",
-        "webp": "/action-audio/assets/optimized/gear-amplifier-480.webp"
+        "avif": "/assets/optimized/gear-amplifier-480.avif",
+        "webp": "/assets/optimized/gear-amplifier-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/gear-amplifier-800.avif",
-        "webp": "/action-audio/assets/optimized/gear-amplifier-800.webp"
+        "avif": "/assets/optimized/gear-amplifier-800.avif",
+        "webp": "/assets/optimized/gear-amplifier-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/gear-amplifier-1200.avif",
-        "webp": "/action-audio/assets/optimized/gear-amplifier-1200.webp"
+        "avif": "/assets/optimized/gear-amplifier-1200.avif",
+        "webp": "/assets/optimized/gear-amplifier-1200.webp"
       }
     ]
   },
@@ -43,18 +43,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/gear-receiver-480.avif",
-        "webp": "/action-audio/assets/optimized/gear-receiver-480.webp"
+        "avif": "/assets/optimized/gear-receiver-480.avif",
+        "webp": "/assets/optimized/gear-receiver-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/gear-receiver-800.avif",
-        "webp": "/action-audio/assets/optimized/gear-receiver-800.webp"
+        "avif": "/assets/optimized/gear-receiver-800.avif",
+        "webp": "/assets/optimized/gear-receiver-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/gear-receiver-1200.avif",
-        "webp": "/action-audio/assets/optimized/gear-receiver-1200.webp"
+        "avif": "/assets/optimized/gear-receiver-1200.avif",
+        "webp": "/assets/optimized/gear-receiver-1200.webp"
       }
     ]
   },
@@ -64,18 +64,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/gear-speakers-pair-480.avif",
-        "webp": "/action-audio/assets/optimized/gear-speakers-pair-480.webp"
+        "avif": "/assets/optimized/gear-speakers-pair-480.avif",
+        "webp": "/assets/optimized/gear-speakers-pair-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/gear-speakers-pair-800.avif",
-        "webp": "/action-audio/assets/optimized/gear-speakers-pair-800.webp"
+        "avif": "/assets/optimized/gear-speakers-pair-800.avif",
+        "webp": "/assets/optimized/gear-speakers-pair-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/gear-speakers-pair-1200.avif",
-        "webp": "/action-audio/assets/optimized/gear-speakers-pair-1200.webp"
+        "avif": "/assets/optimized/gear-speakers-pair-1200.avif",
+        "webp": "/assets/optimized/gear-speakers-pair-1200.webp"
       }
     ]
   },
@@ -85,18 +85,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/gear-speakers-480.avif",
-        "webp": "/action-audio/assets/optimized/gear-speakers-480.webp"
+        "avif": "/assets/optimized/gear-speakers-480.avif",
+        "webp": "/assets/optimized/gear-speakers-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/gear-speakers-800.avif",
-        "webp": "/action-audio/assets/optimized/gear-speakers-800.webp"
+        "avif": "/assets/optimized/gear-speakers-800.avif",
+        "webp": "/assets/optimized/gear-speakers-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/gear-speakers-1200.avif",
-        "webp": "/action-audio/assets/optimized/gear-speakers-1200.webp"
+        "avif": "/assets/optimized/gear-speakers-1200.avif",
+        "webp": "/assets/optimized/gear-speakers-1200.webp"
       }
     ]
   },
@@ -106,18 +106,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/gear-subwoofer-cone-480.avif",
-        "webp": "/action-audio/assets/optimized/gear-subwoofer-cone-480.webp"
+        "avif": "/assets/optimized/gear-subwoofer-cone-480.avif",
+        "webp": "/assets/optimized/gear-subwoofer-cone-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/gear-subwoofer-cone-800.avif",
-        "webp": "/action-audio/assets/optimized/gear-subwoofer-cone-800.webp"
+        "avif": "/assets/optimized/gear-subwoofer-cone-800.avif",
+        "webp": "/assets/optimized/gear-subwoofer-cone-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/gear-subwoofer-cone-1200.avif",
-        "webp": "/action-audio/assets/optimized/gear-subwoofer-cone-1200.webp"
+        "avif": "/assets/optimized/gear-subwoofer-cone-1200.avif",
+        "webp": "/assets/optimized/gear-subwoofer-cone-1200.webp"
       }
     ]
   },
@@ -127,18 +127,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/gear-subwoofer-480.avif",
-        "webp": "/action-audio/assets/optimized/gear-subwoofer-480.webp"
+        "avif": "/assets/optimized/gear-subwoofer-480.avif",
+        "webp": "/assets/optimized/gear-subwoofer-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/gear-subwoofer-800.avif",
-        "webp": "/action-audio/assets/optimized/gear-subwoofer-800.webp"
+        "avif": "/assets/optimized/gear-subwoofer-800.avif",
+        "webp": "/assets/optimized/gear-subwoofer-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/gear-subwoofer-1200.avif",
-        "webp": "/action-audio/assets/optimized/gear-subwoofer-1200.webp"
+        "avif": "/assets/optimized/gear-subwoofer-1200.avif",
+        "webp": "/assets/optimized/gear-subwoofer-1200.webp"
       }
     ]
   },
@@ -148,18 +148,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/hero-installation-480-hq.avif",
-        "webp": "/action-audio/assets/optimized/hero-installation-480-hq.webp"
+        "avif": "/assets/optimized/hero-installation-480-hq.avif",
+        "webp": "/assets/optimized/hero-installation-480-hq.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/hero-installation-800-hq.avif",
-        "webp": "/action-audio/assets/optimized/hero-installation-800-hq.webp"
+        "avif": "/assets/optimized/hero-installation-800-hq.avif",
+        "webp": "/assets/optimized/hero-installation-800-hq.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/hero-installation-1200-hq.avif",
-        "webp": "/action-audio/assets/optimized/hero-installation-1200-hq.webp"
+        "avif": "/assets/optimized/hero-installation-1200-hq.avif",
+        "webp": "/assets/optimized/hero-installation-1200-hq.webp"
       }
     ]
   },
@@ -169,23 +169,23 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/hero-remote-start-480-hq.avif",
-        "webp": "/action-audio/assets/optimized/hero-remote-start-480-hq.webp"
+        "avif": "/assets/optimized/hero-remote-start-480-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-480-hq.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/hero-remote-start-800-hq.avif",
-        "webp": "/action-audio/assets/optimized/hero-remote-start-800-hq.webp"
+        "avif": "/assets/optimized/hero-remote-start-800-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-800-hq.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/hero-remote-start-1200-hq.avif",
-        "webp": "/action-audio/assets/optimized/hero-remote-start-1200-hq.webp"
+        "avif": "/assets/optimized/hero-remote-start-1200-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-1200-hq.webp"
       },
       {
         "width": 1672,
-        "avif": "/action-audio/assets/optimized/hero-remote-start-1672-hq.avif",
-        "webp": "/action-audio/assets/optimized/hero-remote-start-1672-hq.webp"
+        "avif": "/assets/optimized/hero-remote-start-1672-hq.avif",
+        "webp": "/assets/optimized/hero-remote-start-1672-hq.webp"
       }
     ]
   },
@@ -195,18 +195,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-accessories-480.avif",
-        "webp": "/action-audio/assets/optimized/service-accessories-480.webp"
+        "avif": "/assets/optimized/service-accessories-480.avif",
+        "webp": "/assets/optimized/service-accessories-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-accessories-800.avif",
-        "webp": "/action-audio/assets/optimized/service-accessories-800.webp"
+        "avif": "/assets/optimized/service-accessories-800.avif",
+        "webp": "/assets/optimized/service-accessories-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-accessories-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-accessories-1200.webp"
+        "avif": "/assets/optimized/service-accessories-1200.avif",
+        "webp": "/assets/optimized/service-accessories-1200.webp"
       }
     ]
   },
@@ -216,13 +216,13 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-dash-cam-480.avif",
-        "webp": "/action-audio/assets/optimized/service-dash-cam-480.webp"
+        "avif": "/assets/optimized/service-dash-cam-480.avif",
+        "webp": "/assets/optimized/service-dash-cam-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-dash-cam-800.avif",
-        "webp": "/action-audio/assets/optimized/service-dash-cam-800.webp"
+        "avif": "/assets/optimized/service-dash-cam-800.avif",
+        "webp": "/assets/optimized/service-dash-cam-800.webp"
       }
     ]
   },
@@ -232,18 +232,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-detailing-480-hq.avif",
-        "webp": "/action-audio/assets/optimized/service-detailing-480-hq.webp"
+        "avif": "/assets/optimized/service-detailing-480-hq.avif",
+        "webp": "/assets/optimized/service-detailing-480-hq.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-detailing-800-hq.avif",
-        "webp": "/action-audio/assets/optimized/service-detailing-800-hq.webp"
+        "avif": "/assets/optimized/service-detailing-800-hq.avif",
+        "webp": "/assets/optimized/service-detailing-800-hq.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-detailing-1200-hq.avif",
-        "webp": "/action-audio/assets/optimized/service-detailing-1200-hq.webp"
+        "avif": "/assets/optimized/service-detailing-1200-hq.avif",
+        "webp": "/assets/optimized/service-detailing-1200-hq.webp"
       }
     ]
   },
@@ -253,13 +253,13 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-gps-480.avif",
-        "webp": "/action-audio/assets/optimized/service-gps-480.webp"
+        "avif": "/assets/optimized/service-gps-480.avif",
+        "webp": "/assets/optimized/service-gps-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-gps-800.avif",
-        "webp": "/action-audio/assets/optimized/service-gps-800.webp"
+        "avif": "/assets/optimized/service-gps-800.avif",
+        "webp": "/assets/optimized/service-gps-800.webp"
       }
     ]
   },
@@ -269,18 +269,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-installation-480.avif",
-        "webp": "/action-audio/assets/optimized/service-installation-480.webp"
+        "avif": "/assets/optimized/service-installation-480.avif",
+        "webp": "/assets/optimized/service-installation-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-installation-800.avif",
-        "webp": "/action-audio/assets/optimized/service-installation-800.webp"
+        "avif": "/assets/optimized/service-installation-800.avif",
+        "webp": "/assets/optimized/service-installation-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-installation-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-installation-1200.webp"
+        "avif": "/assets/optimized/service-installation-1200.avif",
+        "webp": "/assets/optimized/service-installation-1200.webp"
       }
     ]
   },
@@ -290,18 +290,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-liftgate-480.avif",
-        "webp": "/action-audio/assets/optimized/service-liftgate-480.webp"
+        "avif": "/assets/optimized/service-liftgate-480.avif",
+        "webp": "/assets/optimized/service-liftgate-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-liftgate-800.avif",
-        "webp": "/action-audio/assets/optimized/service-liftgate-800.webp"
+        "avif": "/assets/optimized/service-liftgate-800.avif",
+        "webp": "/assets/optimized/service-liftgate-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-liftgate-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-liftgate-1200.webp"
+        "avif": "/assets/optimized/service-liftgate-1200.avif",
+        "webp": "/assets/optimized/service-liftgate-1200.webp"
       }
     ]
   },
@@ -311,18 +311,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-motorcycle-480.avif",
-        "webp": "/action-audio/assets/optimized/service-motorcycle-480.webp"
+        "avif": "/assets/optimized/service-motorcycle-480.avif",
+        "webp": "/assets/optimized/service-motorcycle-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-motorcycle-800.avif",
-        "webp": "/action-audio/assets/optimized/service-motorcycle-800.webp"
+        "avif": "/assets/optimized/service-motorcycle-800.avif",
+        "webp": "/assets/optimized/service-motorcycle-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-motorcycle-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-motorcycle-1200.webp"
+        "avif": "/assets/optimized/service-motorcycle-1200.avif",
+        "webp": "/assets/optimized/service-motorcycle-1200.webp"
       }
     ]
   },
@@ -332,18 +332,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-radar-480.avif",
-        "webp": "/action-audio/assets/optimized/service-radar-480.webp"
+        "avif": "/assets/optimized/service-radar-480.avif",
+        "webp": "/assets/optimized/service-radar-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-radar-800.avif",
-        "webp": "/action-audio/assets/optimized/service-radar-800.webp"
+        "avif": "/assets/optimized/service-radar-800.avif",
+        "webp": "/assets/optimized/service-radar-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-radar-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-radar-1200.webp"
+        "avif": "/assets/optimized/service-radar-1200.avif",
+        "webp": "/assets/optimized/service-radar-1200.webp"
       }
     ]
   },
@@ -353,18 +353,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-repair-480.avif",
-        "webp": "/action-audio/assets/optimized/service-repair-480.webp"
+        "avif": "/assets/optimized/service-repair-480.avif",
+        "webp": "/assets/optimized/service-repair-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-repair-800.avif",
-        "webp": "/action-audio/assets/optimized/service-repair-800.webp"
+        "avif": "/assets/optimized/service-repair-800.avif",
+        "webp": "/assets/optimized/service-repair-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-repair-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-repair-1200.webp"
+        "avif": "/assets/optimized/service-repair-1200.avif",
+        "webp": "/assets/optimized/service-repair-1200.webp"
       }
     ]
   },
@@ -374,18 +374,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-security-480.avif",
-        "webp": "/action-audio/assets/optimized/service-security-480.webp"
+        "avif": "/assets/optimized/service-security-480.avif",
+        "webp": "/assets/optimized/service-security-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-security-800.avif",
-        "webp": "/action-audio/assets/optimized/service-security-800.webp"
+        "avif": "/assets/optimized/service-security-800.avif",
+        "webp": "/assets/optimized/service-security-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-security-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-security-1200.webp"
+        "avif": "/assets/optimized/service-security-1200.avif",
+        "webp": "/assets/optimized/service-security-1200.webp"
       }
     ]
   },
@@ -395,13 +395,13 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-tinting-480.avif",
-        "webp": "/action-audio/assets/optimized/service-tinting-480.webp"
+        "avif": "/assets/optimized/service-tinting-480.avif",
+        "webp": "/assets/optimized/service-tinting-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-tinting-800.avif",
-        "webp": "/action-audio/assets/optimized/service-tinting-800.webp"
+        "avif": "/assets/optimized/service-tinting-800.avif",
+        "webp": "/assets/optimized/service-tinting-800.webp"
       }
     ]
   },
@@ -411,18 +411,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/service-video-480.avif",
-        "webp": "/action-audio/assets/optimized/service-video-480.webp"
+        "avif": "/assets/optimized/service-video-480.avif",
+        "webp": "/assets/optimized/service-video-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/service-video-800.avif",
-        "webp": "/action-audio/assets/optimized/service-video-800.webp"
+        "avif": "/assets/optimized/service-video-800.avif",
+        "webp": "/assets/optimized/service-video-800.webp"
       },
       {
         "width": 1200,
-        "avif": "/action-audio/assets/optimized/service-video-1200.avif",
-        "webp": "/action-audio/assets/optimized/service-video-1200.webp"
+        "avif": "/assets/optimized/service-video-1200.avif",
+        "webp": "/assets/optimized/service-video-1200.webp"
       }
     ]
   },
@@ -432,18 +432,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/wethersfield-counter-480.avif",
-        "webp": "/action-audio/assets/optimized/wethersfield-counter-480.webp"
+        "avif": "/assets/optimized/wethersfield-counter-480.avif",
+        "webp": "/assets/optimized/wethersfield-counter-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/wethersfield-counter-800.avif",
-        "webp": "/action-audio/assets/optimized/wethersfield-counter-800.webp"
+        "avif": "/assets/optimized/wethersfield-counter-800.avif",
+        "webp": "/assets/optimized/wethersfield-counter-800.webp"
       },
       {
         "width": 1086,
-        "avif": "/action-audio/assets/optimized/wethersfield-counter-1086.avif",
-        "webp": "/action-audio/assets/optimized/wethersfield-counter-1086.webp"
+        "avif": "/assets/optimized/wethersfield-counter-1086.avif",
+        "webp": "/assets/optimized/wethersfield-counter-1086.webp"
       }
     ]
   },
@@ -453,18 +453,18 @@ export const imageManifest = {
     "variants": [
       {
         "width": 480,
-        "avif": "/action-audio/assets/optimized/wethersfield-speakers-480.avif",
-        "webp": "/action-audio/assets/optimized/wethersfield-speakers-480.webp"
+        "avif": "/assets/optimized/wethersfield-speakers-480.avif",
+        "webp": "/assets/optimized/wethersfield-speakers-480.webp"
       },
       {
         "width": 800,
-        "avif": "/action-audio/assets/optimized/wethersfield-speakers-800.avif",
-        "webp": "/action-audio/assets/optimized/wethersfield-speakers-800.webp"
+        "avif": "/assets/optimized/wethersfield-speakers-800.avif",
+        "webp": "/assets/optimized/wethersfield-speakers-800.webp"
       },
       {
         "width": 1086,
-        "avif": "/action-audio/assets/optimized/wethersfield-speakers-1086.avif",
-        "webp": "/action-audio/assets/optimized/wethersfield-speakers-1086.webp"
+        "avif": "/assets/optimized/wethersfield-speakers-1086.avif",
+        "webp": "/assets/optimized/wethersfield-speakers-1086.webp"
       }
     ]
   }
