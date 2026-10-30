@@ -1,18 +1,27 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { serviceContent } from '../shared/service-content.js';
+import { serviceGuides } from '../shared/search-content.js';
 const root=process.argv[2]||'dist';
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const sitemap=read('sitemap.xml');
 const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
 const home=urls.find(url=>url.endsWith('/'));
 assert(home,'Homepage in sitemap');
+assert.equal(new Set(urls).size,urls.length,'No duplicate sitemap URLs');
+assert(urls.every(url=>url.startsWith(home) && !/[?#]/.test(url)), 'Only canonical URLs in sitemap');
+const modified=[...sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m=>m[1]);
+assert.equal(modified.length,urls.length,'Each sitemap entry has a reviewed modification date');
+assert(modified.every(date=>/^\d{4}-\d{2}-\d{2}$/.test(date) && Date.parse(date)<=Date.now()),'Valid, nonfuture lastmod dates');
 const base=new URL(home).pathname;
 const titles=new Set(),descriptions=new Set();
 const decode=s=>s.replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 for(const url of urls){
  const file=new URL(url).pathname.slice(base.length)||'index.html';
  const html=read(file), title=html.match(/<title>([^<]+)<\/title>/)?.[1],desc=html.match(/name="description" content="([^"]+)"/)?.[1];
+ assert(!html.includes('noindex') && !/http-equiv="refresh"/i.test(html),`Sitemap excludes redirects and noindex pages: ${file}`);
+ assert(!html.includes('https://actionaudiostorellc.com'),`No obsolete apex canonical references: ${file}`);
  assert(title&&!titles.has(title),`Unique title: ${file}`);titles.add(title);
  assert(desc&&!descriptions.has(desc),`Unique description: ${file}`);descriptions.add(desc);
  assert.equal((html.match(/<h1\b/g)||[]).length,1,`One H1: ${file}`);
@@ -30,12 +39,25 @@ for(const url of urls){
  for(const script of scripts){
   const graph=JSON.parse(script[1])['@graph'];
   assert(graph.some(n=>n['@type']==='WebSite'));
+  const webPage=graph.find(n=>n['@id']===url+'#webpage');
+  assert.equal(webPage?.url,url,`WebPage identity matches canonical: ${file}`);
+  assert(modified.includes(webPage.dateModified),`Schema date agrees with sitemap: ${file}`);
+  assert(graph.filter(n=>n['@id']).every(n=>n['@id'].startsWith(home)),`Consistent schema origin: ${file}`);
   const stores=graph.filter(n=>n['@type']==='AutomotiveBusiness');assert.equal(stores.length,2);
   assert.equal(stores.find(s=>s.name.includes('Hartford')).address.postalCode,'06120');
   assert(!stores.find(s=>s.name.includes('Hartford')).telephone,'Do not assign Wethersfield phone to Hartford');
   const service=graph.find(n=>n['@type']==='Service');if(service)assert(service.provider['@id'].includes(['auto-detailing.html','window-tinting.html'].includes(file)?'hartford.html':'wethersfield.html'));
   const visible=decode(html.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]*>/g,' '));
   for(const faq of graph.filter(n=>n['@type']==='FAQPage').flatMap(n=>n.mainEntity)){assert(visible.includes(faq.name));assert(visible.includes(faq.acceptedAnswer.text));}
+ }
+}
+for(const service of serviceContent){
+ const html=read(service.id+'.html');
+ const h1=decode(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1] || '');
+ assert(h1.includes(['auto-detailing','window-tinting'].includes(service.id)?'Hartford, CT':'Wethersfield, CT'),`Service heading includes correct location: ${service.id}`);
+ for(const [heading,text] of serviceGuides[service.id] || []){
+  assert(decode(html).includes(text) && decode(html).includes(heading),`Service guide rendered: ${service.id}`);
+  assert(read('llms-full.txt').includes(text),`AI reference agrees with visible guide: ${service.id}`);
  }
 }
 assert(!urls.some(url=>url.includes('track.html')));

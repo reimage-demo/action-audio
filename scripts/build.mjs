@@ -3,6 +3,8 @@ import { createHash } from "node:crypto";
 import { build, transform } from "esbuild";
 import { loadEnv } from "vite";
 const env = loadEnv("production", process.cwd(), "");
+// Regenerate metadata, visible service content, and discovery files together.
+await import("./pages.mjs");
 await rm("dist", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
 for (const f of (await readdir(".")).filter(
@@ -53,7 +55,7 @@ if (env.SITE_URL) {
     const text = await readFile("dist/" + f, "utf8");
     await writeFile(
       "dist/" + f,
-      text.replaceAll("https://actionaudiostorellc.com", origin),
+      text.replaceAll("https://www.actionaudiostorellc.com", origin).replaceAll("https://actionaudiostorellc.com", origin),
     );
   }
 }

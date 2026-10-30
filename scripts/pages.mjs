@@ -3,6 +3,7 @@ import { imageMarkup } from "../shared/images.js";
 import { writeFileSync, readFileSync } from "node:fs";
 import { metadata, writeDiscovery } from "./seo.mjs";
 import { serviceContent } from "../shared/service-content.js";
+import { locationGuides } from "../shared/search-content.js";
 import { stores, services, serviceStore } from "../shared/catalog.js";
 import {
   navigation,
@@ -12,6 +13,7 @@ import {
   servicesPage,
   detailPages,
   showroomGallery,
+  answerSection,
 } from "./design.mjs";
 const logo =
   '<img src="/assets/action-audio-logo.webp" width="189" height="70" alt="The Action Audio Store">';
@@ -35,23 +37,23 @@ const head = (label, title, desc) =>
   `<section class="page-heading wrap"><h1>${title}</h1><p>${desc}</p></section>`;
 const pages = {
   "index.html": {
-    title: "Hartford Car Detailing & Auto Electronics | Action Audio",
+    title: "Car Detailing & Car Electronics in Hartford CT | Action Audio",
     desc: "Upgrade your drive with car audio, remote starters, electronics, and installation in Wethersfield, plus auto detailing and window tinting in Hartford, Connecticut.",
     body: homePage(),
   },
   "services.html": {
-    title: "Car Audio, Installation & Vehicle Services | Action Audio",
+    title: "Auto Detailing & Car Electronics Services CT | Action Audio",
     desc: "Explore car audio, remote starters, electronics replacement, dash cams, GPS trackers, window tinting, detailing, and installation in Hartford and Wethersfield.",
     body: servicesPage(),
   },
   "electronics.html": {
-    title: "Car Audio & Vehicle Electronics | Action Audio CT",
-    desc: "Explore speakers, subwoofers, receivers, remote starters, car alarms, video systems, and vehicle electronics at Action Audio.",
+    title: "Car Electronics & Audio in Wethersfield CT | Action Audio",
+    desc: "Car audio, remote starters, dash cams, and vehicle electronics in Wethersfield, CT. Explore equipment and discuss installation with Action Audio.",
     body: electronicsPage(),
   },
   "locations.html": {
     title:
-      "Hartford Detailing & Wethersfield Electronics | Action Audio Locations",
+      "Hartford & Wethersfield Locations | Action Audio",
     desc: "Visit Action Audio at 2814 Main St in Hartford or 105 Silas Deane Hwy in Wethersfield. Open Monday–Saturday, 9am–6pm.",
     body:
       head(
@@ -82,8 +84,8 @@ const pages = {
   },
   "book.html": {
     title:
-      "Book Electronics Replacement, Detailing & Installation | Action Audio",
-    desc: "Request car electronics replacement or installation in Wethersfield, or interior and exterior auto detailing and window tinting in Hartford, CT. Choose your store and preferred date.",
+      "Book Auto Detailing or Electronics Installation | Action Audio",
+    desc: "Request auto detailing or tinting in Hartford, or car audio and electronics installation in Wethersfield, CT. The team will contact you to confirm your visit.",
     body:
       head(
         "LET’S TAKE CARE OF YOUR RIDE",
@@ -134,6 +136,8 @@ for (const s of stores)
         .filter((service) => serviceStore(service.booking).id === s.id)
         .map((s) => `<li><a href="/${s.id}.html">${s.name}</a></li>`)
         .join("")}</ul></div></section>` +
+      `<section class="wrap service-guide"><h2>${locationGuides[s.id].heading}</h2><p>${locationGuides[s.id].text}</p><a class="text-link" href="/estimate.html?service=${s.id === "hartford" ? "auto-detailing" : "electrical-installation"}">Request a ${s.name} service estimate</a></section>` +
+      answerSection(s.id + ".html", `${s.name} store questions`) +
       (s.id === "wethersfield" ? showroomGallery() : "") +
       cta,
   };

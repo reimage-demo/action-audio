@@ -4154,3 +4154,13 @@ picture{display:block}
 .form-panel [hidden]{display:none}
 @media(max-width:1100px){.featured-services{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.service-color-section .featured-services{grid-template-columns:1fr}.featured-services .service-selection-photo{height:220px}.form-panel legend{font-size:19px}.form-panel fieldset+fieldset{margin-top:24px}}
+
+/* Local service guidance stays readable on small screens and without JavaScript. */
+.home-search-intro { padding-block: 44px; }
+.home-search-intro h1 { max-width: 980px; font-size: clamp(1.85rem, 3.3vw, 2.8rem); line-height: 1.15; margin-bottom: 18px; }
+.home-search-intro p { max-width: 880px; font-size: 1.08rem; line-height: 1.75; }
+.home-search-intro a, .service-guide a { text-underline-offset: 3px; }
+.service-guide { padding-block: 34px; border-top: 1px solid #dbe3eb; }
+.service-guide article { max-width: 900px; margin-bottom: 28px; }
+.service-guide h2 { font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.25; margin-bottom: 12px; }
+.service-guide p { max-width: 900px; font-size: 1.05rem; line-height: 1.8; }
