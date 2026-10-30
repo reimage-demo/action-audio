@@ -1,8 +1,8 @@
 # Action Audio — Public website
 
-Live site: https://reimage-demo.github.io/action-audio/
+Live site: https://www.actionaudiostorellc.com/
 
-Public landing page for QR codes: https://reimage-demo.github.io/action-audio/landing-page.html
+Public landing page for QR codes: https://www.actionaudiostorellc.com/landing-page.html
 
 Source lives on main; GitHub Pages serves the compiled gh-pages branch.
 
