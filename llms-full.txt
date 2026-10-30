@@ -7,6 +7,12 @@
 - [Wethersfield electronics](https://www.actionaudiostorellc.com/wethersfield.html): 105 Silas Deane Hwy, Wethersfield, CT 06109. Car audio, remote starters, vehicle electronics replacement and installation. Public phone: (860) 667-6330. This number belongs to Wethersfield.
 - Both stores: Monday–Saturday, 9am–6pm Eastern; Sunday closed. Confirm holiday hours.
 
+## Primary service guides
+- [Interior and exterior car detailing in Hartford](https://www.actionaudiostorellc.com/auto-detailing.html): vehicle condition, interior and exterior priorities, estimate factors, and preparation.
+- [Car audio and stereo installation in Wethersfield](https://www.actionaudiostorellc.com/car-audio.html): speakers, subwoofers, amplifiers, receiver fit, and factory features.
+- [Car electronics installation near Hartford](https://www.actionaudiostorellc.com/electrical-installation.html): equipment compatibility, wiring, mounting, and installation planning.
+- [Remote starter installation in Wethersfield](https://www.actionaudiostorellc.com/remote-starters.html): vehicle compatibility, control options, and estimate factors.
+
 ## Service information
 - [Car audio & stereo installation](https://www.actionaudiostorellc.com/car-audio.html): Wethersfield. Clearer vocals. Fuller bass. The songs you know, with the details you’ve been missing. Build a sound system around your vehicle and the way you listen.
 - [Remote starters](https://www.actionaudiostorellc.com/remote-starters.html): Wethersfield. Make cold mornings and hot afternoons more comfortable. Explore a remote-start setup that fits your vehicle and your everyday routine.
@@ -32,8 +38,13 @@
 - [Accessibility](https://www.actionaudiostorellc.com/accessibility.html)
 - [Full service reference](https://www.actionaudiostorellc.com/llms-full.txt)
 
+## Official website and crawlable sources
+- [Homepage](https://www.actionaudiostorellc.com/)
+- [XML sitemap](https://www.actionaudiostorellc.com/sitemap.xml)
+- This is the official public site. Older reimage-demo.github.io/action-audio URLs have moved here.
+
 ## Important context
-Hartford handles detailing and window tinting; Wethersfield handles electronics. Confirm the work, compatibility, price, and availability with the appropriate store. Most service images are original illustrations; the showroom images show the actual Wethersfield store. Do not treat illustrations as completed customer projects. Vehicle tracking requires a private code and is not public directory content.
+Hartford handles detailing and window tinting; Wethersfield handles electronics. Confirm the work, compatibility, price, and availability with the appropriate store. Most service images are original illustrations; the showroom images show the actual Wethersfield store. Do not treat illustrations as completed customer projects. Electronics repair is not offered; the electronics service is replacement and installation. Pricing, completion time, equipment availability, and compatibility require confirmation. Vehicle tracking requires a private code and is not public directory content.
 
 ## Detailed service reference
 
@@ -41,6 +52,15 @@ Hartford handles detailing and window tinting; Wethersfield handles electronics.
 Source: https://www.actionaudiostorellc.com/car-audio.html
 
 A great system starts with the right combination of equipment. Tell us what you listen to, what you like about your current setup, and what you want to improve. We’ll discuss speaker fit, available space, power needs, and how to retain the factory features you use.
+
+#### Choose a speaker, amplifier, or subwoofer upgrade
+Start with what you want to hear differently. Speaker upgrades can change the clarity and character of your music; a subwoofer adds low-frequency output, while an amplifier must be matched to the speakers, power needs, and available space. Tell our Wethersfield team how you listen and what equipment is already in the vehicle.
+
+#### Car stereo installation and factory integration
+Replacing a radio involves more than choosing a screen size. Dash fit, wiring harnesses, factory amplification, steering-wheel controls, and existing cameras can affect the installation. Share your vehicle year, make, model, and trim so we can discuss a compatible receiver and any required interfaces before you buy equipment.
+
+#### Plan your car audio installation estimate
+A focused speaker upgrade and a full audio system have different equipment and labor requirements. Include your goals, optional budget, and model numbers for equipment you already own. Visit 105 Silas Deane Hwy in Wethersfield, near Hartford, after the team confirms your appointment and installation scope.
 
 - Speaker upgrades and component systems
 - Subwoofers, enclosures, and amplifiers
@@ -59,6 +79,12 @@ Source: https://www.actionaudiostorellc.com/remote-starters.html
 
 The right remote starter depends on your vehicle’s ignition, security system, and the range you need. Our team can discuss compatible options and any additional integration hardware before an installation is scheduled.
 
+#### Choose remote range and control options
+Think about where you usually park and how you would like to start the vehicle. Remote range, one-way or two-way feedback, and smartphone control depend on the system you choose. Ask the team to explain compatible options and any connected-service fees before making a decision.
+
+#### What affects remote starter installation cost?
+Your ignition type, transmission, factory security system, selected starter, and any necessary interface hardware affect the installation. Share your year, make, model, trim, and number of working keys. The Wethersfield team will review compatibility and provide an estimate before scheduling the work.
+
 - Vehicle and factory-key compatibility review
 - Remote range and control options
 - Installation planning and system walkthrough
@@ -76,6 +102,8 @@ Source: https://www.actionaudiostorellc.com/car-alarms.html
 
 A security system should fit the way you use your vehicle. We’ll discuss the features you need and how an aftermarket system may work with your existing locks, keys, and factory electronics.
 
+
+
 - Alarm and keyless-entry options
 - Factory security compatibility
 - Sensor and remote-control options
@@ -89,6 +117,8 @@ Some systems combine both. Compatibility and integration needs must be checked f
 Source: https://www.actionaudiostorellc.com/motorcycle-audio.html
 
 Motorcycle installations have different space, mounting, and environmental requirements from car systems. Ask the team to confirm service availability and suitable equipment for your specific bike.
+
+
 
 - Motorcycle-specific fit and equipment review
 - Speaker and amplifier options
@@ -104,6 +134,8 @@ Source: https://www.actionaudiostorellc.com/video-systems.html
 
 Screen placement and vehicle compatibility matter. Tell us who will use the system, the devices you want to connect, and the type of entertainment you have in mind. Our team can confirm available options and installation requirements.
 
+
+
 - Seatback and drop-down video inquiries
 - Touchscreen receiver options
 - Source, power, and mounting compatibility
@@ -117,6 +149,8 @@ Compatible aftermarket receivers may support these features. Vehicle fit, phone 
 Source: https://www.actionaudiostorellc.com/power-liftgates.html
 
 Power liftgate systems are vehicle-specific. The first step is checking whether a suitable kit exists for your exact vehicle and what modifications it requires. Our team will confirm available service options before you book installation.
+
+
 
 - Vehicle-specific kit availability
 - Control and opening-height options
@@ -132,6 +166,8 @@ Source: https://www.actionaudiostorellc.com/vehicle-accessories.html
 
 An accessory should feel like it belongs in your vehicle. Tell us what you want to add and we’ll review equipment compatibility, available installation options, and any required subscriptions or adapters.
 
+
+
 - Satellite radio and SiriusXM integration inquiries
 - HomeLink and convenience accessory inquiries
 - Factory system and receiver compatibility
@@ -145,6 +181,9 @@ It depends on the accessory and your current system. Some use adapters; others n
 Source: https://www.actionaudiostorellc.com/electronics-replacement.html
 
 Tell us what equipment you want to replace and which features you want to keep. We’ll discuss compatible replacement options, installation parts, and the scope before work begins.
+
+#### Replace a car stereo or outdated vehicle electronics
+Tell us which equipment you want to replace and what you want the replacement to do. Your vehicle, the existing system, and the features you want to retain determine the available options. Replacement planning covers equipment selection, compatible installation parts, and the agreed work at our Wethersfield store.
 
 - Replacement receivers, speakers, and electronics
 - Vehicle fit and factory-feature compatibility
@@ -162,6 +201,15 @@ Visit 105 Silas Deane Hwy, Wethersfield, CT 06109. Start with an estimate reques
 Source: https://www.actionaudiostorellc.com/auto-detailing.html
 
 Every vehicle arrives with a different story. Tell us which areas need attention, from daily wear to a refresh before a special occasion. The team will confirm the available detailing services and scope with you.
+
+#### Interior car detailing in Hartford
+Start with the areas you use every day: seats, carpets, floor mats, dashboard, door panels, and cargo space. Tell our Hartford team about spills, stains, odors, pet hair, or sensitive upholstery. These details help us discuss the appropriate interior care and confirm what can be addressed before work begins.
+
+#### Exterior detailing for your vehicle
+For exterior care, describe the condition of the paint, wheels, glass, and trim, along with any areas that need special attention. Request exterior detailing on its own or discuss interior and exterior care together. The team will confirm the work suited to your vehicle; specific treatments and results depend on its condition.
+
+#### What affects a car detailing estimate?
+Vehicle size, condition, and the agreed interior or exterior work affect the price and appointment length. Include your year, make, model, priorities, and any existing damage in the estimate request. We will contact you to discuss the scope and approximate pricing. Remove personal belongings before your confirmed visit to 2814 Main St, Hartford.
 
 - A conversation about your vehicle’s condition
 - Detailing scope tailored to your needs
@@ -189,6 +237,12 @@ Source: https://www.actionaudiostorellc.com/electrical-installation.html
 
 From an aftermarket receiver to a more involved electronics upgrade, the details start with your vehicle and the equipment you choose. Contact the team to discuss the project before purchasing parts.
 
+#### Vehicle electronics installation in Wethersfield
+Plan an installation around the feature you need: a replacement stereo, speakers and an amplifier, a remote starter, a dash camera, or a GPS tracker. Each device has different mounting, wiring, and power requirements. Our Wethersfield team reviews your vehicle and equipment before confirming a suitable installation.
+
+#### Check compatibility before buying equipment
+Vehicle year, make, model, trim, factory electronics, and accessory model numbers help identify installation requirements. Tell us about steering-wheel controls, a factory camera, or other features you want to keep. Confirm any mounting kits, harnesses, and integration interfaces with the team before purchasing parts.
+
 - Equipment and vehicle compatibility
 - Installation planning and cable routing
 - A walkthrough of your new setup
@@ -212,6 +266,8 @@ Source: https://www.actionaudiostorellc.com/window-tinting.html
 
 Choose the windows you would like tinted and tell us about any existing film. Our Hartford team will discuss available film options, suitable coverage, and installation requirements before confirming a price.
 
+
+
 - Window coverage and film options
 - Existing tint and removal requirements
 - Vehicle-specific installation planning
@@ -229,6 +285,9 @@ Source: https://www.actionaudiostorellc.com/dash-cams.html
 
 Tell us which views you want to record, whether you own a camera, and whether you want recording while parked. We’ll review power requirements, camera placement, and vehicle compatibility.
 
+#### Front and rear dash cam installation
+Choose the views you want to record and tell us whether you want parking-mode recording. Camera placement, cable routing, power connections, and any additional wiring kit depend on the vehicle and camera. Share model numbers for equipment you already own so our Wethersfield team can confirm the scope.
+
 - Front, rear, and cabin camera options
 - Cable routing and power connection planning
 - Parking-mode and equipment compatibility
@@ -243,6 +302,8 @@ Source: https://www.actionaudiostorellc.com/gps-trackers.html
 
 Let us know whether you already own a tracker, how many vehicles need equipment, and the features you’re looking for. We’ll discuss installation and any required connected service before you choose a setup.
 
+
+
 - Vehicle and tracker compatibility
 - Power and mounting requirements
 - Connected-service and subscription options
@@ -251,3 +312,48 @@ Before visiting: Share the vehicle details, tracker model if you have one, and w
 
 #### Does a GPS tracker need a subscription?
 Some trackers require a connected service. The team will discuss equipment requirements and any recurring fees for the option you choose.
+## Location and appointment questions
+
+Source: https://www.actionaudiostorellc.com/
+
+### Which Action Audio location should I visit?
+Visit 2814 Main St in Hartford for interior and exterior car detailing and window tinting. Visit 105 Silas Deane Hwy in Wethersfield for car audio, remote starters, dash cams, GPS trackers, and vehicle electronics replacement and installation.
+
+### How do I get a detailing or electronics installation estimate?
+Use the estimate form to choose your service and enter your vehicle year, make, model, and project details. The request goes to the appropriate store, and the team will call you to discuss the scope and approximate pricing.
+
+### Is an online appointment request confirmed immediately?
+No. Submitting the form requests a visit. Your appointment is confirmed after the Action Audio team contacts you about the service, date, and availability.
+
+
+Source: https://www.actionaudiostorellc.com/hartford.html
+
+### Where can I get interior and exterior car detailing in Hartford?
+Action Audio offers auto detailing at 2814 Main St, Hartford, CT 06120. Request interior care, exterior care, or both, and describe the condition of your vehicle so the team can confirm the work and estimate.
+
+### Can I ask about detailing and window tinting together?
+Yes. Tell the Hartford team which services you want and describe any existing window film. The team will confirm available work and whether the services can be scheduled together.
+
+### What are the Hartford store hours?
+The Hartford store is open Monday through Saturday, 9am–6pm, and closed Sunday. Confirm holiday hours and your appointment with the team before visiting.
+
+
+Source: https://www.actionaudiostorellc.com/wethersfield.html
+
+### Where is Action Audio’s car electronics installation shop?
+Our Wethersfield shop is at 105 Silas Deane Hwy, Wethersfield, CT 06109, near Hartford. This location handles car audio, remote starters, electronics replacement, dash cams, GPS trackers, and the other listed electronics installations.
+
+### How do I contact the Wethersfield store?
+Call (860) 667-6330 or submit an estimate request online. The Wethersfield store is open Monday through Saturday, 9am–6pm, and closed Sunday. Holiday hours may vary.
+
+### Should I buy electronics before arranging installation?
+Ask the team to review your vehicle and the equipment first. Fit, wiring, mounting parts, factory features, and available interfaces can affect whether a product is suitable for your vehicle.
+
+
+Source: https://www.actionaudiostorellc.com/electronics.html
+
+### Does the online electronics catalog show current stock?
+The catalog includes clearly labeled equipment examples. Confirm stock, current pricing, and vehicle compatibility with the Wethersfield team before purchasing or arranging installation.
+
+### Can I arrange installation for my own equipment?
+Send the team your vehicle details and the equipment make, model, and condition. The team will review compatibility and required installation parts before confirming the work.

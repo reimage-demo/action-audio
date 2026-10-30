@@ -7,6 +7,12 @@
 - [Wethersfield electronics](https://www.actionaudiostorellc.com/wethersfield.html): 105 Silas Deane Hwy, Wethersfield, CT 06109. Car audio, remote starters, vehicle electronics replacement and installation. Public phone: (860) 667-6330. This number belongs to Wethersfield.
 - Both stores: Monday–Saturday, 9am–6pm Eastern; Sunday closed. Confirm holiday hours.
 
+## Primary service guides
+- [Interior and exterior car detailing in Hartford](https://www.actionaudiostorellc.com/auto-detailing.html): vehicle condition, interior and exterior priorities, estimate factors, and preparation.
+- [Car audio and stereo installation in Wethersfield](https://www.actionaudiostorellc.com/car-audio.html): speakers, subwoofers, amplifiers, receiver fit, and factory features.
+- [Car electronics installation near Hartford](https://www.actionaudiostorellc.com/electrical-installation.html): equipment compatibility, wiring, mounting, and installation planning.
+- [Remote starter installation in Wethersfield](https://www.actionaudiostorellc.com/remote-starters.html): vehicle compatibility, control options, and estimate factors.
+
 ## Service information
 - [Car audio & stereo installation](https://www.actionaudiostorellc.com/car-audio.html): Wethersfield. Clearer vocals. Fuller bass. The songs you know, with the details you’ve been missing. Build a sound system around your vehicle and the way you listen.
 - [Remote starters](https://www.actionaudiostorellc.com/remote-starters.html): Wethersfield. Make cold mornings and hot afternoons more comfortable. Explore a remote-start setup that fits your vehicle and your everyday routine.
@@ -32,5 +38,10 @@
 - [Accessibility](https://www.actionaudiostorellc.com/accessibility.html)
 - [Full service reference](https://www.actionaudiostorellc.com/llms-full.txt)
 
+## Official website and crawlable sources
+- [Homepage](https://www.actionaudiostorellc.com/)
+- [XML sitemap](https://www.actionaudiostorellc.com/sitemap.xml)
+- This is the official public site. Older reimage-demo.github.io/action-audio URLs have moved here.
+
 ## Important context
-Hartford handles detailing and window tinting; Wethersfield handles electronics. Confirm the work, compatibility, price, and availability with the appropriate store. Most service images are original illustrations; the showroom images show the actual Wethersfield store. Do not treat illustrations as completed customer projects. Vehicle tracking requires a private code and is not public directory content.
+Hartford handles detailing and window tinting; Wethersfield handles electronics. Confirm the work, compatibility, price, and availability with the appropriate store. Most service images are original illustrations; the showroom images show the actual Wethersfield store. Do not treat illustrations as completed customer projects. Electronics repair is not offered; the electronics service is replacement and installation. Pricing, completion time, equipment availability, and compatibility require confirmation. Vehicle tracking requires a private code and is not public directory content.
