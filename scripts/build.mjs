@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { build, transform } from "esbuild";
 import { loadEnv } from "vite";
 const env = loadEnv("production", process.cwd(), "");
+await import("./favicon.mjs");
 // Regenerate metadata, visible service content, and discovery files together.
 await import("./pages.mjs");
 await rm("dist", { recursive: true, force: true });
@@ -21,6 +22,7 @@ for (const f of (await readdir(".")).filter(
       "llms-full.txt",
       "action-audio-indexnow.txt",
       "CNAME",
+      "favicon.ico",
     ].includes(f),
 ))
   await cp(f, "dist/" + f);
