@@ -37,16 +37,19 @@ const head = (label, title, desc) =>
   `<section class="page-heading wrap"><h1>${title}</h1><p>${desc}</p></section>`;
 const pages = {
   "index.html": {
+    updated: "2026-11-06",
     title: "Car Detailing & Car Electronics in Hartford CT | Action Audio",
     desc: "Upgrade your drive with car audio, remote starters, electronics, and installation in Wethersfield, plus auto detailing and window tinting in Hartford, Connecticut.",
     body: homePage(),
   },
   "services.html": {
+    updated: "2026-11-06",
     title: "Auto Detailing & Car Electronics Services CT | Action Audio",
     desc: "Explore car audio, remote starters, electronics replacement, dash cams, GPS trackers, window tinting, detailing, and installation in Hartford and Wethersfield.",
     body: servicesPage(),
   },
   "electronics.html": {
+    updated: "2026-11-06",
     title: "Car Electronics & Audio in Wethersfield CT | Action Audio",
     desc: "Car audio, remote starters, dash cams, and vehicle electronics in Wethersfield, CT. Explore equipment and discuss installation with Action Audio.",
     body: electronicsPage(),
@@ -143,7 +146,7 @@ for (const s of stores)
   };
 Object.assign(pages, detailPages());
 for (const [file, p] of Object.entries(pages)) {
-  writeFileSync(file, `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12345b">${metadata(file,p)}<link rel="icon" type="image/x-icon" href="/favicon.ico?v=20261101"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=20261101"><link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png?v=20261101"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=20261101"><link rel="stylesheet" href="/styles.css"><script src="/config.js"></script><script type="module" src="/app.js"></script><script src="/site.js" defer></script></head><body class="page-${file.replace(".html", "")}">${nav}<main id="main">${p.body}</main>${footer}</body></html>`);
+  writeFileSync(file, `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12345b">${file === "index.html" ? '<meta name="msvalidate.01" content="78F93D1057647D83AE4B906CA632988F">' : ""}${metadata(file,p)}<link rel="icon" type="image/x-icon" href="/favicon.ico?v=20261101"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=20261101"><link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png?v=20261101"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=20261101"><link rel="stylesheet" href="/styles.css"><script src="/config.js"></script><script type="module" src="/app.js"></script><script src="/site.js" defer></script></head><body class="page-${file.replace(".html", "")}">${nav}<main id="main">${p.body}</main>${footer}</body></html>`);
 }
 const landing = readFileSync("landing-page.html", "utf8").replace(/(<a class="links-logo"[^>]*>)[\s\S]*?(<\/a>)/, (_,start,end)=>start+imageMarkup("action-audio-logo.webp","The Action Audio Store",{sizes:"270px",eager:true,priority:"auto"})+end);
 const landingWithFinancing = landing.replace(/<dialog\b[\s\S]*?<\/dialog>/, financingDialog).replace(/<script>\s*const acimaDialog[\s\S]*?<\/script>/, "").replace(/[ \t]+$/gm, "");
@@ -152,6 +155,6 @@ writeFileSync("landing-page.html",landingWithFinancing.replace(/<head>[\s\S]*?<\
 writeDiscovery(pages);
 
 // Keep old bookmarks useful without advertising retired services or indexing them.
-for (const [from, to] of [["electronics-repair", "electronics-replacement"], ["radar-detectors", "services"]]) {
+for (const [from, to] of [["electronics-repair", "electronics-replacement"], ["radar-detectors", "services"], ["power-liftgates", "services"], ["vehicle-accessories", "motorsport-upgrades"]]) {
   writeFileSync(`${from}.html`, `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, follow"><meta http-equiv="refresh" content="0;url=${to}.html"><title>Service information | Action Audio</title></head><body><p><a href="/${to}.html">Continue to current service information</a></p></body></html>`);
 }

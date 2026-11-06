@@ -26,8 +26,8 @@ export const seoServices = {
   },
   "electrical-installation": {
     "title": "Car Electronics Installation Wethersfield CT | Action Audio",
-    "heading": "Car electronics installation.\nWethersfield, CT.",
-    "description": "Car electronics installation in Wethersfield, CT: stereos, speakers, cameras, and vehicle accessories. Ask Action Audio about fit and request an estimate."
+    "heading": "CarPlay, Android Auto & radio installation.\nWethersfield, CT.",
+    "description": "Upgrade to Apple CarPlay and Android Auto with compatible radio installation in Wethersfield, CT. Ask Action Audio about receiver and vehicle fit."
   },
   "car-audio": {
     "title": "Car Audio & Stereo Installation Wethersfield | Action Audio",
@@ -69,23 +69,18 @@ export const seoServices = {
     "heading": "Car video & entertainment systems.\nWethersfield, CT.",
     "description": "Explore rear-seat video, overhead screens, and vehicle entertainment at Action Audio in Wethersfield, CT. Discuss equipment and installation compatibility."
   },
-  "power-liftgates": {
-    "title": "Power Liftgate Installation Wethersfield CT | Action Audio",
-    "heading": "Power liftgate installation.\nWethersfield, CT.",
-    "description": "Discuss power liftgate options at Action Audio in Wethersfield, CT. Confirm your vehicle’s compatibility, installation requirements, and available equipment."
-  },
-  "vehicle-accessories": {
-    "title": "Vehicle Accessories & Installation CT | Action Audio",
-    "heading": "Vehicle accessories & installation.\nWethersfield, CT.",
-    "description": "Explore vehicle accessories and installation at Action Audio in Wethersfield, CT. Share your vehicle details and discuss the upgrade you have in mind."
+  "motorsport-upgrades": {
+    "title": "Slingshot Audio & Motorsport Upgrades CT | Action Audio",
+    "heading": "Slingshot audio & motorsport upgrades.\nWethersfield, CT.",
+    "description": "Explore Slingshot speakers, amplifiers, and connected audio upgrades at Action Audio in Wethersfield. Discuss fit and installation for your model."
   }
 };
 export function imageFor(file) {
   const service = serviceContent.find(s => `${s.id}.html` === file);
   if (service) return { file: service.image, alt: service.alt };
   if (['wethersfield.html','about.html','locations.html'].includes(file)) return {file:'wethersfield-counter.webp',alt:'Counter and electronics displays in Action Audio’s Wethersfield showroom'};
-  if (file === 'hartford.html') return {file:'service-detailing.webp',alt:'Illustration of a detailer polishing a vehicle hood'};
-  return {file:'hero-installation.webp',alt:'Illustration of a technician installing vehicle speakers and an amplifier'};
+  if (file === 'hartford.html') return {file:'service-soap-wash.webp',alt:'A white SUV covered in soap during an exterior wash'};
+  return {file:'service-audio-led.webp',alt:'Custom trunk subwoofers with green LED lighting'};
 }
 const city = name => ({'@type':'City',name:`${name}, Connecticut`});
 export function schemaFor(file, page) {

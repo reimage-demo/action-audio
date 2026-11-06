@@ -15,18 +15,17 @@
 
 ## Service information
 - [Car audio & stereo installation](https://www.actionaudiostorellc.com/car-audio.html): Wethersfield. Clearer vocals. Fuller bass. The songs you know, with the details you’ve been missing. Build a sound system around your vehicle and the way you listen.
-- [Remote starters](https://www.actionaudiostorellc.com/remote-starters.html): Wethersfield. Make cold mornings and hot afternoons more comfortable. Explore a remote-start setup that fits your vehicle and your everyday routine.
-- [Car alarms & security](https://www.actionaudiostorellc.com/car-alarms.html): Wethersfield. Explore vehicle security options, from alarm systems to convenient keyless entry. Start with a conversation about your vehicle and what you want to protect.
+- [Remote starters](https://www.actionaudiostorellc.com/remote-starters.html): Wethersfield. Start your day from your phone. Explore compatible remote starters with smartphone control, two-way confirmation, and convenient lock and unlock features.
+- [Car alarms & security](https://www.actionaudiostorellc.com/car-alarms.html): Wethersfield. Bring your vehicle security up to date with two-way alarm alerts, a color-screen remote, and compatible smartphone notifications. Discuss a setup that fits your vehicle.
 - [Motorcycle audio](https://www.actionaudiostorellc.com/motorcycle-audio.html): Wethersfield. Explore audio options for your motorcycle. Talk with our team about a setup suited to your bike, available space, and listening preferences.
-- [Video & entertainment](https://www.actionaudiostorellc.com/video-systems.html): Wethersfield. Explore seatback and overhead video options for passengers, along with receivers that bring modern connectivity to the dashboard.
-- [Power liftgates](https://www.actionaudiostorellc.com/power-liftgates.html): Wethersfield. Interested in adding powered access to your cargo area? Ask our team about vehicle-specific liftgate options and installation availability.
-- [Connected accessories](https://www.actionaudiostorellc.com/vehicle-accessories.html): Wethersfield. Explore convenient additions such as smartphone integration, satellite radio, and garage-door controls. Find out what works with your existing electronics.
-- [Electronics replacement](https://www.actionaudiostorellc.com/electronics-replacement.html): Wethersfield. Replace outdated or nonworking vehicle electronics at our Wethersfield store. We replace equipment; we do not repair electronics.
+- [Video & entertainment](https://www.actionaudiostorellc.com/video-systems.html): Wethersfield. Give passengers their own entertainment. Explore dual seatback screens, streaming-app options, and headphones for family road trips.
+- [Motorsport upgrades](https://www.actionaudiostorellc.com/motorsport-upgrades.html): Wethersfield. Make your Slingshot sound as bold as it looks. Explore speakers, amplifiers, and connected audio upgrades suited to open-air motorsports.
+- [Electronics replacement](https://www.actionaudiostorellc.com/electronics-replacement.html): Wethersfield. Replace an outdated stereo, worn speakers, or nonworking vehicle electronics. Explore modern touchscreen receivers and compatible replacement equipment at our Wethersfield store.
 - [Auto detailing](https://www.actionaudiostorellc.com/auto-detailing.html): Hartford. Interior and exterior car detailing at our Hartford, Connecticut store. Tell us about your vehicle’s condition and the areas you would like refreshed.
-- [Electrical installation](https://www.actionaudiostorellc.com/electrical-installation.html): Wethersfield. Plan your car electronics installation at Action Audio in Wethersfield, near Hartford. Discuss receivers, speakers, and accessories, with compatibility checked for your vehicle.
+- [Radio & electronics installation](https://www.actionaudiostorellc.com/electrical-installation.html): Wethersfield. Bring Apple CarPlay and Android Auto to your dashboard with a compatible touchscreen radio. Plan your receiver and electronics installation with our Wethersfield team.
 - [Window tinting](https://www.actionaudiostorellc.com/window-tinting.html): Hartford. Vehicle window tinting at our Hartford store. Tell us which windows you want tinted and whether existing film needs to be removed.
-- [Dash cams](https://www.actionaudiostorellc.com/dash-cams.html): Wethersfield. Dash cam installation at Action Audio in Wethersfield. Explore front, rear, and cabin camera setups suited to your vehicle.
-- [GPS trackers](https://www.actionaudiostorellc.com/gps-trackers.html): Wethersfield. GPS tracker installation at our Wethersfield store. Discuss a setup for your vehicle, the features you need, and compatible equipment.
+- [Dash cams](https://www.actionaudiostorellc.com/dash-cams.html): Wethersfield. Explore modern dash cams from brands such as THINKWARE and BlackVue. Discuss front and rear recording, phone access, and parking-mode options for your vehicle.
+- [GPS trackers](https://www.actionaudiostorellc.com/gps-trackers.html): Wethersfield. Keep your vehicle in view from your phone. Explore DroneMobile GPS tracking with location maps, geofence options, and trip information on supported plans.
 
 ## Plan a visit
 - [Request an estimate](https://www.actionaudiostorellc.com/estimate.html): share vehicle year, make, model, service details, name, and phone for a callback.
@@ -77,7 +76,7 @@ Not necessarily. Share what you’d like to improve and we can discuss a focused
 ### Remote starters — Wethersfield
 Source: https://www.actionaudiostorellc.com/remote-starters.html
 
-The right remote starter depends on your vehicle’s ignition, security system, and the range you need. Our team can discuss compatible options and any additional integration hardware before an installation is scheduled.
+Connected systems such as DroneMobile pair a phone app with compatible remote-start hardware. Ask about starting your vehicle, checking its status, and using a remote alongside your phone. Features depend on the vehicle, installed equipment, cellular coverage, and selected subscription.
 
 #### Choose remote range and control options
 Think about where you usually park and how you would like to start the vehicle. Remote range, one-way or two-way feedback, and smartphone control depend on the system you choose. Ask the team to explain compatible options and any connected-service fees before making a decision.
@@ -85,9 +84,9 @@ Think about where you usually park and how you would like to start the vehicle. 
 #### What affects remote starter installation cost?
 Your ignition type, transmission, factory security system, selected starter, and any necessary interface hardware affect the installation. Share your year, make, model, trim, and number of working keys. The Wethersfield team will review compatibility and provide an estimate before scheduling the work.
 
-- Vehicle and factory-key compatibility review
-- Remote range and control options
-- Installation planning and system walkthrough
+- Smartphone start, lock, and unlock options
+- Two-way remotes and vehicle-status confirmation
+- Vehicle compatibility, LTE coverage, and subscription review
 
 Before visiting: Have your year, make, model, transmission type, and number of working keys ready. Ask the team which keys to bring to your appointment.
 
@@ -100,13 +99,13 @@ Some systems offer smartphone control through additional hardware and a connecte
 ### Car alarms & security — Wethersfield
 Source: https://www.actionaudiostorellc.com/car-alarms.html
 
-A security system should fit the way you use your vehicle. We’ll discuss the features you need and how an aftermarket system may work with your existing locks, keys, and factory electronics.
+Modern systems can combine a remote, vehicle sensors, and a connected phone app. The Compustar PRO T13 is one example of a two-way LCD remote with smartphone-control support. Alarm functions require compatible security hardware; connected features depend on equipment, coverage, and subscription.
 
 
 
-- Alarm and keyless-entry options
-- Factory security compatibility
-- Sensor and remote-control options
+- Two-way security alerts and color-screen remote options
+- Compatible smartphone notifications and vehicle status
+- Impact, tilt, and motion sensor options
 
 Before visiting: Tell us about your existing alarm or remote starter and any issues you are experiencing.
 
@@ -132,50 +131,34 @@ No. Fit, mounting, weather exposure, and electrical requirements need to be cons
 ### Video & entertainment — Wethersfield
 Source: https://www.actionaudiostorellc.com/video-systems.html
 
-Screen placement and vehicle compatibility matter. Tell us who will use the system, the devices you want to connect, and the type of entertainment you have in mind. Our team can confirm available options and installation requirements.
+Tell us which apps and devices your passengers use. We’ll review screen placement, vehicle fit, internet access, and compatible media sources. Streaming services may need Wi-Fi and separate subscriptions; app availability varies by system.
 
 
 
-- Seatback and drop-down video inquiries
-- Touchscreen receiver options
-- Source, power, and mounting compatibility
+- Dual seatback or overhead screen options
+- Streaming apps, device connections, and headphones
+- Wi-Fi, subscriptions, power, and secure mounting review
 
 Before visiting: Bring vehicle details and information about the phones, streaming devices, or media sources you plan to use.
 
 #### Can I add Apple CarPlay or Android Auto?
 Compatible aftermarket receivers may support these features. Vehicle fit, phone compatibility, and wired or wireless support depend on the receiver.
 
-### Power liftgates — Wethersfield
-Source: https://www.actionaudiostorellc.com/power-liftgates.html
+### Motorsport upgrades — Wethersfield
+Source: https://www.actionaudiostorellc.com/motorsport-upgrades.html
 
-Power liftgate systems are vehicle-specific. The first step is checking whether a suitable kit exists for your exact vehicle and what modifications it requires. Our team will confirm available service options before you book installation.
-
-
-
-- Vehicle-specific kit availability
-- Control and opening-height options
-- Installation and compatibility consultation
-
-Before visiting: Share your year, make, model, and trim, and whether your liftgate is currently manual or powered.
-
-#### Is every SUV compatible?
-No. Kit availability and installation requirements vary by vehicle and trim. Contact us for a compatibility review.
-
-### Connected accessories — Wethersfield
-Source: https://www.actionaudiostorellc.com/vehicle-accessories.html
-
-An accessory should feel like it belongs in your vehicle. Tell us what you want to add and we’ll review equipment compatibility, available installation options, and any required subscriptions or adapters.
+Open-air vehicles need equipment selected for their layout and riding conditions. Tell our Wethersfield team about your Polaris Slingshot, your current system, and the sound you want. We’ll review suitable equipment and installation options for your model.
 
 
 
-- Satellite radio and SiriusXM integration inquiries
-- HomeLink and convenience accessory inquiries
-- Factory system and receiver compatibility
+- Slingshot speaker and amplifier upgrades
+- Weather exposure, mounting, and power planning
+- Receiver and smartphone-connectivity options
 
-Before visiting: Share vehicle details and the model of your factory or aftermarket receiver.
+Before visiting: Share your Slingshot’s year, model, existing audio equipment, and the upgrades you have in mind.
 
-#### Does a new accessory require a new radio?
-It depends on the accessory and your current system. Some use adapters; others need a compatible receiver. We’ll help you understand the options.
+#### Can I upgrade my Slingshot’s factory audio?
+Ask us to review your model year and existing system. Speaker fit, amplifier power, weather exposure, and factory integration determine the available options.
 
 ### Electronics replacement — Wethersfield
 Source: https://www.actionaudiostorellc.com/electronics-replacement.html
@@ -232,10 +215,10 @@ Pricing depends on vehicle size, condition, and the agreed work. Request an esti
 #### How should I prepare for a detailing appointment?
 Remove personal belongings and tell the team about any sensitive surfaces or existing damage. Confirm specific drop-off instructions and timing when your appointment is arranged.
 
-### Electrical installation — Wethersfield
+### Radio & electronics installation — Wethersfield
 Source: https://www.actionaudiostorellc.com/electrical-installation.html
 
-From an aftermarket receiver to a more involved electronics upgrade, the details start with your vehicle and the equipment you choose. Contact the team to discuss the project before purchasing parts.
+Turn an older dashboard into a more connected drive. Compatible aftermarket radios put navigation, music, calls, and voice controls within reach. We’ll review your phone, vehicle, receiver, and adapters, including any factory camera or steering-wheel controls you want to keep.
 
 #### Vehicle electronics installation in Wethersfield
 Plan an installation around the feature you need: a replacement stereo, speakers and an amplifier, a remote starter, a dash camera, or a GPS tracker. Each device has different mounting, wiring, and power requirements. Our Wethersfield team reviews your vehicle and equipment before confirming a suitable installation.
@@ -243,9 +226,9 @@ Plan an installation around the feature you need: a replacement stereo, speakers
 #### Check compatibility before buying equipment
 Vehicle year, make, model, trim, factory electronics, and accessory model numbers help identify installation requirements. Tell us about steering-wheel controls, a factory camera, or other features you want to keep. Confirm any mounting kits, harnesses, and integration interfaces with the team before purchasing parts.
 
-- Equipment and vehicle compatibility
-- Installation planning and cable routing
-- A walkthrough of your new setup
+- Apple CarPlay and Android Auto receiver upgrades
+- Wired or wireless phone connectivity, depending on equipment
+- Dash fit, wiring, and factory-control integration
 
 Before visiting: Have your vehicle details and equipment model numbers ready, including any adapters or accessories you already have.
 
@@ -283,7 +266,7 @@ Yes. Select “Not sure” on the estimate form and tell us your priorities. The
 ### Dash cams — Wethersfield
 Source: https://www.actionaudiostorellc.com/dash-cams.html
 
-Tell us which views you want to record, whether you own a camera, and whether you want recording while parked. We’ll review power requirements, camera placement, and vehicle compatibility.
+Current examples include the THINKWARE U3000 PRO and BlackVue ELITE 9-2CH. Tell us which views you want to record and whether you need phone access or recording while parked. We’ll confirm camera availability, vehicle fit, wiring, and any connected-service requirements before installation.
 
 #### Front and rear dash cam installation
 Choose the views you want to record and tell us whether you want parking-mode recording. Camera placement, cable routing, power connections, and any additional wiring kit depend on the vehicle and camera. Share model numbers for equipment you already own so our Wethersfield team can confirm the scope.
@@ -300,13 +283,13 @@ Share the camera make, model, and included wiring kit. The team will review comp
 ### GPS trackers — Wethersfield
 Source: https://www.actionaudiostorellc.com/gps-trackers.html
 
-Let us know whether you already own a tracker, how many vehicles need equipment, and the features you’re looking for. We’ll discuss installation and any required connected service before you choose a setup.
+The DroneMobile X2 connects a compatible vehicle setup to the phone app over LTE. Open the app to view location information; supported plans add features such as geofences and trip history. Ask our team to confirm hardware, coverage, plan requirements, and installation for your vehicle.
 
 
 
-- Vehicle and tracker compatibility
-- Power and mounting requirements
-- Connected-service and subscription options
+- Phone-based vehicle location and mapping
+- Geofence and trip-history options by plan
+- DroneMobile hardware, LTE coverage, and subscription review
 
 Before visiting: Share the vehicle details, tracker model if you have one, and whether the request covers one vehicle or a fleet.
 

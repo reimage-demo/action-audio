@@ -1,0 +1,38 @@
+[
+  {
+    "key": "remote",
+    "prompt": "Use case: photorealistic-natural. Create a premium automotive service website photograph, landscape 3:2 composition, full-bleed scene with no margins, no text overlay, no collage, no product on a white background. Subject: SMARTPHONE REMOTE CAR START. Close foreground hand holding a modern phone, screen facing camera clearly showing a sophisticated dark vehicle-control app with a large green circular start button, a small car silhouette, lock and unlock icons. Behind the phone, prominently visible a glossy blue modern SUV parked outside a clean automotive shop, warm headlights on. Phone occupies roughly one-third of width and SUV fills remaining scene. Sharp phone interface and recognizably complete car in focus; bright natural daylight with rich blue paint, green UI accent, warm reflections. All important subjects contained within central 80% of frame, suitable for responsive landscape card crop. A professional commercial lifestyle photograph, realistic proportions, crisp premium finish. Generic conceptual app, no fake manufacturer logos. Do not show a flying drone, no watermark, no headline, no packaging, no border. This is illustrative service imagery, not a documentary claim about an actual shop.",
+    "mode": "built-in image_gen",
+    "output": "assets/service-remote-scene.webp"
+  },
+  {
+    "key": "gps",
+    "prompt": "Use case: photorealistic-natural. Landscape 3:2 premium automotive service photograph for GPS VEHICLE TRACKING. Full bleed continuous realistic environment. Close-up hand holding a modern phone in foreground, its display a clear street map with blue route and large red car-location pin, smaller geofence circle, a small vehicle silhouette and simple label 'Vehicle location'. A parked glossy red crossover prominently fills background, leafy city street, crisp morning light, rich red blue and green accents. Phone fills about 35 percent of image width and is sharp, car easily identifiable. Main subjects within central 80 percent, no blank margins, no split panels, no packaging, no watermark, no fake brand name, no flying drones. Conceptual phone app rather than a claimed actual manufacturer screenshot. Make the tracking purpose instantly obvious at small card size.",
+    "mode": "built-in image_gen",
+    "output": "assets/service-gps-scene.webp"
+  },
+  {
+    "key": "security",
+    "prompt": "Use case: photorealistic-natural. Landscape 3:2 professional automotive service advertising photograph showing MODERN CAR ALARM AND SECURITY, full bleed and vivid yet realistic. Close foreground modern LCD car alarm remote and smartphone held naturally together beside a glossy red sport sedan in a well-lit parking area at blue hour. Phone displays a large red shield notification symbol and minimal readable label 'Security alert'; remote shows simple locked-car status, car in background has its amber lights illuminated. Warm orange lighting contrasts rich blue evening and red paint, all objects well exposed. Three-quarter car view and devices within central 80% of frame. Strong visual story of receiving a vehicle security alert. No generic white studio background, no collage, no borders, no headline or watermark, no exaggerated science fiction graphics, no brand logos. Illustrative scene.",
+    "mode": "built-in image_gen",
+    "output": "assets/service-security-scene.webp"
+  },
+  {
+    "key": "replacement",
+    "prompt": "Use case: photorealistic-natural. Landscape 3:2 premium automotive workshop photograph for CAR ELECTRONICS REPLACEMENT. Tight eye-level view into a modern car dashboard from passenger side. A skilled technician's natural hands are removing an older factory stereo from its rectangular dash opening, carefully disconnecting a clearly visible wiring harness. A clean new black touchscreen receiver with its screen off is beside the old unit ready for replacement, on a protected center console. Show the specific replacement operation, distinguish clearly from a completed radio upgrade. Bright well-lit shop daylight, rich warm tan leather, crisp dark dashboard surfaces, a red trim-removal tool, neat equipment. Tight engaging crop with subjects filling central 80%, realistic hands and wiring, no large empty space, no text, no labels, no packaging, no logos, no watermark, no split screen. Full bleed landscape service photograph.",
+    "mode": "built-in image_gen",
+    "output": "assets/service-replacement-scene.webp"
+  },
+  {
+    "key": "radio",
+    "prompt": "Use case: compositing. Reference image contains Sony receiver with Apple CarPlay interface and a white retail logo strip. Create a completely new photorealistic automotive website photograph showing the receiver professionally installed flush into a real car dashboard. Use the referenced receiver and recognizable colorful CarPlay screen as visual reference, but DO NOT copy white background, compatibility badge strip, or packaging. Landscape 3:2 continuous car interior scene. Three-quarter passenger perspective, large crisp modern touchscreen occupying middle of frame with clearly recognizable colorful Phone, Music, Maps and Messages apps; steering wheel visible on left, climate controls below, modern dark trim and subtle blue cabin accent lighting, warm sunlight from windows. No giant floating screen; physically believable fit and materials. Show the completed CarPlay / Android Auto radio-upgrade service at a glance. Main receiver and complete screen stay inside central 75% of image for responsive landscape crops. Expose the interior brightly, premium colorful commercial photograph, fill entire canvas, no blank margins, no overlaid words or logos, no watermark, no collage. This is an illustrative installation, not a claim of a particular real customer car.",
+    "mode": "built-in image_gen",
+    "output": "assets/service-radio-scene.webp"
+  },
+  {
+    "key": "dash",
+    "prompt": "Create a premium photorealistic automotive service website photograph, wide 3:2 landscape. View from front passenger seat toward windshield: a compact modern dash camera mounted just to the right of the rearview mirror. We see the BACK of the dash camera facing the occupants, featuring a bright rectangular color display showing the tree-lined road ahead with a small red recording dot. The camera's forward lens is on the OPPOSITE side, facing OUT through the glass, and is NOT visible to the viewer. Correct realistic installation, small flush adhesive mount at the upper windshield and neatly concealed cable. Camera/display large enough to recognize at thumbnail size, centered, with a portion of rearview mirror at upper left and the dark dashboard bottom. Outside a vivid green leafy road with blue sky and warm sun. Entire image filled by real vehicle interior and road scene. No white product background, no borders, no phones, no logos, no large marketing text. Crisp detail, attractive bright natural colors, restrained professional lighting. This is an illustrative installation scene, not a named product or claimed client job.",
+    "mode": "built-in image_gen",
+    "output": "assets/service-dash-scene.webp"
+  }
+]
