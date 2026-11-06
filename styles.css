@@ -3946,6 +3946,17 @@ footer{background:var(--brand-blue);color:#fff;border-top:5px solid var(--brand-
 
 .more-services>summary>span{color:#fff}
 
+.service-teaser{margin:12px 0 0;color:#455365;font-size:15px;line-height:1.5}
+.detail-image figcaption{margin-top:12px;font-size:13px;line-height:1.5;color:#526172}
+.detail-image figcaption a{color:#175ca5;text-decoration:underline;text-underline-offset:3px}
+.service-examples{padding-block:28px 40px}
+.service-examples h2{font-size:30px;line-height:1.25;margin-bottom:12px}
+.service-example-grid{margin-top:24px}
+.service-example-grid article{display:grid;grid-template-columns:minmax(0,420px) 1fr;align-items:center;gap:32px;background:#f5f7fa;padding:24px}
+.service-example-grid img{width:100%;height:260px;object-fit:contain}
+.service-example-grid h3{font-size:24px;margin-bottom:12px}
+@media(max-width:760px){.service-example-grid article{grid-template-columns:1fr;gap:20px}.service-example-grid img{height:220px}.service-teaser{font-size:15px}.service-examples h2{font-size:26px}}
+
 /* Form rhythm: clear field groups, an inset dropdown indicator, and a separate consent step. */
 .form-panel select,.filters select{
   appearance:none;
@@ -4164,3 +4175,12 @@ picture{display:block}
 .service-guide article { max-width: 900px; margin-bottom: 28px; }
 .service-guide h2 { font-size: clamp(1.35rem, 2.6vw, 1.8rem); line-height: 1.25; margin-bottom: 12px; }
 .service-guide p { max-width: 900px; font-size: 1.05rem; line-height: 1.8; }
+
+/* Service photography fills a consistent landscape frame at every screen size. */
+.service-color-section .service-selection .service-selection-photo,.service-directory .directory-photo{display:block;height:auto;aspect-ratio:3/2;overflow:hidden;background:#e7edf2;flex-shrink:0}
+.service-selection-photo .service-photo,.directory-photo .service-photo{display:block;width:100%;height:100%}
+.service-selection-photo .service-photo img,.directory-photo .service-photo img,.detail-image .service-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;padding:0;mix-blend-mode:normal;transform:none}
+.detail-image{min-width:0;align-self:center}
+.detail-image .service-photo{display:block;width:100%;height:auto;aspect-ratio:3/2;overflow:hidden}
+.service-example-grid{display:grid;gap:24px}
+@media(min-width:761px){.service-directory .directory-card{grid-template-columns:minmax(280px,34%) minmax(0,1fr);align-items:center}}
