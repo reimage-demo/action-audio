@@ -162,5 +162,14 @@
     "promptRecord": "docs/service-scene-prompts.json",
     "reviewed": "2026-11-06",
     "note": "Illustrative scene, not an actual client installation or named camera."
+  },
+  {
+    "file": "hero-phone-start-cutout.webp",
+    "type": "Background removal from manufacturer product example",
+    "source": "service-phone-start.webp",
+    "mode": "built-in image_gen",
+    "promptRecord": "docs/hero-cutout-prompt.json",
+    "reviewed": "2026-11-06",
+    "note": "Transparent cutout for the remote-start hero. Original manufacturer reference retained."
   }
 ]

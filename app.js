@@ -1,15 +1,15 @@
-import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=221fd25cba42";
-import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=221fd25cba42";
-import { imageMarkup } from "./shared/images.js?v=221fd25cba42";
+import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=e8544c217bd9";
+import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=e8544c217bd9";
+import { imageMarkup } from "./shared/images.js?v=e8544c217bd9";
 import {
   stores,
   services,
   statusLabels,
   serviceStore,
   serviceAvailableAt,
-} from "./shared/catalog.js?v=221fd25cba42";
-import { serviceContent } from "./shared/service-content.js?v=221fd25cba42";
-import { journeyProgress, progressStages } from "./shared/progress.js?v=221fd25cba42";
+} from "./shared/catalog.js?v=e8544c217bd9";
+import { serviceContent } from "./shared/service-content.js?v=e8544c217bd9";
+import { journeyProgress, progressStages } from "./shared/progress.js?v=e8544c217bd9";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>
   String(s ?? "").replace(
@@ -367,7 +367,7 @@ if ($("#inventory-results")) {
     }),
   );
   if (preview) {
-    import("./shared/inventory-preview.js?v=221fd25cba42")
+    import("./shared/inventory-preview.js?v=e8544c217bd9")
       .then(({ previewProducts }) => {
         products = previewProducts;
         render();
