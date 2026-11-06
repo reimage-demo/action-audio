@@ -4184,3 +4184,19 @@ picture{display:block}
 .detail-image .service-photo{display:block;width:100%;height:auto;aspect-ratio:3/2;overflow:hidden}
 .service-example-grid{display:grid;gap:24px}
 @media(min-width:761px){.service-directory .directory-card{grid-template-columns:minmax(280px,34%) minmax(0,1fr);align-items:center}}
+
+/* Transparent product art sits on the hero background without a photo frame. */
+.photo-hero .hero-slide.hero-product{background:radial-gradient(ellipse at 76% 45%,#28577e 0%,#12345b 58%,#0d2949 100%)}
+.photo-hero .hero-slide.hero-product>.hero-photo{inset:36px auto auto 56%;width:min(40%,500px);height:calc(100% - 124px);overflow:visible}
+.photo-hero .hero-slide.hero-product>.hero-photo img{object-fit:contain;object-position:center;background:transparent;filter:drop-shadow(0 12px 22px rgba(0,0,0,.2))}
+.photo-hero .hero-product .photo-hero-scrim{display:none}
+.photo-hero .hero-slide.hero-product .slide-copy{align-items:flex-start;text-align:left}
+.photo-hero .hero-product .slide-copy h2,.photo-hero .hero-product .hero-description{max-width:53%;margin-left:0;margin-right:0}
+@media(max-width:760px){
+ .photo-hero .slides{height:620px}
+ .photo-hero .hero-slide.hero-product>.hero-photo{inset:292px 18px auto;width:calc(100% - 36px);height:250px}
+ .photo-hero .hero-slide.hero-product .slide-copy{justify-content:flex-start;align-items:center;text-align:center;padding-block:28px 0}
+ .photo-hero .hero-product .slide-copy h2{font-size:34px;max-width:100%;margin:0 0 14px}
+ .photo-hero .hero-product .slide-copy .hero-service-location{font-size:13px;margin-bottom:12px}
+ .photo-hero .hero-product .slide-copy .hero-description{font-size:16px;max-width:340px;margin:0 0 18px}
+}

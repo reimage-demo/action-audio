@@ -1,0 +1,7 @@
+{
+  "key": "hero-phone-start-cutout",
+  "input": "assets/service-phone-start.webp",
+  "output": "assets/hero-phone-start-cutout.webp",
+  "mode": "built-in image_gen",
+  "prompt": "Use case: background-extraction. Edit target: the supplied DroneMobile phone and Firstech module product image. Remove ONLY the white background and white ground area, replacing with genuine alpha transparency. Preserve the exact phone, phone screen UI, all text, green LTE badge, dotted connection line, Firstech hardware, product colors and geometry. Keep white text and white icons within the phone and LTE badge opaque and untouched. Remove white background visible through the module mounting slot as well. Clean precise antialiased product edges, no white halo. No new elements, no restyling, no compositional changes. Preserve full products without cropping, with a small transparent margin. Output actual transparent background, not checkerboard pixels."
+}

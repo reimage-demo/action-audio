@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import {readdir, mkdir, writeFile, stat} from 'node:fs/promises';
 await mkdir('assets/optimized',{recursive:true});
 const files=(await readdir('assets')).filter(f=>f.endsWith('.webp')).sort();
-const heroFiles=new Set(['hero-installation.webp','hero-remote-start.webp','service-detailing.webp','service-audio-led.webp','service-remote-scene.webp','service-soap-wash.webp']);
+const heroFiles=new Set(['hero-installation.webp','hero-remote-start.webp','service-detailing.webp','service-audio-led.webp','service-remote-scene.webp','service-soap-wash.webp','hero-phone-start-cutout.webp']);
 const manifest={};let sourceBytes=0,largestBytes=0,smallBytes=0;
 for(const file of files){
  const source='assets/'+file,meta=await sharp(source).metadata();
