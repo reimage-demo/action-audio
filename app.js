@@ -1,15 +1,15 @@
-import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=e8544c217bd9";
-import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=e8544c217bd9";
-import { imageMarkup } from "./shared/images.js?v=e8544c217bd9";
+import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=4853352e27aa";
+import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=4853352e27aa";
+import { imageMarkup } from "./shared/images.js?v=4853352e27aa";
 import {
   stores,
   services,
   statusLabels,
   serviceStore,
   serviceAvailableAt,
-} from "./shared/catalog.js?v=e8544c217bd9";
-import { serviceContent } from "./shared/service-content.js?v=e8544c217bd9";
-import { journeyProgress, progressStages } from "./shared/progress.js?v=e8544c217bd9";
+} from "./shared/catalog.js?v=4853352e27aa";
+import { serviceContent } from "./shared/service-content.js?v=4853352e27aa";
+import { journeyProgress, progressStages } from "./shared/progress.js?v=4853352e27aa";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>
   String(s ?? "").replace(
@@ -214,7 +214,7 @@ if (estimateForm) {
       if (!navigator.onLine) throw new Error("Offline");
       const c=await client(); await c.mutation("estimates:create",{...values,requestKey});
       const service=serviceContent.find(s=>s.id===values.service),store=serviceStore(service.booking);
-      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
+      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and email your estimate to <strong>${esc(values.email)}</strong>.</p><p>Thank you for contacting Action Audio. Look for a thank-you email, and check your spam folder if needed. We may call ${esc(values.phone)} to clarify the details.</p><p>No appointment has been reserved.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
       estimateForm.querySelector('.estimate-success').focus();
     } catch(err) { submissionError($("#estimate-message"),err); } finally { finish(); }
   });
@@ -367,7 +367,7 @@ if ($("#inventory-results")) {
     }),
   );
   if (preview) {
-    import("./shared/inventory-preview.js?v=e8544c217bd9")
+    import("./shared/inventory-preview.js?v=4853352e27aa")
       .then(({ previewProducts }) => {
         products = previewProducts;
         render();
