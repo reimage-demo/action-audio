@@ -214,7 +214,7 @@ if (estimateForm) {
       if (!navigator.onLine) throw new Error("Offline");
       const c=await client(); await c.mutation("estimates:create",{...values,requestKey});
       const service=serviceContent.find(s=>s.id===values.service),store=serviceStore(service.booking);
-      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and call you at ${esc(values.phone)}.</p><p>No appointment has been reserved. We’ll discuss availability and approximate pricing when we call.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
+      estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and email your estimate to <strong>${esc(values.email)}</strong>.</p><p>Thank you for contacting Action Audio. Look for a thank-you email, and check your spam folder if needed. We may call ${esc(values.phone)} to clarify the details.</p><p>No appointment has been reserved.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
       estimateForm.querySelector('.estimate-success').focus();
     } catch(err) { submissionError($("#estimate-message"),err); } finally { finish(); }
   });
