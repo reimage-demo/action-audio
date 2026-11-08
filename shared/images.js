@@ -1,4 +1,4 @@
-import { imageManifest } from './image-manifest.js?v=4853352e27aa';
+import { imageManifest } from './image-manifest.js?v=abccc3b3e899';
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function imageMarkup(file,alt,{sizes='100vw',eager=false,className='',priority=eager?'high':'auto'}={}) {
  const image=imageManifest[file];
