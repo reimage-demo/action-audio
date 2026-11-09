@@ -1,15 +1,15 @@
-import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=abccc3b3e899";
-import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=abccc3b3e899";
-import { imageMarkup } from "./shared/images.js?v=abccc3b3e899";
+import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=076c46aad63a";
+import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=076c46aad63a";
+import { imageMarkup } from "./shared/images.js?v=076c46aad63a";
 import {
   stores,
   services,
   statusLabels,
   serviceStore,
   serviceAvailableAt,
-} from "./shared/catalog.js?v=abccc3b3e899";
-import { serviceContent } from "./shared/service-content.js?v=abccc3b3e899";
-import { journeyProgress, progressStages } from "./shared/progress.js?v=abccc3b3e899";
+} from "./shared/catalog.js?v=076c46aad63a";
+import { serviceContent } from "./shared/service-content.js?v=076c46aad63a";
+import { journeyProgress, progressStages } from "./shared/progress.js?v=076c46aad63a";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>
   String(s ?? "").replace(
@@ -147,6 +147,7 @@ if (booking) {
     if (booking.dataset.submitting || !booking.reportValidity()) return;
     const button = booking.querySelector("button[type=submit]");
     const values = Object.fromEntries(new FormData(booking));
+    values.marketingOptIn = values.marketingOptIn === "on";
     const finish = beginSubmission(booking,button,$("#booking-message"));
     try {
       if (!navigator.onLine) throw new Error("Offline");
@@ -208,6 +209,7 @@ if (estimateForm) {
     e.preventDefault(); if (estimateForm.dataset.submitting || !estimateForm.reportValidity()) return;
     const button = estimateForm.querySelector('button[type="submit"]');
     const values=Object.fromEntries(new FormData(estimateForm));
+    values.marketingOptIn = values.marketingOptIn === "on";
     values.answers = Array.from(document.querySelectorAll("[data-estimate-answer]")).map(el => ({id:el.dataset.estimateAnswer, value:el.value}));
     const finish=beginSubmission(estimateForm,button,$("#estimate-message"));
     try {
@@ -367,7 +369,7 @@ if ($("#inventory-results")) {
     }),
   );
   if (preview) {
-    import("./shared/inventory-preview.js?v=abccc3b3e899")
+    import("./shared/inventory-preview.js?v=076c46aad63a")
       .then(({ previewProducts }) => {
         products = previewProducts;
         render();
