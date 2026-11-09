@@ -42,3 +42,7 @@ Research references (reviewed October 30, 2026):
 Published and verified: public source `079f71e`, public deployment `1ef8990`, and RE IMAGE directory update `835413b`. All 26 live public pages and six discovery/runtime files match the release over HTTP. Both GitHub deployment workflows succeeded. The RE IMAGE profile, directory, feed, and AI reference use the corrected service descriptions and new website. Strict HTTPS verification and IndexNow submission are still blocked by the new-domain certificate mismatch. Local verification evidence: `tmp/seo-live-verification.json`.
 
 Search Console ownership and sitemap submission have not been configured in this session. IndexNow must verify the published HTTPS key before submission; do not bypass TLS verification while GitHub's new-domain certificate remains pending.
+
+## Customer directory and promotions
+
+Appointments and estimates now save encrypted customer profiles automatically. Existing requests can be imported in resumable batches. The Customers tab supports individual/page/all-matching selection, marketing permission management, and four branded promotion templates with drafts, previews, and recipient review. Promotional sending is disabled pending the dedicated Brevo campaign connection. See docs/customer-promotions-local.md for the release configuration and verification workflow.

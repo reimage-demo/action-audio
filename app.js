@@ -147,6 +147,7 @@ if (booking) {
     if (booking.dataset.submitting || !booking.reportValidity()) return;
     const button = booking.querySelector("button[type=submit]");
     const values = Object.fromEntries(new FormData(booking));
+    values.marketingOptIn = values.marketingOptIn === "on";
     const finish = beginSubmission(booking,button,$("#booking-message"));
     try {
       if (!navigator.onLine) throw new Error("Offline");
@@ -208,6 +209,7 @@ if (estimateForm) {
     e.preventDefault(); if (estimateForm.dataset.submitting || !estimateForm.reportValidity()) return;
     const button = estimateForm.querySelector('button[type="submit"]');
     const values=Object.fromEntries(new FormData(estimateForm));
+    values.marketingOptIn = values.marketingOptIn === "on";
     values.answers = Array.from(document.querySelectorAll("[data-estimate-answer]")).map(el => ({id:el.dataset.estimateAnswer, value:el.value}));
     const finish=beginSubmission(estimateForm,button,$("#estimate-message"));
     try {
