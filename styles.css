@@ -4274,3 +4274,25 @@ button:focus-visible,
   .photo-hero .slide-controls { flex-wrap: wrap; justify-content: center; }
   .photo-hero .slide-dots { order: 1; width: 100%; justify-content: center; }
 }
+
+/* Center navigation independently of the unequal logo and action widths. */
+@media (min-width: 821px) {
+  .nav { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+  .nav > .logo { justify-self: start; }
+  .nav > nav { justify-self: center; }
+  .nav > .nav-actions { justify-self: end; white-space: nowrap; }
+}
+@media (min-width: 821px) and (max-width: 1100px) {
+  .nav { grid-template-columns: 1fr 1fr; gap: 0 20px; padding-block: 12px; }
+  .nav > .nav-actions { grid-column: 2; grid-row: 1; }
+  .nav > nav { grid-column: 1 / -1; grid-row: 2; }
+}
+/* Equal columns and symmetric insets keep every store detail on its centerline. */
+.contact-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.contact-strip > * { min-width: 0; align-items: center; text-align: center; }
+.contact-strip > :nth-child(n) { padding-inline: 16px; }
+.contact-strip .micro-label { justify-content: center; }
+@media (max-width: 820px) {
+  .contact-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-strip > :nth-child(n) { padding-inline: 10px; }
+}
