@@ -1,4 +1,4 @@
-import { validEmail } from "./estimate-email.js?v=076c46aad63a";
+import { validEmail } from "./estimate-email.js?v=a06a82fc177a";
 export const MARKETING_CONSENT_TEXT =
   "Email me Action Audio offers and service news. I can unsubscribe at any time.";
 export const MARKETING_CONSENT_VERSION = "2026-11-08";

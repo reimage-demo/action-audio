@@ -1,5 +1,34 @@
-import { stores } from "./catalog.js?v=076c46aad63a";
-import { serviceContent } from "./service-content.js?v=076c46aad63a";
+import { stores } from "./catalog.js?v=a06a82fc177a";
+import { serviceContent } from "./service-content.js?v=a06a82fc177a";
+export const attachmentExtensions = [
+  ".pdf",
+  ".doc",
+  ".docx",
+  ".xls",
+  ".xlsx",
+  ".csv",
+  ".txt",
+  ".jpg",
+  ".jpeg",
+  ".png",
+];
+export function attachmentError(files) {
+  if (
+    files.length > 5 ||
+    files.reduce((sum, f) => sum + f.size, 0) > 5 * 1024 * 1024
+  )
+    return "Choose up to five files totaling 5 MB or less.";
+  for (const file of files) {
+    if (
+      !file.size ||
+      file.name.length > 180 ||
+      /[\x00-\x1f\x7f/\\]/.test(file.name) ||
+      !attachmentExtensions.some((ext) => file.name.toLowerCase().endsWith(ext))
+    )
+      return "Choose a nonempty PDF, Word, Excel, CSV, text, JPG, or PNG file with a valid filename.";
+  }
+  return "";
+}
 export const EMAIL_DAILY_LIMIT = 290;
 export const validEmail = (value) =>
   typeof value === "string" &&
@@ -15,10 +44,22 @@ const escape = (value) =>
   );
 export function estimateEmail({ kind, name, service, store, body = "" }) {
   const location = stores.find((s) => s.id === store);
-  const serviceName =
-    serviceContent.find((s) => s.id === service)?.name || "Vehicle service";
-  const title =
-    kind === "thanks"
+  const selectedService = serviceContent.find((s) => s.id === service);
+  const serviceName = selectedService?.name || "Vehicle service";
+  const bookingUrl = new URL("https://www.actionaudiostorellc.com/book.html");
+  if (selectedService?.booking) {
+    bookingUrl.searchParams.set("service", selectedService.booking);
+    bookingUrl.searchParams.set("topic", selectedService.name);
+  } else if (location) {
+    bookingUrl.searchParams.set("store", location.id);
+  }
+  const bookingLink = bookingUrl.toString();
+  const bookingText =
+    "Ready to get started? Request an appointment online and our team will contact you to confirm your visit.";
+  const confirmation = kind === "confirmation";
+  const title = confirmation
+    ? "Your appointment is confirmed."
+    : kind === "thanks"
       ? "Thank you for your submission."
       : "Your Action Audio estimate";
   const message =
@@ -27,15 +68,16 @@ export function estimateEmail({ kind, name, service, store, body = "" }) {
       : body;
   const footer = `${location?.name || "Action Audio"} · ${location?.address || ""}${location?.city ? ", " + location.city : ""}\nMonday–Saturday, 9am–6pm · Sunday closed\nQuestions? Reply to this email or call our Wethersfield team at (860) 667-6330.`;
   return {
-    subject:
-      kind === "thanks"
+    subject: confirmation
+      ? "Appointment confirmed | Action Audio"
+      : kind === "thanks"
         ? "We received your estimate request | Action Audio"
         : `${serviceName} estimate | Action Audio`,
-    textContent: `ACTION AUDIO\n${title}\n\nHi ${name},\n\n${message}\n\nThe Action Audio team\n${footer}`,
+    textContent: `ACTION AUDIO\n${title}\n\nHi ${name},\n\n${message}${kind === "estimate" ? `\n\n${bookingText}\nRequest Your Appointment Online: ${bookingLink}` : ""}\n\nThe Action Audio team\n${footer}`,
     htmlContent: `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#f2f5f8;color:#172b43;font-family:Arial,Helvetica,sans-serif">
-<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">${kind === "thanks" ? "Your request is in. We’ll email your estimate as soon as possible." : "Your vehicle service estimate from the Action Audio team."}</div>
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">${confirmation ? "Your Action Audio appointment details are inside." : kind === "thanks" ? "Your request is in. We’ll email your estimate as soon as possible." : "Your vehicle service estimate from the Action Audio team."}</div>
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td align="center" style="padding:24px 12px">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background:#fff">
 <tr><td align="center" bgcolor="#12345b" style="padding:28px 24px;background:#12345b;color:#fff">
@@ -43,10 +85,11 @@ export function estimateEmail({ kind, name, service, store, body = "" }) {
 <p style="font-size:11px;line-height:1.6;letter-spacing:1px;margin:18px 0 0;color:#fff">YOUR VEHICLE. YOUR SOUND. YOUR STYLE.</p>
 </td></tr><tr><td height="5" bgcolor="#c92336" style="height:5px;background:#c92336;font-size:0;line-height:0">&nbsp;</td></tr>
 <tr><td style="padding:32px 28px">
-<p style="margin:0 0 12px;color:#c92336;font-size:12px;font-weight:bold;letter-spacing:1px">${kind === "thanks" ? "REQUEST RECEIVED" : "YOUR ESTIMATE"} · ${escape(location?.name || "ACTION AUDIO").toUpperCase()}</p>
+<p style="margin:0 0 12px;color:#c92336;font-size:12px;font-weight:bold;letter-spacing:1px">${confirmation ? "APPOINTMENT CONFIRMED" : kind === "thanks" ? "REQUEST RECEIVED" : "YOUR ESTIMATE"} · ${escape(location?.name || "ACTION AUDIO").toUpperCase()}</p>
 <h1 style="font-size:28px;line-height:1.2;margin:0 0 24px;color:#12345b">${escape(title)}</h1>
 <p style="font-size:16px;line-height:1.6;margin:0 0 18px">Hi ${escape(name)},</p>
 <div style="font-size:16px;line-height:1.7;overflow-wrap:anywhere">${escape(message).replace(/\n/g, "<br>")}</div>
+${kind === "estimate" ? `<div style="margin:28px 0 0"><p style="margin:0 0 8px;font-size:19px;line-height:1.3;font-weight:bold;color:#12345b">Ready to get started?</p><p style="margin:0 0 18px;font-size:15px;line-height:1.6;color:#172b43">Request an appointment online and our team will contact you to confirm your visit.</p><table role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:0 auto"><tr><td bgcolor="#c92336" style="border-radius:999px;background:#c92336"><a href="${escape(bookingLink)}" style="display:inline-block;padding:16px 24px;border:1px solid #c92336;border-radius:999px;color:#fff;text-decoration:none;font-size:16px;font-weight:bold;line-height:1.25">Request Your Appointment Online &rarr;</a></td></tr></table></div>` : ""}
 <p style="margin:28px 0 0;font-size:16px;line-height:1.6;font-weight:bold;color:#12345b">The Action Audio team</p>
 </td></tr>
 <tr><td bgcolor="#eaf0f6" style="padding:24px 28px;background:#eaf0f6;font-size:14px;line-height:1.7;color:#12345b">
