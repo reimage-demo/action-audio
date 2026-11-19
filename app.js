@@ -159,7 +159,8 @@ if (booking) {
         requestKey,
       });
       const code = result.trackingCode;
-      booking.innerHTML = `<div class="booking-success" role="status" tabindex="-1"><h2>Appointment request received.</h2><p>Your appointment request is received. The ${esc(stores.find((s) => s.id === values.store)?.name)} team will contact you to confirm ${esc(values.date)} at ${esc(values.time)} ET.</p><div class="tracking-ticket"><span>Your private tracking code</span><code>${esc(code)}</code><button type="button" class="text-link" id="copy-tracking">Copy tracking link </button><small id="copy-message" aria-live="polite">Save this link to follow every update. Keep it private.</small></div><a class="button" id="new-tracking-link" href="/track.html#${esc(code)}">Track my vehicle </a><p class="form-note">No payment is required to request an appointment.</p></div>`;
+      const emailReminder = `Once our team confirms your appointment, we’ll email the details to ${values.email}. Please look out for an email from Action Audio.`;
+      booking.innerHTML = `<div class="booking-success" role="status" tabindex="-1"><h2>Appointment request received.</h2><p>You requested ${esc(values.date)} at ${esc(values.time)} ET at our ${esc(stores.find((s) => s.id === values.store)?.name)} store. ${esc(emailReminder)}</p><div class="tracking-ticket"><span>Your private tracking code</span><code>${esc(code)}</code><button type="button" class="text-link" id="copy-tracking">Copy tracking link </button><small id="copy-message" aria-live="polite">Save this link to follow every update. Keep it private.</small></div><a class="button" id="new-tracking-link" href="/track.html#${esc(code)}">Track my vehicle </a><p class="form-note">No payment is required to request an appointment.</p></div>`;
       $("#copy-tracking").addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText($("#new-tracking-link").href);
@@ -172,6 +173,22 @@ if (booking) {
       });
       booking.querySelector(".booking-success").focus();
       booking.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      const dialog = document.createElement("dialog");
+      if (typeof dialog.showModal === "function") {
+        dialog.className = "booking-email-dialog";
+        dialog.setAttribute("aria-labelledby", "booking-email-title");
+        dialog.setAttribute("aria-describedby", "booking-email-reminder");
+        dialog.innerHTML = `<h2 id="booking-email-title">Appointment request received</h2><p id="booking-email-reminder">${esc(emailReminder)}</p><button type="button" class="button" autofocus>Got it</button>`;
+        document.body.append(dialog);
+        dialog.querySelector("button").addEventListener("click", () => dialog.close());
+        dialog.addEventListener("close", () => {
+          dialog.remove();
+          booking.querySelector(".booking-success").focus();
+        }, { once: true });
+        dialog.showModal();
+      } else {
+        window.alert(emailReminder);
+      }
     } catch (err) {
       submissionError($("#booking-message"),err);
     } finally { finish(); }

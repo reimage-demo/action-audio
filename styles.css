@@ -702,6 +702,7 @@ button.link-card:hover {
   font-size: 12px;
   font-weight: 500;
 }
+.booking-email-dialog,
 .acima-dialog {
   width: min(420px, calc(100% - 32px));
   max-height: calc(100% - 32px);
@@ -713,15 +714,22 @@ button.link-card:hover {
   text-align: center;
   box-shadow: none;
 }
+.booking-email-dialog::backdrop,
 .acima-dialog::backdrop {
   background: rgba(7, 16, 30, 0.6);
 }
+.booking-email-dialog h2,
 .acima-dialog h2 {
   font-size: 28px;
 }
+.booking-email-dialog p,
 .acima-dialog p {
   margin-top: 12px;
   font-size: 14px;
+}
+.booking-email-dialog p {
+  overflow-wrap: anywhere;
+  margin-bottom: 20px;
 }
 .acima-options {
   display: grid;
