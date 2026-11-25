@@ -46,7 +46,7 @@ for(const url of urls){
   const stores=graph.filter(n=>n['@type']==='AutomotiveBusiness');assert.equal(stores.length,2);
   assert.equal(stores.find(s=>s.name.includes('Hartford')).address.postalCode,'06120');
   assert(!stores.find(s=>s.name.includes('Hartford')).telephone,'Do not assign Wethersfield phone to Hartford');
-  const service=graph.find(n=>n['@type']==='Service');if(service)assert(service.provider['@id'].includes(['auto-detailing.html','window-tinting.html'].includes(file)?'hartford.html':'wethersfield.html'));
+  const service=graph.find(n=>n['@type']==='Service');if(service)assert.deepEqual(service.provider.map(p=>p['@id']).sort(),stores.map(s=>s['@id']).sort());
   const visible=decode(html.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]*>/g,' '));
   for(const faq of graph.filter(n=>n['@type']==='FAQPage').flatMap(n=>n.mainEntity)){assert(visible.includes(faq.name));assert(visible.includes(faq.acceptedAnswer.text));}
  }
@@ -54,7 +54,7 @@ for(const url of urls){
 for(const service of serviceContent){
  const html=read(service.id+'.html');
  const h1=decode(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1] || '');
- assert(h1.includes(['auto-detailing','window-tinting'].includes(service.id)?'Hartford, CT':'Wethersfield, CT'),`Service heading includes correct location: ${service.id}`);
+ assert(h1.trim() && html.includes('All services are available at both Hartford and Wethersfield.'));
  for(const [heading,text] of serviceGuides[service.id] || []){
   assert(decode(html).includes(text) && decode(html).includes(heading),`Service guide rendered: ${service.id}`);
   assert(read('llms-full.txt').includes(text),`AI reference agrees with visible guide: ${service.id}`);
