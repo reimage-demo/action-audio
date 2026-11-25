@@ -1,15 +1,13 @@
-import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=a06a82fc177a";
-import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=a06a82fc177a";
-import { imageMarkup } from "./shared/images.js?v=a06a82fc177a";
+import { estimateQuestions, detailPrompts, defaultDetailPrompt } from "./shared/estimate-intake.js?v=d3340b0af68e";
+import { beginSubmission, submissionError } from "./shared/request-feedback.js?v=d3340b0af68e";
+import { imageMarkup } from "./shared/images.js?v=d3340b0af68e";
 import {
   stores,
   services,
   statusLabels,
-  serviceStore,
-  serviceAvailableAt,
-} from "./shared/catalog.js?v=a06a82fc177a";
-import { serviceContent } from "./shared/service-content.js?v=a06a82fc177a";
-import { journeyProgress, progressStages } from "./shared/progress.js?v=a06a82fc177a";
+} from "./shared/catalog.js?v=d3340b0af68e";
+import { serviceContent } from "./shared/service-content.js?v=d3340b0af68e";
+import { journeyProgress, progressStages } from "./shared/progress.js?v=d3340b0af68e";
 const $ = (s) => document.querySelector(s);
 const esc = (s) =>
   String(s ?? "").replace(
@@ -75,17 +73,16 @@ if (booking) {
     fields.store.value = params.get("store");
   if (services.some((s) => s.id === params.get("service"))) {
     fields.service.value = params.get("service");
-    fields.store.value = serviceStore(fields.service.value).id;
   }
   function syncServices() {
     const store = stores.find((s) => s.id === fields.store.value);
-    if (fields.service.value && !serviceAvailableAt(fields.store.value, fields.service.value)) fields.service.value = "";
     $("#service-location-note").textContent = store
-      ? `${store.specialty} · ${store.address}, ${store.city}.`
-      : "Choose a location to see its services.";
+      ? `${store.address}, ${store.city}.`
+      : "All services are available at both Hartford and Wethersfield.";
   }
   syncServices();
   const topic = serviceContent.find((s) => s.name === params.get("topic"));
+  if (topic && topic.booking === fields.service.value) fields.service.value = topic.id;
   if (topic && !fields.notes.value)
     fields.notes.value = `I’m interested in ${topic.name.toLowerCase()}.`;
   if (params.get("product") && !fields.notes.value)
@@ -129,11 +126,6 @@ if (booking) {
     } finally { if(gen === generation) fields.time.removeAttribute("aria-busy"); }
   }
   booking.addEventListener("change", (e) => {
-    if (e.target.name === "service" && fields.service.value) {
-      fields.store.value = serviceStore(fields.service.value).id;
-      syncServices();
-      refreshTimes();
-    }
     if (e.target.name === "store") syncServices();
     if (["store", "date"].includes(e.target.name)) refreshTimes();
   });
@@ -200,22 +192,27 @@ if (estimateForm) {
   const requested = serviceContent.find(s=>s.id===params.get("service"));
   if (requested) fields.service.value = requested.id;
   if (params.get("product")) fields.details.value = `I’m interested in ${params.get("product").slice(0, 140)}.`;
+  if (stores.some(s => s.id === params.get("store"))) fields.store.value = params.get("store");
   const answerDrafts = new Map();
   let activeService = "";
   function showLocation() {
     if (activeService) answerDrafts.set(activeService, Array.from(document.querySelectorAll("[data-estimate-answer]")).map(el => [el.dataset.estimateAnswer, el.value]));
     const service = serviceContent.find(s=>s.id===fields.service.value);
-    const store = service && serviceStore(service.booking);
-    $("#estimate-location").innerHTML = store ? `<strong>${esc(store.name)} · selected for ${esc(service.name.toLowerCase())}</strong><span>${esc(store.address)}, ${esc(store.city)}</span>` : "Your service selects the right store automatically.";
     $("#estimate-project").hidden = !service;
     fields.details.required = Boolean(service);
     fields.details.placeholder = detailPrompts[service?.id] || defaultDetailPrompt;
     $("#estimate-questions").innerHTML = (estimateQuestions[service?.id] || []).map(q => `<label>${esc(q.label)}<select data-estimate-answer="${esc(q.id)}" required><option value="">Choose an option</option>${q.options.map(value=>`<option>${esc(value)}</option>`).join("")}</select></label>`).join("");
     for (const [id, value] of answerDrafts.get(service?.id) || []) document.querySelector(`[data-estimate-answer="${id}"]`).value = value;
     const bookingLink = $("#estimate-booking-link");
-    if (bookingLink) bookingLink.href = service ? `/book.html?store=${store.id}&service=${service.booking}&topic=${encodeURIComponent(service.name)}` : "/book.html";
+    if (bookingLink) {
+      const query = new URLSearchParams();
+      if (fields.store.value) query.set("store", fields.store.value);
+      if (service) query.set("service", service.id);
+      bookingLink.href = "/book.html?" + query;
+    }
     activeService = service?.id || "";
   }
+  fields.store.addEventListener("change",showLocation);
   fields.service.addEventListener("change",showLocation); showLocation();
   fields.vehicleYear.addEventListener("input", () => {
     const value = Number(fields.vehicleYear.value), max = new Date().getFullYear() + 2;
@@ -232,7 +229,7 @@ if (estimateForm) {
     try {
       if (!navigator.onLine) throw new Error("Offline");
       const c=await client(); await c.mutation("estimates:create",{...values,requestKey});
-      const service=serviceContent.find(s=>s.id===values.service),store=serviceStore(service.booking);
+      const service=serviceContent.find(s=>s.id===values.service),store=stores.find(s=>s.id===values.store);
       estimateForm.innerHTML=`<div class="estimate-success" role="status" tabindex="-1"><h2>Estimate request received.</h2><p>The ${esc(store.name)} team will review your ${esc(service.name.toLowerCase())} request for your ${esc(values.vehicleYear)} ${esc(values.vehicleMake)} ${esc(values.vehicleModel)} and email your estimate to <strong>${esc(values.email)}</strong>.</p><p>Thank you for contacting Action Audio. Look for a thank-you email, and check your spam folder if needed. We may call ${esc(values.phone)} to clarify the details.</p><p>No appointment has been reserved.</p><a class="text-link" href="/services.html">Back to services</a></div>`;
       estimateForm.querySelector('.estimate-success').focus();
     } catch(err) { submissionError($("#estimate-message"),err); } finally { finish(); }
@@ -319,15 +316,13 @@ if ($("#inventory-results")) {
   previewNotice.className = "inventory-preview-note";
   previewNotice.hidden = !preview;
   previewNotice.innerHTML =
-    "<strong>Explore manufacturer examples</strong><p>Browse example models with original category illustrations, not exact product photographs. Manufacturer links show model details. Confirm pricing, fit, and availability with our Wethersfield team.</p>";
+    "<strong>Explore manufacturer examples</strong><p>Browse example models with original category illustrations, not exact product photographs. Manufacturer links show model details. Confirm pricing, fit, and availability with our team.</p>";
   $(".filters").before(previewNotice);
   const render = () => {
     const search = $("#inventory-search").value.toLowerCase();
     const category = $("#inventory-category").value;
-    const store = $("#inventory-store").value;
     const filtered = products.filter(
       (p) =>
-        (preview || !store || p.store === store) &&
         (!category ||
           p.category === category ||
           (category === "Car audio" &&
@@ -369,7 +364,7 @@ if ($("#inventory-results")) {
           .join("")
       : `<div class="empty-state"><h2>${guide && !search ? "Let’s find your fit." : products.length ? "No matching products." : "Ask about current stock."}</h2><p>${guide && !search ? "Contact our team for compatible options and current availability in this category." : products.length ? "Try another search or category." : "Our electronics catalog is being updated. Ask our team about current stock and pricing."}</p><a class="button" href="/book.html">Ask about a product </a></div>`;
   };
-  ["#inventory-search", "#inventory-category", "#inventory-store"].forEach(
+  ["#inventory-search", "#inventory-category"].forEach(
     (s) => $(s).addEventListener("input", render),
   );
   const categorySelect = $("#inventory-category");
@@ -386,7 +381,7 @@ if ($("#inventory-results")) {
     }),
   );
   if (preview) {
-    import("./shared/inventory-preview.js?v=a06a82fc177a")
+    import("./shared/inventory-preview.js?v=d3340b0af68e")
       .then(({ previewProducts }) => {
         products = previewProducts;
         render();
